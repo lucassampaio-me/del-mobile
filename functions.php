@@ -14,3 +14,6 @@ require_once('inc/core/assets.php');
 
 // Hooks e filtros personalizados
 require_once('inc/hooks/filters.php');
+
+// Helpers e funções auxiliares
+require_once('inc/helpers/icons.php');

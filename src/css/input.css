@@ -1,20 +1,19 @@
 @import "../fonts/cabinet-grotesk/css/cabinet-grotesk.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Base */
+@import "./styles/global/base.css";
 
-@layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-display;
-    }
+/* Componentetes reutilizáveis - Base */
+@import "./styles/components/buttons.css";
+@import "./styles/components/content.css";
+@import "./styles/components/tags.css";
 
-    h1 {
-        @apply text-4xl;
-    }
-}
+/* Componentetes reutilizáveis - Com possíveis agrupamentos */
+@import "./styles/components/cards.css";
+
+/* Componentetes reutilizáveis - Layouts */
+@import "./styles/global/header.css";
+@import "./styles/global/footer.css";
+
+/* Classes utilitárias customizadas */
+@import './styles/global/utilities.css';

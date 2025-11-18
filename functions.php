@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Funções principais do tema DEL Mobile
+ * Funções principais do tema DelMobile
  *
  * Este arquivo carrega todos os componentes necessários para o funcionamento do tema.
  */

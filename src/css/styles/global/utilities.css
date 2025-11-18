@@ -1,0 +1,6 @@
+@layer utilities {
+    .container {
+        @apply
+        px-10
+    }
+}

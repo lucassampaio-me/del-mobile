@@ -2,7 +2,11 @@
 module.exports = {
   content: [
     "./*.php",
+    "./template-parts/**/*.php",
     "./src/js/*.js"
+  ],
+  safelist: [
+    'ph-icon',
   ],
   theme: {
     extend: {
@@ -79,8 +83,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        'sans': ['CabinetGrotesk-Regular', 'sans-serif'],
-        'display': ['CabinetGrotesk-Bold', 'sans-serif'],
+        'variable': ['CabinetGrotesk-Variable', 'sans-serif'],
+      },
+      borderRadius: {
+        '4xl': '2.5rem',
+      },
+      fontSize: {
+        '6xl': '3.5rem',
       },
     },
   },

@@ -1,0 +1,66 @@
+@layer components {
+    /* Header */
+
+    .header {
+        @apply
+        relative z-10
+        bg-bege-claro
+    }
+    
+    .header__content {
+        @apply
+        bg-bege-claro-50
+        flex items-center justify-between
+        rounded-br-4xl overflow-hidden
+        pl-8
+    }
+
+    .header__logo {
+        @apply
+        flex items-center gap-4
+    }
+
+    .header__logo-link {
+        @apply
+        block py-3 pr-4
+        border-r border-bege-claro
+    }
+
+    .header__logo-image {
+        @apply
+        h-5
+    }
+
+    .header__logo-text {
+        @apply
+        text-lg font-medium
+    }
+
+    .header__menu-list {
+        @apply
+        flex items-center gap-10
+    }
+
+    .header__menu-list .menu-item a {
+        @apply
+        inline-flex
+        text-lg font-medium
+        py-6
+        transition-all duration-300
+        hover:text-vermelho-grena
+    }
+
+    .header__menu-list .menu-item.site-header-cta a {
+        @apply
+        inline-flex items-center gap-2
+        text-vermelho-grena
+        py-6 pr-8 pl-6
+        border-l border-vermelho-grena
+        hover:bg-vermelho-grena hover:text-bege-claro-50
+    }
+    
+    .header__menu-list .menu-item.site-header-cta a .ph-icon {
+        @apply
+        text-2xl
+    }
+}

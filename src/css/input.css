@@ -11,6 +11,9 @@
 /* Componentetes reutilizáveis - Com possíveis agrupamentos */
 @import "./styles/components/cards.css";
 
+/* Componentetes reutilizáveis - Sections */
+@import "./styles/sections/hero.css";
+
 /* Componentetes reutilizáveis - Layouts */
 @import "./styles/global/header.css";
 @import "./styles/global/footer.css";

@@ -11,15 +11,22 @@
 <body <?php body_class(); ?>>
 
     <header class="header">
-		<div class="container">
+		<div class="header__content">
 			<div class="header__logo">
-				 <a href="<?php echo home_url(); ?>" class="header__logo-link">
+				<a href="<?php echo home_url(); ?>" class="header__logo-link">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/img/logo-DelMobile.svg" alt="Logo do site" class="header__logo-image">
-				 </a>
-				 <span class="header__logo-text">Marcenaria artesanal</span>
+				</a>
+				<span class="header__logo-text">Marcenaria artesanal</span>
 			</div>
 			<div class="header__menu">
-				<!-- Menu do site -->
+				<?php 
+				wp_nav_menu( array( 
+					'theme_location' => 'menu-principal',
+					'container' => 'nav',
+					'container_class' => 'header__menu-container',
+					'menu_class' => 'header__menu-list'
+				) ); 
+				?>
 			</div>
 		</div>
     </header>

@@ -1,7 +1,13 @@
 @layer components {
+    /* Texto */
     .content-text {
         @apply
         w-full
+    }
+
+    .content-text h2 {
+        @apply
+        mb-3
     }
 
     .content-text p {
@@ -9,8 +15,35 @@
         text-lg mb-4
     }
 
+    .content-text *:first-child {
+        @apply
+        mt-0
+    }
+
     .content-text *:last-child {
         @apply
         mb-0
+    }
+
+    .content-text.content-text-medium p {
+        @apply
+        text-lg
+    }
+
+    .content-text.content-text-large p {
+        @apply
+        text-2xl
+    }
+
+    /* Imagem */
+    .content-image {
+        @apply
+        relative
+        w-full h-auto
+    }
+
+    .content-image img {
+        @apply
+        w-full h-auto
     }
 }

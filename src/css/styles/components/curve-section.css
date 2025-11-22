@@ -1,0 +1,29 @@
+@layer components {
+    .curve-section {
+        @apply
+        absolute -top-0.5 left-0 rotate-0
+        w-full h-10
+        pointer-events-none
+        *:*:fill-bege-claro-50
+    }
+
+    /* Cores */
+
+    .curve-section.curve-section--bege-claro {
+        @apply
+        *:*:fill-bege-claro
+    }
+
+    .curve-section.curve-section--azul-petroleo {
+        @apply
+        *:*:fill-azul-petroleo
+    }
+
+    /* Posições */
+
+    .curve-section.curve-section--br {
+        @apply
+        left-auto right-0 top-auto -bottom-0.5
+        rotate-180
+    }
+}

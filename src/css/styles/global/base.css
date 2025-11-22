@@ -3,11 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --text-color: theme('colors.marrom-claro.700');
+        --heading-color: theme('colors.vermelho-grena.DEFAULT');
+    }
+
+    .section-theme-dark {
+        --text-color: theme('colors.bege-claro.DEFAULT');
+        --heading-color: theme('colors.bege-claro.100');
+    }
+
     body {
         @apply 
         bg-bege-claro-50
-        text-marrom-claro-700
-        font-variable
+        font-variable leading-snug;
+        color: var(--text-color);
+    }
+
+    p {
+        color: var(--text-color);
     }
 
     h1,
@@ -17,17 +31,18 @@
     h5,
     h6 {
         @apply
-        font-bold text-vermelho-grena
+        font-bold;
+        color: var(--heading-color);
     }
 
     h1 {
         @apply 
-        text-7xl
+        text-7xl/none
     }
 
     h2 {
         @apply
-        text-6xl
+        text-6xl/none
     }
 
     h3 {
@@ -47,6 +62,11 @@
 
     img {
         @apply
-        w-full h-auto;
+        w-full h-auto
+    }
+
+    strong {
+        @apply
+        font-bold
     }
 }

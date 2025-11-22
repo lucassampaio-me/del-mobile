@@ -2,7 +2,7 @@
     /* Nossos Serviços */
     .nossos-servicos {
         @apply
-        relative pt-24 rounded-tl-4xl
+        relative pt-24 rounded-tl-4xl rounded-br-4xl overflow-hidden
         bg-azul-petroleo
     }
 

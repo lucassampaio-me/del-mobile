@@ -1,0 +1,191 @@
+@layer components {
+    /* Projetos */
+    .projetos {
+        @apply
+        relative overflow-hidden
+        min-h-dvh bg-azul-petroleo
+    }
+
+    .projetos__background {
+        @apply
+        absolute -top-1/2 -left-1/2 w-full h-full z-0
+        overflow-hidden blur-[180px]
+        pointer-events-none
+    }
+
+    .projetos__background svg {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .projetos__background svg ellipse {
+        @apply
+        fill-azul-petroleo
+    }
+
+    .projetos__images {
+        @apply
+        absolute top-0 left-0 w-full h-full z-0
+        overflow-hidden
+    }
+
+    .projetos__images-item-image {
+        @apply
+        relative w-full min-h-dvh
+    }
+
+    .projetos__images-item-image img {
+        @apply
+        absolute top-0 left-0 w-full h-full object-cover object-center
+    }
+
+    /* Carousel */
+
+    .projetos__images.embla {
+        margin: auto;
+        --slide-spacing: 0px;
+        --slide-size: calc(100% / 1);
+    }
+
+    .projetos__images .embla__viewport {
+        overflow: hidden;
+    }
+
+    .projetos__images .embla__container {
+        display: flex;
+        touch-action: pan-y pinch-zoom;
+        margin-left: calc(var(--slide-spacing) * -1);
+        padding-right: var(--slide-spacing);
+    }
+
+    .projetos__images .embla__slide {
+        flex: 0 0 var(--slide-size);
+        min-width: 0;
+        padding-left: var(--slide-spacing);
+    }
+
+    .projetos__content {
+        @apply
+        absolute top-0 left-0 z-20 overflow-hidden
+        w-full h-full
+        flex flex-col justify-between
+        pointer-events-none
+    }
+
+    .projetos__content-main {
+        @apply
+        w-full p-10
+        flex flex-col gap-4 items-start
+    }
+
+    .projetos__content-header {
+        @apply
+        w-full pointer-events-auto
+        flex items-center justify-between gap-10
+    }
+
+    .projetos__content-header-content {
+        @apply
+        flex items-center justify-between gap-8
+    }
+
+    .projetos__content-header-content .btn {
+        @apply
+        text-nowrap
+    }
+
+    .projetos__content-header-nav {
+        @apply
+        flex items-center gap-2 p-2 rounded-full
+        bg-bege-claro/5 backdrop-blur-sm
+        relative;
+        
+        &::before {
+            content: '';
+            @apply
+            absolute inset-0 rounded-full
+            bg-bege-claro/20
+            -z-10;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+    }
+
+    .projetos__content-header-nav-button {
+        @apply
+        inline-flex items-center px-5 py-3 rounded-full
+        text-base font-bold bg-bege-claro text-azul-petroleo
+        transition-all duration-500
+    }
+
+    .projetos__content-header-nav-button:hover:not(:disabled),
+    .projetos__content-header-nav-button.active:not(:disabled) {
+        @apply
+        bg-azul-petroleo text-bege-claro
+    }
+
+    .projetos__content-infos h3 {
+        @apply
+        text-2xl font-bold
+    }
+
+    .projetos__content-footer {
+        @apply
+        w-full p-10
+        flex items-end justify-between gap-10
+    }
+
+    .projetos__content-footer-nav {
+        @apply
+        pointer-events-auto
+    }
+
+    .projetos__content-footer-count {
+        @apply
+        flex items-center
+        text-4xl font-bold;
+        color: var(--heading-color);
+    }
+
+    .projetos__content-footer-count-current {
+        @apply
+        font-normal
+    }
+
+    /* Carousel Infos */
+
+    .projetos__content-infos.embla {
+        @apply
+        w-full;
+        margin: auto;
+        --slide-spacing: 0px;
+        --slide-size: calc(100% / 1);
+    }
+
+    .projetos__content-infos .embla__viewport {
+        /* overflow: hidden; */
+    }
+
+    .projetos__content-infos .embla__container {
+        display: flex;
+        touch-action: pan-y pinch-zoom;
+        margin-left: calc(var(--slide-spacing) * -1);
+        padding-right: var(--slide-spacing);
+    }
+
+    .projetos__content-infos .embla__slide {
+        flex: 0 0 var(--slide-size);
+        min-width: 0;
+        padding-left: var(--slide-spacing);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .projetos__content-infos .embla__slide--active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

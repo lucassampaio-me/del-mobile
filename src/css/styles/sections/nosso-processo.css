@@ -48,61 +48,6 @@
         text-bege-claro-50
     }
 
-    /* Carousel Navigation */
-
-    .nosso-processo__carousel-nav {
-        @apply
-        relative
-        flex items-center gap-3
-        w-[calc(80px+48px+12px)] h-20
-    }
-
-    .nosso-processo__carousel-nav-button {
-        @apply
-        absolute top-0
-        top-1/2 -translate-y-1/2
-        w-20 h-20 rounded-full
-        flex items-center justify-center
-        bg-vermelho-grena
-        text-bege-claro
-        transition-all duration-500
-        cursor-pointer
-    }
-
-    .nosso-processo__carousel-nav-button--prev {
-        @apply
-        left-0
-    }
-
-    .nosso-processo__carousel-nav-button--next {
-        @apply
-        right-0
-    }
-
-    .nosso-processo__carousel-nav-button .ph-icon {
-        @apply
-        text-4xl
-        transition-all duration-500
-    }
-
-    .nosso-processo__carousel-nav-button:hover:not(:disabled) {
-        @apply
-        bg-vermelho-grena-950
-    }
-
-    .nosso-processo__carousel-nav-button:disabled {
-        @apply
-        w-12 h-12
-        opacity-30
-        cursor-not-allowed
-        pointer-events-none
-    }
-
-    .nosso-processo__carousel-nav-button:disabled .ph-icon {
-        @apply
-        text-2xl
-    }
-
     /* Carousel */
 
     .nosso-processo__carousel.embla {
@@ -131,10 +76,5 @@
     .nosso-processo__carousel .embla__slide.embla__slide--active .nosso-processo__item {
         @apply
         rounded-tl-4xl
-    }
-
-    .nosso-processo__carousel .embla__slide--active {
-        /* Classe adicionada ao slide ativo */
-        /* Adicione estilos personalizados se necessário */
     }
 }

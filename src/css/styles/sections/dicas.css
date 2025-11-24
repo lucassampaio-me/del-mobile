@@ -51,10 +51,30 @@
 
     .dicas__itens .dicas__item-card {
         @apply
-        absolute top-0 right-0
+        fixed
         flex flex-col items-start
         w-full max-w-[380px]
-        bg-verde-escuro-900
+        bg-verde-escuro-900;
+
+        /* Estado inicial: invisível */
+        opacity: 0;
+        transform: scale(0.95);
+        pointer-events: none;
+        z-index: 1000;
+
+        /* Transições suaves */
+        transition: opacity 400ms ease, transform 400ms ease;
+
+        /* Esconde em mobile/tablet (efeito apenas desktop) */
+        @media (max-width: 1024px) {
+            display: none;
+        }
+    }
+
+    /* Estado visível do card */
+    .dicas__itens .dicas__item-card.is-visible {
+        opacity: 1;
+        transform: scale(1);
     }
 
     .dicas__itens .dicas__item-card-image {

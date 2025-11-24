@@ -10,6 +10,11 @@
      * Inicializa os componentes do tema quando o DOM estiver pronto
      */
     function init() {
+        // Inicializar Smooth Scroll (primeiro para garantir que funcione antes de tudo)
+        if (typeof window.initSmoothScroll === 'function') {
+            window.initSmoothScroll();
+        }
+
         // Inicializar Hero Carousel
         if (typeof window.initHeroCarousel === 'function') {
         window.initHeroCarousel();

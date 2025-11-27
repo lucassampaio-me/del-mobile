@@ -33,19 +33,6 @@ function initDicasSection() {
     let activeCard = null;
     let activeFollower = null;
 
-    // Calcula posição inicial: centro-direita do item com 40px de margem
-    function calculateInitialPosition(item, card) {
-        const itemRect = item.getBoundingClientRect();
-        const cardRect = card.getBoundingClientRect();
-
-        return {
-            // X: borda direita do item - 40px de margem - metade da largura do card
-            x: itemRect.right - 40 - cardRect.width / 2,
-            // Y: centro vertical do item
-            y: itemRect.top + itemRect.height / 2
-        };
-    }
-
     // Itera sobre cada item
     items.forEach(item => {
         const card = item.querySelector('.dicas__item-card');
@@ -55,39 +42,29 @@ function initDicasSection() {
             return;
         }
 
-        // Calcula posição inicial do card (baseado no item)
-        let initialPos = calculateInitialPosition(item, card);
-
         // Cria um cursor follower para este card
         const follower = window.createCursorFollower(card, {
-            smoothing: 0.15, // Suavidade do movimento
-            centerElement: true, // Centraliza no cursor
-            initialX: initialPos.x,
-            initialY: initialPos.y
+            smoothing: 0.10,
+            centerElement: true
         });
 
         /**
-         * Atualiza a posição inicial do follower
-         */
-        function updateInitialPosition() {
-            initialPos = calculateInitialPosition(item, card);
-            // Atualiza diretamente as propriedades do follower
-            follower.setInitialPosition(initialPos.x, initialPos.y);
-        }
-
-        /**
          * Mostra o card e inicia tracking
+         * @param {MouseEvent} e - Evento de mouse com posição do cursor
          */
-        function showCard() {
+        function showCard(e) {
             // Se já existe um card ativo e não é o mesmo
             if (activeCard && activeCard !== card) {
                 hideCard(activeCard, activeFollower);
             }
 
+            // Posiciona o card na posição do cursor ANTES de mostrar
+            follower.setPosition(e.clientX, e.clientY);
+
             // Adiciona classe para mostrar
             card.classList.add('is-visible');
 
-            // Inicia tracking do cursor
+            // Inicia tracking do cursor (já posicionado corretamente)
             follower.start();
 
             // Atualiza referências globais
@@ -99,32 +76,20 @@ function initDicasSection() {
          * Oculta o card e para tracking
          */
         function hideCard(cardToHide = card, followerToStop = follower) {
-            // Para o tracking do cursor (mas mantém a animação rodando)
+            // Para o tracking do cursor
             followerToStop.stop();
 
-            // Remove classe de visibilidade IMEDIATAMENTE para iniciar fade out
+            // Remove classe de visibilidade
             cardToHide.classList.remove('is-visible');
 
-            // Atualiza a posição inicial antes de resetar (caso o item tenha mudado de posição)
-            updateInitialPosition();
-
-            // Reseta para posição inicial (card volta suavemente enquanto desaparece)
-            followerToStop.reset();
-
-            // Aguarda o card voltar completamente, depois para a animação
-            setTimeout(() => {
-                // Para completamente a animação
-                followerToStop.stopCompletely();
-
-                // Limpa referências se for o card ativo
-                if (cardToHide === activeCard) {
-                    activeCard = null;
-                    activeFollower = null;
-                }
-            }, 600); // Tempo para garantir retorno completo e fade out
+            // Limpa referências se for o card ativo
+            if (cardToHide === activeCard) {
+                activeCard = null;
+                activeFollower = null;
+            }
         }
 
-        // Event listeners
+        // Event listeners - passa o evento para showCard capturar a posição
         item.addEventListener('mouseenter', showCard);
         item.addEventListener('mouseleave', () => hideCard());
     });

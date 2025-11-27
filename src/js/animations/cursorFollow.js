@@ -7,28 +7,25 @@
  * Cria um follower de cursor para um elemento
  * @param {HTMLElement} element - Elemento que vai seguir o cursor
  * @param {Object} options - Opções de configuração
- * @returns {Object} API com métodos start() e stop()
+ * @returns {Object} API com métodos start(), stop(), setPosition()
  */
 function createCursorFollower(element, options = {}) {
     const config = {
         smoothing: 0.15, // Quanto menor, mais suave (0.1 = muito suave, 0.3 = mais rápido)
         centerElement: true, // Centralizar elemento no cursor
-        initialX: null, // Posição X inicial
-        initialY: null, // Posição Y inicial
         ...options
     };
 
     let isActive = false;
-    let isTracking = false; // Controla se está seguindo o cursor
     let rafId = null;
 
     // Posição atual (interpolada)
-    let currentX = config.initialX || 0;
-    let currentY = config.initialY || 0;
+    let currentX = 0;
+    let currentY = 0;
 
-    // Posição alvo (cursor ou posição inicial)
-    let targetX = config.initialX || 0;
-    let targetY = config.initialY || 0;
+    // Posição alvo (cursor)
+    let targetX = 0;
+    let targetY = 0;
 
     /**
      * Linear interpolation (lerp)
@@ -42,9 +39,22 @@ function createCursorFollower(element, options = {}) {
      * Atualiza a posição alvo baseada no cursor
      */
     function updateTarget(e) {
-        if (!isTracking) return;
         targetX = e.clientX;
         targetY = e.clientY;
+    }
+
+    /**
+     * Aplica a posição no elemento
+     */
+    function applyPosition(x, y) {
+        if (config.centerElement) {
+            const rect = element.getBoundingClientRect();
+            element.style.left = `${x - rect.width / 2}px`;
+            element.style.top = `${y - rect.height / 2}px`;
+        } else {
+            element.style.left = `${x}px`;
+            element.style.top = `${y}px`;
+        }
     }
 
     /**
@@ -58,55 +68,55 @@ function createCursorFollower(element, options = {}) {
         currentY = lerp(currentY, targetY, config.smoothing);
 
         // Aplica posicionamento
-        if (config.centerElement) {
-            // Centraliza o elemento no cursor subtraindo metade das dimensões
-            const rect = element.getBoundingClientRect();
-            element.style.left = `${currentX - rect.width / 2}px`;
-            element.style.top = `${currentY - rect.height / 2}px`;
-        } else {
-            element.style.left = `${currentX}px`;
-            element.style.top = `${currentY}px`;
-        }
+        applyPosition(currentX, currentY);
 
         // Continua a animação
         rafId = requestAnimationFrame(animate);
     }
 
     /**
-     * Inicia o tracking do cursor
+     * Define a posição imediatamente (sem interpolação)
+     * Útil para posicionar o elemento antes de mostrar
+     * @param {number} x - Posição X
+     * @param {number} y - Posição Y
      */
-    function start() {
-        if (isTracking) return;
-
-        isTracking = true;
-
-        // Inicia animação se ainda não estiver ativa
-        if (!isActive) {
-            isActive = true;
-            // Adiciona listener de mousemove
-            window.addEventListener('mousemove', updateTarget);
-            // Inicia animação
-            rafId = requestAnimationFrame(animate);
-        }
+    function setPosition(x, y) {
+        currentX = x;
+        currentY = y;
+        targetX = x;
+        targetY = y;
+        applyPosition(x, y);
     }
 
     /**
-     * Para o tracking do cursor (mas mantém animação rodando)
+     * Inicia o tracking do cursor
+     * @param {number} [x] - Posição X inicial (opcional)
+     * @param {number} [y] - Posição Y inicial (opcional)
+     */
+    function start(x, y) {
+        // Se coordenadas foram passadas, posiciona imediatamente
+        if (typeof x === 'number' && typeof y === 'number') {
+            setPosition(x, y);
+        }
+
+        if (isActive) return;
+
+        isActive = true;
+
+        // Adiciona listener de mousemove
+        window.addEventListener('mousemove', updateTarget);
+
+        // Inicia animação
+        rafId = requestAnimationFrame(animate);
+    }
+
+    /**
+     * Para o tracking e a animação
      */
     function stop() {
-        isTracking = false;
-        // Não para a animação, apenas para de seguir o cursor
-        // A animação continua para animar o retorno à posição inicial
-    }
-
-    /**
-     * Para completamente a animação
-     */
-    function stopCompletely() {
         if (!isActive) return;
 
         isActive = false;
-        isTracking = false;
 
         // Remove listener
         window.removeEventListener('mousemove', updateTarget);
@@ -118,31 +128,12 @@ function createCursorFollower(element, options = {}) {
         }
     }
 
-    /**
-     * Reseta para a posição inicial
-     */
-    function reset() {
-        targetX = config.initialX || 0;
-        targetY = config.initialY || 0;
-    }
-
-    /**
-     * Atualiza a posição inicial
-     */
-    function setInitialPosition(x, y) {
-        config.initialX = x;
-        config.initialY = y;
-    }
-
     // Retorna API pública
     return {
         start,
         stop,
-        stopCompletely,
-        reset,
-        setInitialPosition,
-        isActive: () => isActive,
-        isTracking: () => isTracking
+        setPosition,
+        isActive: () => isActive
     };
 }
 

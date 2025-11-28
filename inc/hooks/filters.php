@@ -100,3 +100,21 @@ function delmobile_hide_admin_bar() {
 	return false;
 }
 add_filter( 'show_admin_bar', 'delmobile_hide_admin_bar' );
+
+/**
+ * SVG Inline - Output Buffer
+ * 
+ * Processa automaticamente tags <img class="svg-inline"> e substitui pelo conteúdo SVG.
+ */
+
+/**
+ * Inicia o output buffer para processar SVGs inline
+ * Apenas no frontend, não no admin
+ */
+function delmobile_init_svg_buffer() {
+    if ( ! is_admin() && ! wp_doing_ajax() ) {
+        add_action( 'template_redirect', 'delmobile_start_svg_buffer', 1 );
+        add_action( 'shutdown', 'delmobile_end_svg_buffer', 0 );
+    }
+}
+add_action( 'init', 'delmobile_init_svg_buffer' );

@@ -1,0 +1,17 @@
+@layer components {
+    /* Fale conosco */
+    .fale-conosco {
+        @apply
+        py-24
+    }
+
+    .fale-conosco__content {
+        @apply
+        flex flex-col justify-between gap-10
+    }
+
+    .fale-conosco__content svg {
+        @apply
+        max-w-[264px]
+    }
+}

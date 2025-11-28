@@ -17,3 +17,4 @@ require_once('inc/hooks/filters.php');
 
 // Helpers e funções auxiliares
 require_once('inc/helpers/icons.php');
+require_once('inc/helpers/svg.php');

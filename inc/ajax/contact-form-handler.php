@@ -117,3 +117,5 @@ function delmobile_handle_contact_form() {
 add_action('wp_ajax_delmobile_contact_form', 'delmobile_handle_contact_form');
 add_action('wp_ajax_nopriv_delmobile_contact_form', 'delmobile_handle_contact_form');
 
+
+

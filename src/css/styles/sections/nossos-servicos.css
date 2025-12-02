@@ -2,7 +2,7 @@
     /* Nossos Serviços */
     .nossos-servicos {
         @apply
-        relative pt-24 rounded-tl-4xl rounded-br-4xl overflow-hidden
+        relative pt-24 rounded-tl-4xl
         bg-azul-petroleo
     }
 
@@ -13,14 +13,18 @@
 
     .nossos-servicos__itens {
         @apply
-        relative
+        relative isolate
     }
 
     .nossos-servicos__item {
         @apply
+        relative
         flex items-stretch
         min-h-dvh
         border-t border-azul-petroleo-900
+        bg-azul-petroleo overflow-hidden;
+        transform-origin: center top;
+        will-change: transform, opacity, filter, border-radius, box-shadow;
     }
 
     .nossos-servicos__item-content,

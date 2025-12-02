@@ -30,6 +30,11 @@
         window.initProjetosSection();
         }
 
+        // Inicializar Nossos Serviços Section
+        if (typeof window.initNossosServicosSection === 'function') {
+        window.initNossosServicosSection();
+        }
+
         // Inicializar Dicas Section
         if (typeof window.initDicasSection === 'function') {
         window.initDicasSection();

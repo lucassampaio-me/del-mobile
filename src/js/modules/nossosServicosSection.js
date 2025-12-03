@@ -48,11 +48,21 @@
                         trigger: items[index + 1], // próximo item é o trigger
                         start: 'top bottom',
                         end: 'top top',
-                        scrub: 1.25, // suaviza para evitar trocas bruscas
+                        scrub: 0.8, // suaviza para evitar trocas bruscas
                         pin: item,
                         pinSpacing: false,
                         invalidateOnRefresh: true, // recalcula no resize
                         // markers: true, // descomentar para debug
+
+                        // Configuração de snap para evitar passar direto pelos itens
+                        snap: {
+                            snapTo: 1, // Snap no final da animação (progress: 1)
+                            duration: { min: 0.2, max: 0.4 }, // Duração do snap baseada em velocidade
+                            delay: 0.05, // Aguarda 0.15s após parar de rolar antes de fazer snap
+                            ease: "power2.inOut", // Easing suave para o snap
+                            directional: false, // Snap funciona em ambas direções
+                            inertia: true // Respeita a inércia do scroll
+                        }
                     }
                 }
             );

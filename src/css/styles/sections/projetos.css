@@ -3,7 +3,11 @@
     .projetos {
         @apply
         relative overflow-hidden
-        min-h-dvh bg-azul-petroleo
+        min-h-dvh bg-azul-petroleo;
+
+        /* Otimizações para scroll snap */
+        will-change: transform;
+        transform: translateZ(0); /* Force hardware acceleration */
     }
 
     .projetos__background {

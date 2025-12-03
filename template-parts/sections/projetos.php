@@ -32,7 +32,7 @@ if ($projetos) {
 }
 ?>
 
-<section class="projetos theme-dark">
+<section id="projetos" class="projetos theme-dark">
     <div class="projetos__content">
         <div class="projetos__content-main">
             <div class="projetos__content-header">

@@ -1,0 +1,33 @@
+@layer components {
+    .portfolio__nav {
+        @apply
+        inline-flex items-center gap-2 p-2 rounded-full
+        bg-bege-claro/5 backdrop-blur-sm
+        relative;
+        
+        &::before {
+            content: '';
+            @apply
+            absolute inset-0 rounded-full
+            bg-bege-claro/20
+            -z-10;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+    }
+
+    .portfolio__nav-button {
+        @apply
+        inline-flex items-center px-5 py-3 rounded-full
+        text-base font-bold bg-bege-claro text-azul-petroleo
+        transition-all duration-500
+    }
+
+    .portfolio__nav-button:hover:not(:disabled),
+    .portfolio__nav-button.active:not(:disabled) {
+        @apply
+        bg-azul-petroleo text-bege-claro
+    }
+}

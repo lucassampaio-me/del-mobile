@@ -46,9 +46,9 @@ if ($projetos) {
                     </a>
                 </div>
 
-                <div class="projetos__content-header-nav">
+                <div class="portfolio__nav">
                     <?php foreach ($tipos as $tipo) : ?>
-                        <button class="projetos__content-header-nav-button" data-first-image="<?php echo $tipo_first_image[$tipo->term_id]; ?>" data-project-type="<?php echo esc_attr($tipo->slug); ?>">
+                        <button class="portfolio__nav-button" data-first-image="<?php echo $tipo_first_image[$tipo->term_id]; ?>" data-project-type="<?php echo esc_attr($tipo->slug); ?>">
                             <span><?php echo $tipo->name; ?></span>
                         </button>
                     <?php endforeach; ?>
@@ -135,7 +135,13 @@ if ($projetos) {
         </div>
     </div>
 
-    <div class="projetos__background">
+    <div class="projetos__background projetos__background-1">
+        <svg width="1755" height="868" viewBox="0 0 1755 868" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="877.5" cy="434" rx="877.5" ry="434" fill="white"/>
+        </svg>
+    </div>
+
+    <div class="projetos__background projetos__background-2">
         <svg width="1755" height="868" viewBox="0 0 1755 868" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="877.5" cy="434" rx="877.5" ry="434" fill="white"/>
         </svg>

@@ -49,6 +49,11 @@
         if (typeof window.initContactForm === 'function') {
         window.initContactForm();
         }
+
+        // Inicializar Portfolio Grid
+        if (typeof window.initPortfolioGrid === 'function') {
+            window.initPortfolioGrid();
+        }
     }
 
     // Executar quando o DOM estiver pronto

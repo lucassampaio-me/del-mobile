@@ -4,13 +4,19 @@
  */
 
 function initProcessoCarousel() {
+    const emblaNode = document.querySelector('.nosso-processo__carousel.embla')
+
+    // Validação: verificar se elemento existe
+    if (!emblaNode) {
+        return;
+    }
+
     const OPTIONS = {
         align: 'start',
         slidesToScroll: 1,
         loop: false
     }
 
-    const emblaNode = document.querySelector('.nosso-processo__carousel.embla')
     const viewportNode = emblaNode.querySelector('.nosso-processo__carousel .embla__viewport')
     const prevBtn = document.querySelector('.nosso-processo__carousel-nav-button--prev')
     const nextBtn = document.querySelector('.nosso-processo__carousel-nav-button--next')

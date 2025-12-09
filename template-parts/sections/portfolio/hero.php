@@ -9,21 +9,10 @@ $tipos = get_terms([
 <section id="hero" class="hero-portfolio hero_internal">
     <div class="hero_internal__container">
         <div class="hero_internal__header">
-            <div class="content-text">
+            <div class="content-text content-text-large text-center">
                 <h1>Portfólio</h1>
-                <p>Cada projeto é exclusivo, feito sob medida milimétrica com os melhores materiais e um compromisso vitalício com você.</p>
+                <p><strong>Cada projeto é exclusivo,</strong> feito sob medida milimétrica com os melhores materiais e um compromisso vitalício com você.</p>
             </div>
-        </div>
-
-        <div class="portfolio__nav">
-            <button class="portfolio__nav-button active">
-                <span>Todos</span>
-            </button>
-            <?php foreach ($tipos as $tipo) : ?>
-                <button class="portfolio__nav-button">
-                    <span><?php echo $tipo->name; ?></span>
-                </button>
-            <?php endforeach; ?>
         </div>
     </div>
 

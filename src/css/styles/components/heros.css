@@ -4,4 +4,14 @@
         relative
         bg-bege-claro pt-24
     }
+
+    .hero_internal__container {
+        @apply
+        flex flex-col items-center gap-10
+    }
+
+    .hero_internal__header {
+        @apply
+        w-full max-w-3xl
+    }
 }

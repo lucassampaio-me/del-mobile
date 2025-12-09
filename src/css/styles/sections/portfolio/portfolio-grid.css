@@ -1,0 +1,12 @@
+@layer components {
+    .portfolio-grid {
+        @apply
+        relative
+        pb-24
+    }
+
+    .portfolio__nav {
+        @apply
+        -mt-8 mx-auto mb-10
+    }
+}

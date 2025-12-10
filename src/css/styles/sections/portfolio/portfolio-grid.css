@@ -14,6 +14,24 @@
         -mt-8 mb-12;
     }
 
+    .portfolio-grid__load-more {
+        @apply
+        flex justify-center mt-10
+    }
+
+    /* Estado de loading do botão "Ver mais" */
+    .portfolio-grid__load-more-btn .portfolio-grid__load-more-loading {
+        @apply hidden;
+    }
+
+    .portfolio-grid__load-more-btn[data-loading="true"] .portfolio-grid__load-more-text {
+        @apply hidden;
+    }
+
+    .portfolio-grid__load-more-btn[data-loading="true"] .portfolio-grid__load-more-loading {
+        @apply inline;
+    }
+
     /* ============================
        GRID CONTAINER
        ============================ */

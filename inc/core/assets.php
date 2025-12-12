@@ -27,18 +27,47 @@
 	wp_enqueue_script( 'gsap', get_template_directory_uri() . '/src/js/vendor/gsap.min.js', array(), '3.12.5', true );
 	wp_enqueue_script( 'gsap-scrolltrigger', get_template_directory_uri() . '/src/js/vendor/ScrollTrigger.min.js', array('gsap'), '3.12.5', true );
 	wp_enqueue_script( 'gsap-flip', get_template_directory_uri() . '/src/js/vendor/Flip.min.js', array('gsap'), '3.12.5', true );
+	wp_enqueue_script( 'gsap-splittext', get_template_directory_uri() . '/src/js/vendor/SplitText.min.js', array('gsap'), '3.13.0', true );
 
 	// Embla Carousel
 	wp_enqueue_script( 'embla-carousel', get_template_directory_uri() . '/src/js/vendor/embla-carousel.js', array(), '8.6.0', true );
 	wp_enqueue_script( 'embla-carousel-autoplay', get_template_directory_uri() . '/src/js/vendor/embla-carousel-autoplay.js', array('embla-carousel'), '8.6.0', true );
 
-	// Animações
+	// Sistema de Animações - Core
+	wp_enqueue_script( 'delmobile-anim-config', get_template_directory_uri() . '/src/js/animations/core/config.js', array('gsap'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-utils', get_template_directory_uri() . '/src/js/animations/core/utils.js', array('delmobile-anim-config'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-split-manager', get_template_directory_uri() . '/src/js/animations/core/splitManager.js', array('gsap-splittext'), DELMOBILE_VERSION, true );
+
+	// Sistema de Animações - Primitives
+	wp_enqueue_script( 'delmobile-anim-fade', get_template_directory_uri() . '/src/js/animations/primitives/fade.js', array('delmobile-anim-utils'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-slide', get_template_directory_uri() . '/src/js/animations/primitives/slide.js', array('delmobile-anim-utils'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-scale', get_template_directory_uri() . '/src/js/animations/primitives/scale.js', array('delmobile-anim-utils'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-blur', get_template_directory_uri() . '/src/js/animations/primitives/blur.js', array('delmobile-anim-utils'), DELMOBILE_VERSION, true );
+
+	// Sistema de Animações - Text
+	wp_enqueue_script( 'delmobile-anim-split-chars', get_template_directory_uri() . '/src/js/animations/text/splitChars.js', array('delmobile-anim-split-manager'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-split-lines', get_template_directory_uri() . '/src/js/animations/text/splitLines.js', array('delmobile-anim-split-manager'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-anim-split-words', get_template_directory_uri() . '/src/js/animations/text/splitWords.js', array('delmobile-anim-split-manager'), DELMOBILE_VERSION, true );
+
+	// Sistema de Animações - Index (validação)
+	wp_enqueue_script( 'delmobile-anim-system', get_template_directory_uri() . '/src/js/animations/index.js', array(
+		'delmobile-anim-fade',
+		'delmobile-anim-slide',
+		'delmobile-anim-scale',
+		'delmobile-anim-blur',
+		'delmobile-anim-split-chars',
+		'delmobile-anim-split-lines',
+		'delmobile-anim-split-words'
+	), DELMOBILE_VERSION, true );
+
+	// Animações customizadas
 	wp_enqueue_script( 'delmobile-cursor-follow', get_template_directory_uri() . '/src/js/animations/cursorFollow.js', array(), DELMOBILE_VERSION, true );
 
 	// Carregar script de projetos apenas na home
 	if ( is_front_page() || is_home() ) {
 		wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
 		wp_enqueue_script( 'delmobile-hero-carousel', get_template_directory_uri() . '/src/js/modules/heroCarousel.js', array('embla-carousel', 'embla-carousel-autoplay'), DELMOBILE_VERSION, true );
+		wp_enqueue_script( 'delmobile-hero-animation', get_template_directory_uri() . '/src/js/animations/home/hero.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 	}
 
 	// Portfolio Grid (carregado globalmente, tem validação interna)

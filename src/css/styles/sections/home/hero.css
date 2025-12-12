@@ -32,7 +32,7 @@
 
     .hero__content-right {
         @apply
-        w-full -mb-12 rounded-tl-4xl overflow-hidden
+        w-full -mb-12 overflow-hidden
     }
 
     .hero__content-left-text {
@@ -74,10 +74,23 @@
     .hero__carousel .embla__slide img {
         @apply
         block w-full h-auto object-cover
+        transition-all duration-500
+    }
+
+    .hero__carousel .embla__slide.active img {
+        @apply
+        rounded-tl-4xl
     }
 
     .hero__carousel {
         @apply
         max-h-[520px]
+    }
+
+    /* SplitText Animation */
+
+    .hero__header h1 .split-word {
+        display: inline-block;
+        will-change: transform, opacity, filter;
     }
 }

@@ -41,8 +41,9 @@ function splitWords(target, options = {}) {
 
     // Criar split
     const split = createSplit(element, {
-        type: 'words',
-        wordsClass: 'split-word'
+        type: 'words, lines',
+        wordsClass: 'split-word',
+        linesClass: 'split-line'
     });
 
     // Configurar estado inicial e final baseado no tipo de animação

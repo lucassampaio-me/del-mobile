@@ -14,6 +14,7 @@ function initProcessoCarousel() {
     const viewportNode = emblaNode.querySelector('.nosso-processo__carousel .embla__viewport')
     const prevBtn = document.querySelector('.nosso-processo__carousel-nav-button--prev')
     const nextBtn = document.querySelector('.nosso-processo__carousel-nav-button--next')
+    const navigationSlides = document.querySelector('.nosso-processo__carousel-nav.navigation-slides')
 
     const emblaApi = EmblaCarousel(viewportNode, OPTIONS)
 
@@ -26,6 +27,15 @@ function initProcessoCarousel() {
 
         prevBtn.disabled = !canScrollPrev
         nextBtn.disabled = !canScrollNext
+
+        // Adiciona classe 'navigation-resize' quando nenhum botão está desativado
+        if (navigationSlides) {
+            if (canScrollPrev && canScrollNext) {
+                navigationSlides.classList.add('navigation-resize')
+            } else {
+                navigationSlides.classList.remove('navigation-resize')
+            }
+        }
     }
 
     /**

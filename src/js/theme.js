@@ -20,6 +20,11 @@
         window.initProcessoCarousel();
         }
 
+        // Inicializar Projetos Section
+        if (typeof window.initProjetosSection === 'function') {
+        window.initProjetosSection();
+        }
+
         // Inicializar Global
         if (typeof window.initGlobal === 'function') {
         window.initGlobal();

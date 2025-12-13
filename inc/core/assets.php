@@ -27,6 +27,7 @@
 	// Módulos do tema
 	wp_enqueue_script( 'delmobile-hero-carousel', get_template_directory_uri() . '/src/js/modules/heroCarousel.js', array('embla-carousel', 'embla-carousel-autoplay'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-processo-carousel', get_template_directory_uri() . '/src/js/modules/processoCarousel.js', array('embla-carousel'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-global', get_template_directory_uri() . '/src/js/modules/global.js', array(), DELMOBILE_VERSION, true );
 
 	// Theme principal (depende dos módulos)

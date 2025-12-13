@@ -4,19 +4,117 @@
         inline-flex items-center justify-center gap-3
         text-lg font-bold
         bg-bege-claro-100
+        text-azul-petroleo
         py-4 px-6 rounded-full
         transition-all duration-300
+    }
+
+    .btn:hover:not(:disabled) {
+        @apply
+        bg-bege-claro-200
     }
 
     .btn-primary {
         @apply
         bg-vermelho-grena text-bege-claro-50
-        hover:bg-vermelho-grena-950
+    }
+
+    .btn-primary:hover:not(:disabled) {
+        @apply
+        bg-vermelho-grena-950
     }
 
     .btn-secondary {
         @apply
         bg-azul-petroleo text-bege-claro-50
-        hover:bg-azul-petroleo-900
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+        @apply
+        bg-azul-petroleo-900
+    }
+
+    /* Navegação slides */
+
+    /* Carousel Navigation */
+
+    .navigation-slides {
+        @apply
+        relative
+        flex items-center gap-3
+        w-[calc(80px+48px+12px)] h-20
+        transition-all duration-500
+    }
+
+    .navigation-slides.navigation-resize {
+        @apply
+        w-[calc(80px+80px+12px)]
+    }
+
+    .navigation-slides__button {
+        @apply
+        absolute top-0
+        top-1/2 -translate-y-1/2
+        w-20 h-20 rounded-full
+        flex items-center justify-center
+        bg-bege-claro-100
+        transition-all duration-500
+        cursor-pointer
+    }
+
+    .navigation-slides__button--prev {
+        @apply
+        left-0
+    }
+
+    .navigation-slides__button--next {
+        @apply
+        right-0
+    }
+
+    .navigation-slides__button .ph-icon {
+        @apply
+        text-4xl
+        transition-all duration-500
+    }
+
+    .navigation-slides__button:hover:not(:disabled) {
+        @apply
+        bg-bege-claro-200
+    }
+
+    .navigation-slides__button:disabled {
+        @apply
+        w-12 h-12
+        opacity-30
+        cursor-not-allowed
+        pointer-events-none
+    }
+
+    .navigation-slides__button:disabled .ph-icon {
+        @apply
+        text-2xl
+    }
+
+    .navigation-slides-primary .navigation-slides__button {
+        @apply
+        bg-vermelho-grena
+        text-bege-claro
+    }
+
+    .navigation-slides-primary .navigation-slides__button:hover:not(:disabled) {
+        @apply
+        bg-vermelho-grena-950
+    }
+
+    .navigation-slides-secondary .navigation-slides__button {
+        @apply
+        bg-azul-petroleo
+        text-bege-claro
+    }
+
+    .navigation-slides-secondary .navigation-slides__button:hover:not(:disabled) {
+        @apply
+        bg-azul-petroleo-900
     }
 }

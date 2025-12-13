@@ -60,4 +60,43 @@ add_action('wp_print_scripts', 'del_mobile_remove_block_scripts', 100);
 
 // Desativa a renderização de novos widgets baseados em blocos
 add_filter('gutenberg_use_widgets_block_editor', '__return_false');
-add_filter('use_widgets_block_editor', '__return_false'); 
+add_filter('use_widgets_block_editor', '__return_false');
+
+/**
+ * Adiciona ícone arrow-right nos itens de menu com classe 'site-header-cta'
+ *
+ * @param string $item_output HTML do item de menu
+ * @param object $item Objeto do item de menu
+ * @param int $depth Profundidade do item
+ * @param object $args Argumentos do menu
+ * @return string HTML modificado
+ */
+function delmobile_add_icon_to_cta_menu_item( $item_output, $item, $depth, $args ) {
+	// Verifica se o item tem a classe 'site-header-cta'
+	if ( in_array( 'site-header-cta', $item->classes ) ) {
+		// Extrai o conteúdo entre <a> e </a>
+		preg_match( '/<a[^>]*>(.*?)<\/a>/i', $item_output, $matches );
+
+		if ( isset( $matches[1] ) ) {
+			$link_text = $matches[1];
+
+			// Cria o novo conteúdo: span + ícone
+			$icon = icon( 'arrow-right', 'light', array( 'class' => 'menu-item-icon' ) );
+			$new_content = '<span>' . $link_text . '</span>' . $icon;
+
+			// Substitui o conteúdo antigo pelo novo
+			$item_output = str_replace( $link_text . '</a>', $new_content . '</a>', $item_output );
+		}
+	}
+
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'delmobile_add_icon_to_cta_menu_item', 10, 4 );
+
+/**
+ * Oculta a barra de administração do WordPress quando o usuário está logado
+ */
+function delmobile_hide_admin_bar() {
+	return false;
+}
+add_filter( 'show_admin_bar', 'delmobile_hide_admin_bar' );

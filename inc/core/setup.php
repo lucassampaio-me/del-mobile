@@ -39,8 +39,8 @@ function delmobile_setup() {
 
 	register_nav_menus(
 		array(
-			'menu-main' => esc_html__( 'Menu principal', 'delmobile' ),
-			'menu-footer' => esc_html__( 'Menu rodapé', 'delmobile' ),
+			'menu-principal' => esc_html__( 'Menu principal', 'delmobile' ),
+			'menu-rodape' => esc_html__( 'Menu rodapé', 'delmobile' ),
 		)
 	);
 }

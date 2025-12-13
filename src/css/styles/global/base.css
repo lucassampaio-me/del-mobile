@@ -3,16 +3,50 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply 
+        bg-bege-claro-50
+        text-marrom-claro-700
+        font-variable
+    }
+
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        @apply font-display;
+        @apply
+        font-bold text-vermelho-grena
     }
 
     h1 {
-        @apply text-4xl;
+        @apply 
+        text-7xl
+    }
+
+    h2 {
+        @apply
+        text-6xl
+    }
+
+    h3 {
+        @apply
+        text-5xl
+    }
+
+    h4 {
+        @apply
+        text-4xl
+    }
+
+    .ph-icon {
+        @apply
+        text-2xl
+    }
+
+    img {
+        @apply
+        w-full h-auto;
     }
 }

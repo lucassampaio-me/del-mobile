@@ -5,14 +5,14 @@
         w-full
     }
 
-    .content-text h2 {
+    .content-text > *{
         @apply
-        mb-3
+        mb-4
     }
 
     .content-text p {
         @apply
-        text-lg mb-4
+        text-lg
     }
 
     .content-text *:first-child {
@@ -23,6 +23,11 @@
     .content-text *:last-child {
         @apply
         mb-0
+    }
+
+    .content-text.content-text-base p {
+        @apply
+        text-base
     }
 
     .content-text.content-text-medium p {

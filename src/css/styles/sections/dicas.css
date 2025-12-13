@@ -1,0 +1,89 @@
+@layer components {
+    /* Dicas */
+    .dicas {
+        @apply
+        relative pt-24
+        bg-verde-escuro
+    }
+
+    .dicas__itens {
+        @apply
+        relative
+        flex flex-col items-start
+
+        last:border-b-0
+    }
+
+    .dicas__item {
+        @apply
+        relative
+        w-full p-10
+        border-b border-bege-claro/25
+        hover:bg-bege-claro hover:border-bege-claro
+        transition-all duration-500
+    }
+
+    .dicas__item-content {
+        @apply
+        flex items-center gap-20
+    }
+
+    .dicas__item-icon .ph-icon {
+        @apply
+        text-6xl text-bege-claro
+        transition-all duration-500
+    }
+
+    .dicas__item:hover .dicas__item-icon .ph-icon {
+        @apply
+        text-verde-escuro
+    }
+
+    .dicas__item .dicas__item-content h3 {
+        @apply
+        transition-all duration-500
+    }
+
+    .dicas__item:hover .dicas__item-content h3 {
+        @apply
+        text-verde-escuro
+    }
+
+    .dicas__itens .dicas__item-card {
+        @apply
+        absolute top-0 right-0
+        flex flex-col items-start
+        w-full max-w-[380px]
+        bg-verde-escuro-900
+    }
+
+    .dicas__itens .dicas__item-card-image {
+        @apply
+        w-full min-h-[160px] max-h-[160px]
+        overflow-hidden
+    }
+
+    .dicas__itens .dicas__item-card-image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .dicas__itens .dicas__item-card-content {
+        @apply
+        w-full p-8
+        flex flex-col items-start gap-6
+    }
+
+    .dicas__itens .dicas__item-card-extra {
+        @apply
+        w-full
+        flex items-center justify-start gap-3;
+        color: var(--text-color);
+    }
+
+    .dicas__itens .dicas__item-card-extra span {
+        @apply
+        text-sm font-medium
+    }
+
+}

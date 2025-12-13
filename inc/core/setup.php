@@ -7,8 +7,8 @@
  */
 
 // Define a versão do tema para cache e versionamento
-if ( ! defined( 'DEL_MOBILE_VERSION' ) ) {
-	define( 'DEL_MOBILE_VERSION', '1.0.0' );
+if ( ! defined( 'DELMOBILE_VERSION' ) ) {
+	define( 'DELMOBILE_VERSION', '1.0.0' );
 }
 
 // Desativa a edição de arquivos pelo painel administrativo (medida de segurança)
@@ -21,7 +21,7 @@ define('DISALLOW_FILE_EDIT', true);
  * - Adiciona suporte para elementos HTML5
  * - Registra o menu principal
  */
-function del_mobile_setup() {
+function delmobile_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support(
@@ -39,9 +39,9 @@ function del_mobile_setup() {
 
 	register_nav_menus(
 		array(
-			'menu-main' => esc_html__( 'Menu principal', 'del-mobile' ),
-			'menu-footer' => esc_html__( 'Menu rodapé', 'del-mobile' ),
+			'menu-main' => esc_html__( 'Menu principal', 'delmobile' ),
+			'menu-footer' => esc_html__( 'Menu rodapé', 'delmobile' ),
 		)
 	);
 }
-add_action( 'after_setup_theme', 'del_mobile_setup' );
+add_action( 'after_setup_theme', 'delmobile_setup' );

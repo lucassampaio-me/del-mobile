@@ -1,9 +1,9 @@
 {
-  "name": "del-mobile",
+  "name": "delmobile",
   "version": "1.0.0",
-  "description": "Tema WordPress para o site DEL Mobile",
+  "description": "Tema WordPress para o site DelMobile",
   "scripts": {
-    "build:css-watch": "tailwindcss -i ./src/css/input.css -o ./src/css/theme.css --watch"
+    "build:css-watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
   },
 
   "devDependencies": {

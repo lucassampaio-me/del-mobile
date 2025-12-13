@@ -1,12 +1,186 @@
 @layer components {
+    /* ============================
+       PORTFOLIO GRID - CONTAINER
+       ============================ */
     .portfolio-grid {
         @apply
         relative
         pb-24
     }
 
-    .portfolio__nav {
+    .portfolio-grid__nav-wrapper {
         @apply
-        -mt-8 mx-auto mb-10
+        flex justify-center
+        -mt-8 mb-12;
+    }
+
+    /* ============================
+       GRID CONTAINER
+       ============================ */
+    .portfolio-grid__container {
+        @apply
+        grid gap-6
+        transition-all duration-500 ease-out;
+
+        /* Preencher espaços vazios automaticamente */
+        grid-auto-flow: dense;
+
+        /* Mobile: 1 coluna */
+        grid-template-columns: 1fr;
+        grid-auto-rows: 280px;
+    }
+
+    /* Tablet: 2 colunas */
+    @screen md {
+        .portfolio-grid__container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 180px;
+        }
+    }
+
+    /* Desktop: 4 colunas */
+    @screen lg {
+        .portfolio-grid__container {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 180px;
+        }
+    }
+
+    /* Desktop XL */
+    @screen xl {
+        .portfolio-grid__container {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+        }
+    }
+
+    /* ============================
+       PORTFOLIO ITEM - BASE
+       ============================ */
+    .portfolio-grid__item {
+        @apply
+        relative
+        overflow-hidden
+        cursor-pointer;
+    }
+
+    .portfolio-grid__item-inner {
+        @apply
+        relative
+        w-full h-full
+        overflow-hidden
+    }
+
+    /* ============================
+       PORTFOLIO ITEM - IMAGEM
+       ============================ */
+    .portfolio-grid__item-image {
+        @apply
+        absolute inset-0
+        w-full h-full;
+    }
+
+    .portfolio-grid__item-image img {
+        @apply
+        w-full h-full
+        object-cover
+        transition-transform duration-500 ease-out;
+    }
+
+    /* Zoom na imagem no hover */
+    .portfolio-grid__item:hover .portfolio-grid__item-image img {
+        @apply
+        scale-110;
+    }
+
+    /* ============================
+       PORTFOLIO ITEM - OVERLAY
+       ============================ */
+    .portfolio-grid__item-overlay {
+        @apply
+        absolute inset-0
+        flex items-end justify-start
+        p-6
+        opacity-0
+        transition-opacity duration-300 ease-out;
+        background: linear-gradient(to top, rgba(6, 39, 51, 0.9) 0%, rgba(6, 39, 51, 0.4) 50%, transparent 100%);
+    }
+
+    .portfolio-grid__item:hover .portfolio-grid__item-overlay {
+        @apply
+        opacity-100;
+    }
+
+    .portfolio-grid__item-overlay-content {
+        @apply
+        flex items-end justify-between
+        w-full
+        transform translate-y-4
+        transition-transform duration-300 ease-out;
+    }
+
+    .portfolio-grid__item:hover .portfolio-grid__item-overlay-content {
+        @apply
+        translate-y-0;
+    }
+
+    /* ============================
+       PORTFOLIO ITEM - TITULO
+       ============================ */
+    .portfolio-grid__item-title {
+        @apply
+        text-lg font-bold
+        text-bege-claro
+        leading-tight;
+        max-width: 70%;
+    }
+
+    @screen md {
+        .portfolio-grid__item-title {
+            @apply text-xl;
+        }
+    }
+
+    @screen lg {
+        .portfolio-grid__item-title {
+            @apply text-2xl;
+        }
+    }
+
+    /* ============================
+       PORTFOLIO ITEM - BOTAO
+       ============================ */
+    .portfolio-grid__item-btn {
+        @apply
+        flex items-center justify-center
+        w-12 h-12
+        rounded-full
+        bg-azul-petroleo
+        text-bege-claro
+        transition-all duration-300
+        flex-shrink-0;
+    }
+
+    @screen md {
+        .portfolio-grid__item-btn {
+            @apply w-14 h-14;
+        }
+    }
+
+    .portfolio-grid__item-btn:hover {
+        @apply
+        bg-azul-petroleo-800
+        scale-110;
+    }
+
+    .portfolio-grid__item-btn .ph {
+        @apply
+        text-2xl;
+    }
+
+    @screen md {
+        .portfolio-grid__item-btn .ph {
+            @apply text-3xl;
+        }
     }
 }

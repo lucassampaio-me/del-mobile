@@ -7,6 +7,15 @@ module.exports = {
   ],
   safelist: [
     'ph-icon',
+    // Classes para grid bento do portfólio
+    'md:col-span-1',
+    'md:col-span-2',
+    'md:row-span-1',
+    'md:row-span-2',
+    'lg:col-span-1',
+    'lg:col-span-2',
+    'lg:row-span-1',
+    'lg:row-span-2',
   ],
   theme: {
     extend: {

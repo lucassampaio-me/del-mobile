@@ -23,9 +23,10 @@
 	// Lenis Smooth Scroll
 	wp_enqueue_script( 'lenis', get_template_directory_uri() . '/src/js/vendor/lenis.min.js', array(), '1.1.13', true );
 
-	// GSAP e ScrollTrigger
+	// GSAP, ScrollTrigger e Flip
 	wp_enqueue_script( 'gsap', get_template_directory_uri() . '/src/js/vendor/gsap.min.js', array(), '3.12.5', true );
 	wp_enqueue_script( 'gsap-scrolltrigger', get_template_directory_uri() . '/src/js/vendor/ScrollTrigger.min.js', array('gsap'), '3.12.5', true );
+	wp_enqueue_script( 'gsap-flip', get_template_directory_uri() . '/src/js/vendor/Flip.min.js', array('gsap'), '3.12.5', true );
 
 	// Embla Carousel
 	wp_enqueue_script( 'embla-carousel', get_template_directory_uri() . '/src/js/vendor/embla-carousel.js', array(), '8.6.0', true );
@@ -39,6 +40,16 @@
 		wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
 		wp_enqueue_script( 'delmobile-hero-carousel', get_template_directory_uri() . '/src/js/modules/heroCarousel.js', array('embla-carousel', 'embla-carousel-autoplay'), DELMOBILE_VERSION, true );
 	}
+
+	// Portfolio Grid (carregado globalmente, tem validação interna)
+	wp_enqueue_script( 'delmobile-portfolio-grid', get_template_directory_uri() . '/src/js/modules/portfolioGrid.js', array('gsap', 'gsap-flip'), DELMOBILE_VERSION, true );
+
+	// Localizar script do portfolio com variáveis AJAX
+	wp_localize_script( 'delmobile-portfolio-grid', 'portfolio_ajax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'portfolio_load_more_nonce' ),
+		'posts_per_page' => 8
+	));
 
 	// Módulos do tema
 	wp_enqueue_script( 'delmobile-smooth-scroll', get_template_directory_uri() . '/src/js/modules/smoothScroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), DELMOBILE_VERSION, true );
@@ -56,6 +67,6 @@
 	));
 
 	// Theme principal (depende dos módulos)
-	wp_enqueue_script( 'delmobile-theme', get_template_directory_uri() . '/src/js/theme.js', array('delmobile-smooth-scroll', 'delmobile-hero-carousel'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-theme', get_template_directory_uri() . '/src/js/theme.js', array('delmobile-smooth-scroll'), DELMOBILE_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'delmobile_scripts' );

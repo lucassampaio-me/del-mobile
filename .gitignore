@@ -1,6 +1,7 @@
 # Node modules
 node_modules/
 
+<<<<<<< HEAD
 # Build files
 dist/
 build/
@@ -38,6 +39,10 @@ wp-config.php
 # Temporary files
 *.tmp
 *.temp
+=======
+# IDE files
+.vscode/
+>>>>>>> main
 
 # AI
 /ai-context/

@@ -34,11 +34,16 @@
 	// Animações
 	wp_enqueue_script( 'delmobile-cursor-follow', get_template_directory_uri() . '/src/js/animations/cursorFollow.js', array(), DELMOBILE_VERSION, true );
 
+	// Carregar script de projetos apenas na home
+	if ( is_front_page() || is_home() ) {
+		wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
+		wp_enqueue_script( 'delmobile-hero-carousel', get_template_directory_uri() . '/src/js/modules/heroCarousel.js', array('embla-carousel', 'embla-carousel-autoplay'), DELMOBILE_VERSION, true );
+	}
+
 	// Módulos do tema
 	wp_enqueue_script( 'delmobile-smooth-scroll', get_template_directory_uri() . '/src/js/modules/smoothScroll.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), DELMOBILE_VERSION, true );
-	wp_enqueue_script( 'delmobile-hero-carousel', get_template_directory_uri() . '/src/js/modules/heroCarousel.js', array('embla-carousel', 'embla-carousel-autoplay'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-processo-carousel', get_template_directory_uri() . '/src/js/modules/processoCarousel.js', array('embla-carousel'), DELMOBILE_VERSION, true );
-	wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
+
 	wp_enqueue_script( 'delmobile-nossos-servicos-section', get_template_directory_uri() . '/src/js/modules/nossosServicosSection.js', array('gsap', 'gsap-scrolltrigger'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-dicas-section', get_template_directory_uri() . '/src/js/modules/dicasSection.js', array('delmobile-cursor-follow'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-global', get_template_directory_uri() . '/src/js/modules/global.js', array(), DELMOBILE_VERSION, true );

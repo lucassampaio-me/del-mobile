@@ -72,7 +72,7 @@ function initProjetosSection() {
          * Atualiza o estado ativo dos botões de navegação do header
          */
         function updateHeaderNavButtons() {
-            const headerNavButtons = document.querySelectorAll('.projetos__content-header-nav-button')
+            const headerNavButtons = document.querySelectorAll('.portfolio__nav-button')
             const slides = emblaNode.querySelectorAll('.embla__slide')
             const currentSlideIndex = emblaApi.selectedScrollSnap()
             const currentSlide = slides[currentSlideIndex]
@@ -117,7 +117,7 @@ function initProjetosSection() {
          * Configura a navegação pelos botões do header
          */
         function setupHeaderNavigation() {
-            const headerNavButtons = document.querySelectorAll('.projetos__content-header-nav-button')
+            const headerNavButtons = document.querySelectorAll('.portfolio__nav-button')
             const slides = emblaNode.querySelectorAll('.embla__slide')
 
             headerNavButtons.forEach(button => {

@@ -1,0 +1,7 @@
+@layer components {
+    .hero_internal {
+        @apply
+        relative
+        bg-bege-claro pt-24
+    }
+}

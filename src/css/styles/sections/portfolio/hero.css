@@ -1,0 +1,6 @@
+@layer components {
+    .hero-portfolio .portfolio__nav {
+        @apply
+        -bottom-8
+    }
+}

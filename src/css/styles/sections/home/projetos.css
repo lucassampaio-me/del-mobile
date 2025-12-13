@@ -12,9 +12,19 @@
 
     .projetos__background {
         @apply
-        absolute -top-1/2 -left-1/2 w-full h-full z-0
+        absolute w-full h-full z-0
         overflow-hidden blur-[180px]
         pointer-events-none
+    }
+
+    .projetos__background.projetos__background-1 {
+        @apply
+        -top-1/2 -left-1/2
+    }
+
+    .projetos__background.projetos__background-2 {
+        @apply
+        -bottom-[70%] -right-[70%]
     }
 
     .projetos__background svg {
@@ -96,38 +106,6 @@
     .projetos__content-header-content .btn {
         @apply
         text-nowrap
-    }
-
-    .projetos__content-header-nav {
-        @apply
-        flex items-center gap-2 p-2 rounded-full
-        bg-bege-claro/5 backdrop-blur-sm
-        relative;
-        
-        &::before {
-            content: '';
-            @apply
-            absolute inset-0 rounded-full
-            bg-bege-claro/20
-            -z-10;
-            padding: 1px;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-    }
-
-    .projetos__content-header-nav-button {
-        @apply
-        inline-flex items-center px-5 py-3 rounded-full
-        text-base font-bold bg-bege-claro text-azul-petroleo
-        transition-all duration-500
-    }
-
-    .projetos__content-header-nav-button:hover:not(:disabled),
-    .projetos__content-header-nav-button.active:not(:disabled) {
-        @apply
-        bg-azul-petroleo text-bege-claro
     }
 
     .projetos__content-infos h3 {

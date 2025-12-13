@@ -4,7 +4,7 @@
         --tag-outline-color: theme('colors.marrom-claro.DEFAULT');
     }
 
-    .section-theme-dark {
+    .theme-dark {
         --tag-text-color: theme('colors.marrom-claro.300');
         --tag-outline-color: theme('colors.marrom-claro.300');
     }

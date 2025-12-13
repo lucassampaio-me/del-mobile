@@ -52,26 +52,26 @@
 
     /* Hero Carousel */
 
-    .embla {
+    .hero__carousel.embla {
         margin: auto;
         --slide-spacing: 40px;
         --slide-size: 100%;
     }
-    .embla__viewport {
+    .hero__carousel .embla__viewport {
         overflow: hidden;
     }
-    .embla__container {
+    .hero__carousel .embla__container {
         display: flex;
         touch-action: pan-y pinch-zoom;
         margin-left: calc(var(--slide-spacing) * -1);
     }
-    .embla__slide {
+    .hero__carousel .embla__slide {
         flex: 0 0 calc(var(--slide-size) - (var(--slide-spacing) * 2 - 8px));
         min-width: 0;
         padding-left: var(--slide-spacing);
     }
 
-    .embla__slide img {
+    .hero__carousel .embla__slide img {
         @apply
         block w-full h-auto object-cover
     }

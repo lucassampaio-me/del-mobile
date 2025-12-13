@@ -16,6 +16,7 @@
 @import "./styles/sections/hero.css";
 @import "./styles/sections/nossa-historia.css";
 @import "./styles/sections/nossos-servicos.css";
+@import "./styles/sections/nosso-processo.css";
 
 /* Componentetes reutilizáveis - Layouts */
 @import "./styles/global/header.css";

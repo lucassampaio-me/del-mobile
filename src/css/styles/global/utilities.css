@@ -2,5 +2,6 @@
     .container {
         @apply
         px-10
+        max-w-full
     }
 }

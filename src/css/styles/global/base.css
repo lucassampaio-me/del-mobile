@@ -8,7 +8,7 @@
         --heading-color: theme('colors.vermelho-grena.DEFAULT');
     }
 
-    .section-theme-dark {
+    .theme-dark {
         --text-color: theme('colors.bege-claro.DEFAULT');
         --heading-color: theme('colors.bege-claro.100');
     }

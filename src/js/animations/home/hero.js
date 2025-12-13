@@ -66,4 +66,6 @@ function heroAnimation() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', heroAnimation);
+document.addEventListener('DOMContentLoaded', () => {
+    document.fonts.ready.then(heroAnimation);
+});

@@ -100,3 +100,6 @@ $has_more = $projetos_query->post_count < $total_posts;
         <?php endif; ?>
     </div>
 </section>
+
+<!-- Container para o Modal -->
+<div id="portfolio-modal-container"></div>

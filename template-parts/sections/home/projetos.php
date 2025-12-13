@@ -40,7 +40,7 @@ if ($projetos) {
                     <div class="content-text">
                         <h2>Projetos</h2>
                     </div>
-                    <a href="#" class="btn">
+                    <a href="/portfolio" class="btn">
                         <span>Ver portfólio completo</span>
                         <?php echo icon('arrow-up-right'); ?>
                     </a>

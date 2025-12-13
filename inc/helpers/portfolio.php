@@ -153,3 +153,70 @@ function delmobile_get_portfolio_filter_data() {
 
     return $filter_data;
 }
+
+/**
+ * Renderiza o conteúdo do modal de um projeto
+ *
+ * @param WP_Post $post Objeto do post do projeto
+ * @return string HTML do conteúdo do modal
+ */
+function delmobile_render_portfolio_modal_content($post) {
+    if (!$post) return '';
+
+    $projeto_id = $post->ID;
+    $imagens = get_field('imagens', $projeto_id);
+    $descricao = get_field('descricao', $projeto_id);
+
+    ob_start();
+    ?>
+    <div class="portfolio-modal__wrapper theme-dark">
+        <!-- Conteúdo -->
+        <div class="portfolio-modal__content">
+            <header class="portfolio-modal__header">
+                <div class="content-text">
+                    <h2><?php echo esc_html($post->post_title); ?></h2>
+                    <p><?php echo $descricao; ?></p>
+                    <button class="portfolio-modal__close btn" type="button" aria-label="Voltar">
+                        <?php echo icon('arrow-left'); ?>
+                        <span>Voltar</span>
+                    </button>
+                </div>
+            </header>
+
+            <footer class="portfolio-modal__footer">
+                
+                <?php if (count($imagens) > 1) : ?>
+                    <div class="portfolio-modal__gallery-nav navigation-slides navigation-resize">
+                        <button class="navigation-slides__button navigation-slides__button--prev" type="button" aria-label="Anterior">
+                            <?php echo icon('caret-left'); ?>
+                        </button>
+                        <button class="navigation-slides__button navigation-slides__button--next" type="button" aria-label="Próximo">
+                            <?php echo icon('caret-right'); ?>
+                        </button>
+                    </div>
+                <?php endif; ?>
+            </footer>
+        </div>
+
+        <!-- Galeria / Imagem -->
+        <div class="portfolio-modal__gallery">
+            <div class="embla portfolio-modal__gallery-slider">
+                <div class="embla__container portfolio-modal__gallery-container">
+                    <?php foreach ($imagens as $imagem) : ?>
+                        <div class="embla__slide portfolio-modal__gallery-slide">
+                            <img 
+                                src="<?php echo esc_url($imagem['url']); ?>" 
+                                alt="<?php echo esc_attr($imagem['alt']); ?>" 
+                                class="portfolio-modal__gallery-image"
+                            >
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}

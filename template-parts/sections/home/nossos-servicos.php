@@ -61,7 +61,7 @@ $nossos_servicos_itens = get_field('nossos_servicos_itens');
                     </div>
 
                     <div class="nossos-servicos__item-images-btn">
-                        <a href="#" class="btn btn-secondary">
+                        <a href="/portfolio" class="btn btn-secondary">
                             <span>Ver portfólio</span>
                             <?php echo icon('images');?>
                         </a>

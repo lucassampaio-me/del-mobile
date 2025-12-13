@@ -20,13 +20,13 @@ $hero_imagens = get_field('hero_imagens');
                 <div class="hero__content-left-text content-text content-text-large">
                     <p><?php echo $hero_subtitulo; ?></p>
                     <div class="btn-wrapper">
-                        <a href="#" class="btn btn-primary">
+                        <a href="/portfolio" class="btn btn-primary">
                             <span><?php echo $hero_btn_text; ?></span>
                         </a>
                     </div>
                 </div>
                 <div class="hero__content-left-more">
-                    <a href="#" class="link-more">
+                    <a href="#nossa-historia" class="link-more">
                         <span>Descubra mais</span>
                         <?php echo icon('arrow-down'); ?>
                     </a>

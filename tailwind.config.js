@@ -17,6 +17,22 @@ module.exports = {
     'lg:col-span-2',
     'lg:row-span-1',
     'lg:row-span-2',
+    // Classes modal de projetos
+    'portfolio-modal',
+    'portfolio-modal__overlay',
+    'portfolio-modal.is-open',
+    'portfolio-modal__wrapper',
+    'portfolio-modal__close',
+    'portfolio-modal__gallery',
+    'portfolio-modal__gallery-slider',
+    'portfolio-modal__gallery-container',
+    'portfolio-modal__gallery-slide',
+    'portfolio-modal__gallery-image',
+    'portfolio-modal__gallery-nav',
+    'portfolio-modal__content',
+    'portfolio-modal__loading',
+    'portfolio-modal__loading-text',
+    'portfolio-modal__loading.is-visible',
   ],
   theme: {
     extend: {

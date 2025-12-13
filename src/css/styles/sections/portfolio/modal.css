@@ -1,0 +1,113 @@
+@layer components {
+    .portfolio-modal {
+        @apply
+        fixed inset-0 z-50 p-10
+        flex items-center justify-center
+        pointer-events-none opacity-0
+        hidden
+    }
+    
+    .portfolio-modal.is-open {
+        @apply
+        pointer-events-auto opacity-100 block
+    }
+
+    .portfolio-modal__loading {
+        @apply
+        absolute inset-0 z-50
+        flex items-center justify-center
+        text-bege-claro-50
+        bg-azul-petroleo-950/60
+        backdrop-blur-sm
+        opacity-0 pointer-events-none
+        transition-opacity duration-300
+    }
+
+    .portfolio-modal__loading.is-visible {
+        @apply
+        opacity-100 pointer-events-auto
+    }
+
+    .portfolio-modal__loading-text {
+        @apply
+        ml-4 text-xl font-medium
+    }
+    
+    .portfolio-modal__overlay {
+        @apply
+        absolute inset-0
+        bg-azul-petroleo-950/60
+        backdrop-blur-md
+    }
+    
+    .portfolio-modal__wrapper {
+        @apply
+        relative z-10
+        w-full h-full
+        bg-azul-petroleo
+        overflow-hidden
+        shadow-2xl
+        flex flex-col lg:flex-row
+    }
+    
+    /* Gallery Section */
+    .portfolio-modal__gallery {
+        @apply
+        w-full h-[40vh] lg:h-full
+        bg-bege-claro-200
+        relative overflow-hidden
+    }
+    
+    .portfolio-modal__gallery-slider {
+        @apply w-full h-full
+    }
+    
+    .portfolio-modal__gallery-container {
+        @apply flex w-full h-full
+    }
+    
+    .portfolio-modal__gallery-slide {
+        @apply
+        flex-[0_0_100%] min-w-0
+        relative w-full h-full
+    }
+    
+    .portfolio-modal__gallery-image {
+        @apply
+        w-full h-full object-cover
+    }
+    
+    /* Gallery Navigation */
+    .portfolio-modal__gallery-nav {
+        @apply
+        absolute bottom-8 left-8 z-20
+    }
+    
+    /* Content Section */
+    .portfolio-modal__content {
+        @apply
+        w-full lg:max-w-[32%] max-w-full h-auto lg:h-full
+        overflow-y-auto
+        p-8 lg:p-12
+        flex flex-col
+    }
+    
+    .portfolio-modal__header {
+        @apply mb-8
+    }
+
+    .portfolio-modal__header .content-text h2 {
+        @apply
+        text-2xl
+    }
+
+    .portfolio-modal__header .btn {
+        @apply
+        mt-2
+    }
+    
+    .portfolio-modal__footer {
+        @apply
+        mt-auto pt-12
+    }    
+}

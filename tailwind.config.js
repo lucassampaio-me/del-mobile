@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "./*.php",
     "./template-parts/**/*.php",
-    "./src/js/*.js"
+    "./src/js/*.js",
+    "./inc/helpers/*.php"
   ],
   safelist: [
     'ph-icon',

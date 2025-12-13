@@ -9,7 +9,7 @@
  */
 
 // Configuração
-$posts_per_page = 1;
+$posts_per_page = 8;
 
 // Busca todos os termos da taxonomia "tipo"
 $tipos = get_terms([

@@ -107,3 +107,49 @@ function delmobile_get_bento_size_class($index) {
 
     return $pattern[$index % count($pattern)];
 }
+
+/**
+ * Retorna dados de contagem de projetos por filtro/taxonomia
+ *
+ * Usado para informar ao JavaScript quantos projetos existem em cada categoria,
+ * permitindo que o botão "Ver mais" funcione corretamente com filtros.
+ *
+ * @return array Array associativo com slug do termo => ['total' => int, 'loaded' => int]
+ */
+function delmobile_get_portfolio_filter_data() {
+    $filter_data = [];
+    $posts_per_page = 8; // Deve corresponder ao valor em portfolio-grid.php
+
+    // Buscar todos os termos da taxonomia "tipo"
+    $tipos = get_terms([
+        'taxonomy'   => 'tipo',
+        'hide_empty' => true,
+    ]);
+
+    if ($tipos && !is_wp_error($tipos)) {
+        foreach ($tipos as $tipo) {
+            // Contar total de projetos nesta categoria
+            $total_query = new WP_Query([
+                'post_type'      => 'projeto',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+                'tax_query'      => [
+                    [
+                        'taxonomy' => 'tipo',
+                        'field'    => 'slug',
+                        'terms'    => $tipo->slug,
+                    ]
+                ]
+            ]);
+
+            $filter_data[$tipo->slug] = [
+                'total'  => $total_query->found_posts,
+                'loaded' => 0, // Inicialmente 0, será calculado dinamicamente no JS
+            ];
+
+            wp_reset_postdata();
+        }
+    }
+
+    return $filter_data;
+}

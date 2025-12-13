@@ -34,6 +34,24 @@
         let isLoading = false;
         let currentIndex = parseInt(gridContainer.dataset.loadedPosts) || 0;
 
+        // Rastrear posts carregados por filtro
+        // Inicializa com os dados do PHP (se disponíveis)
+        const filterData = window.portfolio_ajax?.filter_data || {};
+        const loadedByFilter = {
+            all: parseInt(gridContainer.dataset.loadedPosts) || 0
+        };
+        const totalByFilter = {
+            all: parseInt(gridContainer.dataset.totalPosts) || 0
+        };
+
+        // Inicializar contagens de filtros específicos a partir dos dados do PHP
+        if (filterData) {
+            Object.keys(filterData).forEach(filter => {
+                loadedByFilter[filter] = filterData[filter].loaded || 0;
+                totalByFilter[filter] = filterData[filter].total || 0;
+            });
+        }
+
         /**
          * Retorna todos os itens do grid (atualizado dinamicamente)
          */
@@ -58,6 +76,21 @@
         }
 
         /**
+         * Conta quantos itens de um filtro específico existem no DOM
+         * @param {string} filterValue - Valor do filtro ('all' ou slug da taxonomia)
+         * @returns {number} Quantidade de itens no DOM para este filtro
+         */
+        function countItemsInDomForFilter(filterValue) {
+            const gridItems = getGridItems();
+            if (filterValue === 'all') {
+                return gridItems.length;
+            }
+            return Array.from(gridItems).filter(item =>
+                item.getAttribute('data-project-type') === filterValue
+            ).length;
+        }
+
+        /**
          * Filtra os itens do grid usando GSAP Flip
          * @param {string} filterValue - Valor do filtro ('all' ou slug da taxonomia)
          */
@@ -70,11 +103,15 @@
             const gridItems = getGridItems();
             const state = Flip.getState(gridItems);
 
+            // Contar e exibir/ocultar itens
             gridItems.forEach(item => {
                 const itemType = item.getAttribute('data-project-type');
                 const shouldShow = filterValue === 'all' || itemType === filterValue;
                 item.style.display = shouldShow ? '' : 'none';
             });
+
+            // SEMPRE atualizar a contagem do filtro baseado nos itens reais no DOM
+            loadedByFilter[filterValue] = countItemsInDomForFilter(filterValue);
 
             updateContainerHeight();
 
@@ -92,11 +129,9 @@
                 ),
                 onComplete: () => {
                     isAnimating = false;
+                    updateLoadMoreVisibility();
                 }
             });
-
-            // Atualizar visibilidade do botão baseado no filtro
-            updateLoadMoreVisibility();
         }
 
         /**
@@ -105,16 +140,19 @@
         function updateLoadMoreVisibility() {
             if (!loadMoreWrapper) return;
 
-            const totalPosts = parseInt(gridContainer.dataset.totalPosts) || 0;
-            const loadedPosts = parseInt(gridContainer.dataset.loadedPosts) || 0;
+            // Usar contagens específicas do filtro atual
+            const loaded = loadedByFilter[currentFilter] || 0;
+            const total = totalByFilter[currentFilter] || 0;
 
-            // Se há filtro ativo, sempre mostrar o botão (o backend decide se há mais)
-            // Se não há mais posts, ocultar
-            if (loadedPosts >= totalPosts && currentFilter === 'all') {
+            // Se todos os posts do filtro atual foram carregados, ocultar
+            if (loaded >= total) {
                 loadMoreWrapper.style.display = 'none';
-            } else {
-                loadMoreWrapper.style.display = '';
+                return;
             }
+
+            // Mostrar botão e resetar opacity (caso tenha sido animado para 0)
+            loadMoreWrapper.style.display = '';
+            gsap.set(loadMoreWrapper, { opacity: 1 });
         }
 
         /**
@@ -133,7 +171,8 @@
             loadMoreBtn.dataset.loading = 'true';
 
             try {
-                const loadedPosts = parseInt(gridContainer.dataset.loadedPosts) || 0;
+                // Usar offset específico do filtro atual
+                const filterOffset = loadedByFilter[currentFilter] || 0;
                 const postsPerPage = window.portfolio_ajax.posts_per_page || 8;
 
                 const response = await fetch(window.portfolio_ajax.ajax_url, {
@@ -144,7 +183,7 @@
                     body: new URLSearchParams({
                         action: 'delmobile_load_more_portfolio',
                         nonce: window.portfolio_ajax.nonce,
-                        offset: loadedPosts,
+                        offset: filterOffset,
                         posts_per_page: postsPerPage,
                         filter: currentFilter,
                         current_index: currentIndex
@@ -165,24 +204,26 @@
                     const allItems = getGridItems();
                     const newItems = Array.from(allItems).slice(currentItems.length);
 
-                    // Aplicar filtro atual aos novos itens (se necessário)
-                    if (currentFilter !== 'all') {
-                        newItems.forEach(item => {
-                            const itemType = item.getAttribute('data-project-type');
-                            if (itemType !== currentFilter) {
-                                item.style.display = 'none';
-                            }
-                        });
-                    }
+                    // Aplicar filtro atual aos novos itens
+                    // Novos itens vêm do filtro atual, então mostrar apenas se filtro = all
+                    // ou se o item pertence ao filtro atual
+                    newItems.forEach(item => {
+                        const itemType = item.getAttribute('data-project-type');
+                        const shouldShow = currentFilter === 'all' || itemType === currentFilter;
+                        item.style.display = shouldShow ? '' : 'none';
+                    });
 
-                    // Preparar novos itens para animação
-                    gsap.set(newItems, { opacity: 0, scale: 0.6 });
+                    // Filtrar apenas itens visíveis para animação
+                    const visibleNewItems = newItems.filter(item => item.style.display !== 'none');
+
+                    // Preparar novos itens visíveis para animação
+                    gsap.set(visibleNewItems, { opacity: 0, scale: 0.6 });
 
                     // Atualizar altura do container
                     updateContainerHeight();
 
-                    // Animar novos itens
-                    gsap.to(newItems, {
+                    // Animar novos itens visíveis
+                    gsap.to(visibleNewItems, {
                         opacity: 1,
                         scale: 1,
                         duration: 0.5,
@@ -190,22 +231,16 @@
                         ease: 'power2.out'
                     });
 
-                    // Atualizar dados do container
-                    gridContainer.dataset.loadedPosts = data.data.loaded_count;
+                    // Atualizar contagens baseado nos itens reais no DOM
+                    loadedByFilter[currentFilter] = countItemsInDomForFilter(currentFilter);
+                    loadedByFilter['all'] = getGridItems().length;
                     currentIndex = data.data.next_index;
 
-                    // Ocultar botão se não há mais projetos
-                    if (!data.data.has_more) {
-                        if (loadMoreWrapper) {
-                            gsap.to(loadMoreWrapper, {
-                                opacity: 0,
-                                duration: 0.3,
-                                onComplete: () => {
-                                    loadMoreWrapper.style.display = 'none';
-                                }
-                            });
-                        }
-                    }
+                    // Atualizar o data attribute do container
+                    gridContainer.dataset.loadedPosts = loadedByFilter['all'];
+
+                    // Atualizar visibilidade do botão baseado nos dados atualizados
+                    updateLoadMoreVisibility();
                 }
             } catch (error) {
                 console.error('Erro ao carregar mais projetos:', error);
@@ -234,10 +269,18 @@
          * @param {Event} event - Evento de clique
          */
         function handleFilterClick(event) {
+            // Bloquear cliques durante animação ou carregamento
+            if (isAnimating || isLoading) return;
+
             const button = event.currentTarget;
             const filterValue = button.getAttribute('data-filter');
 
+            // Não fazer nada se clicar no mesmo filtro
+            if (filterValue === currentFilter) return;
+
+            // Atualizar visual do botão ativo
             updateActiveButton(button);
+
             filterItems(filterValue);
         }
 

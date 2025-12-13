@@ -1,0 +1,31 @@
+@layer components {
+    :root {
+        --tag-text-color: theme('colors.marrom-claro.DEFAULT');
+        --tag-outline-color: theme('colors.marrom-claro.DEFAULT');
+    }
+
+    .section-theme-dark {
+        --tag-text-color: theme('colors.marrom-claro.300');
+        --tag-outline-color: theme('colors.marrom-claro.300');
+    }
+
+    .tag {
+        @apply
+        relative
+    }
+
+    .tag-item {
+        @apply
+        relative inline-flex items-center justify-center
+        text-xs font-medium uppercase tracking-widest text-nowrap
+        px-2.5 py-1 rounded-full
+        outline outline-1;
+        color: var(--tag-text-color);
+        outline-color: var(--tag-outline-color);
+    }
+
+    .tag-item span {
+        @apply
+        relative -mb-0.5
+    }
+}

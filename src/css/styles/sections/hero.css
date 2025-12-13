@@ -7,14 +7,6 @@
         bg-bege-claro
     }
 
-    .hero__curve {
-        @apply
-        absolute -top-0.5 left-0
-        w-full h-10
-        pointer-events-none
-        *:*:fill-bege-claro-50
-    }
-
     .hero__header {
         @apply
         pt-10 px-8
@@ -40,18 +32,13 @@
 
     .hero__content-right {
         @apply
-        w-full -mb-10 rounded-tl-4xl overflow-hidden
+        w-full -mb-12 rounded-tl-4xl overflow-hidden
     }
 
     .hero__content-left-text {
         @apply
         w-auto max-w-[434px] min-w-[434px]
         flex flex-col items-start gap-4
-    }
-
-    .hero__content-left-text p {
-        @apply
-        text-2xl
     }
 
     .hero__content-left-more a {

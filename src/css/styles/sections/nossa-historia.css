@@ -1,0 +1,39 @@
+@layer components {
+    /* Nossa História */
+    .nossa-historia {
+        @apply
+        relative pt-36 pb-24
+    }
+
+    .nossa-historia__header {
+        @apply
+        pb-10 mb-10 border-b border-bege-claro
+    }
+
+    .nossa-historia__header .content-text {
+        @apply
+        max-w-[662px]
+    }
+
+    .nossa-historia__content-left {
+        @apply
+        relative h-full
+        rounded-tl-4xl overflow-hidden
+    }
+
+    .nossa-historia__content-left .content-image {
+        @apply
+        h-full
+    }
+
+    .nossa-historia__content-left img {
+        @apply
+        absolute top-0 left-0
+        w-full h-full object-cover object-center
+    }
+
+    .nossa-historia__content-right {
+        @apply
+        flex flex-col items-start gap-20
+    }
+}

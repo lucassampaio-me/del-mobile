@@ -1,0 +1,120 @@
+@layer components {
+    /* Nossos Serviços */
+    .nossos-servicos {
+        @apply
+        relative pt-24 rounded-tl-4xl
+        bg-azul-petroleo
+    }
+
+    .nossos-servicos__header {
+        @apply
+        pb-14
+    }
+
+    .nossos-servicos__itens {
+        @apply
+        relative
+    }
+
+    .nossos-servicos__item {
+        @apply
+        flex items-stretch
+        min-h-dvh
+        border-t border-azul-petroleo-900
+    }
+
+    .nossos-servicos__item-content,
+    .nossos-servicos__item-images {
+        @apply
+        relative
+        w-full h-auto
+    }
+
+    .nossos-servicos__item-content {
+        @apply
+        flex flex-col justify-between
+    }
+
+    .nossos-servicos__item-content-text {
+        @apply
+        p-10
+    }
+
+    .nossos-servicos__item-content-text.content-text h3 {
+        @apply
+        text-7xl
+    }
+
+    .nossos-servicos__item-content-text.content-text p {
+        @apply
+        text-xl
+    }
+
+    .nossos-servicos__item-images {
+        @apply
+        max-w-[44%]
+    }
+
+    .nossos-servicos__item-images-item {
+        @apply
+        w-full h-full
+        absolute top-0 left-0
+    }
+
+    .nossos-servicos__item-images-item img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .nossos-servicos__item-images-btn {
+        @apply
+        absolute z-10
+        w-full p-10 bottom-0 left-0
+        flex items-center justify-end
+        bg-gradient-to-t from-azul-petroleo-900/90 to-transparent
+    }
+
+    .nossos-servicos__item-content-destaques {
+        @apply
+        flex flex-col items-start
+    }
+
+    .nossos-servicos__item-content-destaques-item {
+        @apply
+        w-full p-10
+        flex items-center justify-start gap-6
+        border-t border-azul-petroleo-900
+        hover:bg-azul-petroleo-900
+        transition-all duration-500
+    }
+
+    .nossos-servicos__item-content-destaques-item span {
+        @apply
+        text-xl;
+        color: var(--text-color);
+    }
+
+    .nossos-servicos__item-content-destaques-item-icon {
+        @apply
+        w-20 h-20 min-h-20 min-w-20
+        flex items-center justify-center
+        rounded-full border border-azul-petroleo-900
+        transition-all duration-500
+    }
+
+    .nossos-servicos__item-content-destaques-item-icon .ph-icon {
+        @apply
+        text-5xl text-bege-claro
+        transition-all duration-500
+    }
+
+    .nossos-servicos__item-content-destaques-item:hover .nossos-servicos__item-content-destaques-item-icon {
+        @apply
+        bg-bege-claro border-bege-claro
+    }
+
+    .nossos-servicos__item-content-destaques-item:hover .nossos-servicos__item-content-destaques-item-icon .ph-icon {
+        @apply
+        text-azul-petroleo
+    }
+}

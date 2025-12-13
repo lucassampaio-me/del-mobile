@@ -7,12 +7,15 @@
 @import "./styles/components/buttons.css";
 @import "./styles/components/content.css";
 @import "./styles/components/tags.css";
+@import "./styles/components/curve-section.css";
 
 /* Componentetes reutilizáveis - Com possíveis agrupamentos */
 @import "./styles/components/cards.css";
 
 /* Componentetes reutilizáveis - Sections */
 @import "./styles/sections/hero.css";
+@import "./styles/sections/nossa-historia.css";
+@import "./styles/sections/nossos-servicos.css";
 
 /* Componentetes reutilizáveis - Layouts */
 @import "./styles/global/header.css";

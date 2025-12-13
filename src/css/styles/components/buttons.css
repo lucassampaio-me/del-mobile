@@ -13,4 +13,10 @@
         bg-vermelho-grena text-bege-claro-50
         hover:bg-vermelho-grena-950
     }
+
+    .btn-secondary {
+        @apply
+        bg-azul-petroleo text-bege-claro-50
+        hover:bg-azul-petroleo-900
+    }
 }

@@ -17,7 +17,7 @@ $hero_imagens = get_field('hero_imagens');
 
         <div class="hero__content">
             <div class="hero__content-left">
-                <div class="hero__content-left-text">
+                <div class="hero__content-left-text content-text content-text-large">
                     <p><?php echo $hero_subtitulo; ?></p>
                     <a href="#" class="btn btn-primary">
                         <span><?php echo $hero_btn_text; ?></span>
@@ -54,7 +54,7 @@ $hero_imagens = get_field('hero_imagens');
         </div>
     </div>
 
-    <div class="hero__curve">
+    <div class="curve-section">
         <svg width="40" height="42" viewBox="0 0 40 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 42C0 19.9086 17.9086 2 40 2V0L0 0L0 2L0 42Z" fill="currentColor"/>
         </svg>

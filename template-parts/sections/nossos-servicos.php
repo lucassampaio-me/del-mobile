@@ -6,7 +6,7 @@ $header_subtitulo = $nossos_servicos_header['subtitulo'];
 $nossos_servicos_itens = get_field('nossos_servicos_itens');
 ?>
 
-<section class="nossos-servicos theme-dark">
+<section id="nossos-servicos" class="nossos-servicos theme-dark">
     <div class="nossos-servicos__header">
         <div class="container">
             <div class="flex gap-10 items-end justify-between">

@@ -5,7 +5,7 @@ $hero_btn_text = get_field('hero_btn-txt');
 $hero_imagens = get_field('hero_imagens');
 ?>
 
-<section class="hero">
+<section id="hero" class="hero">
     <div class="hero__container">
         <div class="hero__header">
             <div class="w-full">

@@ -7,7 +7,7 @@ $nossa_historia_btn_txt = get_field('nossa_historia_btn-txt');
 $nossa_historia_btn_anchor = '#fale-conosco';
 ?>
 
-<section class="nossa-historia">
+<section id="nossa-historia" class="nossa-historia">
     <div class="container">
         <div class="flex gap-10 items-start nossa-historia__header">
             <div class="tag">

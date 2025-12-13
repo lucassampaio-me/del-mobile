@@ -168,7 +168,48 @@ function initProjetosSection() {
         return emblaApi;
     }
     
+    /**
+     * Scroll Snap Effect
+     * Faz a seção "snap" para aparecer full-size quando o usuário rolar até ela
+     */
+    function initScrollSnapEffect() {
+        // Validação: verificar se GSAP e ScrollTrigger estão disponíveis
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+            console.warn('GSAP ou ScrollTrigger não disponível para snap effect');
+            return;
+        }
+
+        // Registrar plugin ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        const projetosSection = document.querySelector('.projetos');
+        if (!projetosSection) return;
+
+        // Configurar ScrollTrigger para snap
+        ScrollTrigger.create({
+            trigger: projetosSection,
+            start: 'top bottom',      // Inicia quando topo da seção atinge bottom da viewport
+            end: 'top top',           // Termina quando topo da seção atinge top da viewport (seção 100% visível)
+
+            // Snap configuration
+            snap: {
+                snapTo: 1,            // Snap para quando a seção está 100% visível (end position)
+                duration: {
+                    min: 0.2,         // Duração mínima do snap
+                    max: 0.4          // Duração máxima (adapta à velocidade do scroll)
+                },
+                delay: 0.05,           // Aguarda 100ms após parar de rolar
+                ease: "power2.inOut", // Easing suave
+                directional: false,   // Snap em ambas direções (scroll up/down)
+                inertia: true        // Respeita inércia do scroll
+            }
+        });
+
+        console.log('✓ Projetos scroll snap inicializado');
+    }
+
     initCarousel();
+    initScrollSnapEffect();
 }
 
 window.initProjetosSection = initProjetosSection;

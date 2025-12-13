@@ -7,7 +7,7 @@ $contato_email = get_field('contato_email');
 $contato_endereco = get_field('contato_endereco');
 ?>
 
-<section class="fale-conosco">
+<section id="fale-conosco" class="fale-conosco">
     <div class="container">
         <div class="grid grid-cols-2 gap-10 mb-10">
             <div class="col-span-1 fale-conosco__content">

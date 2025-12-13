@@ -4,7 +4,7 @@ $dicas_titulo = get_field('dicas_titulo');
 $dicas_itens = get_field('dicas_itens');
 ?>
 
-<section class="dicas theme-dark">
+<section id="dicas" class="dicas theme-dark">
     <div class="container">
         <div class="flex items-center gap-10 mb-10">
             <div class="tag">

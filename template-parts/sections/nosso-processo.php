@@ -5,7 +5,7 @@ $nosso_processo_itens = get_field('nosso_processo_itens');
 ?>
 
 
-<section class="nosso-processo">
+<section id="nosso-processo" class="nosso-processo">
     <div class="container">
         <div class="flex gap-10 items-end nosso-processo__header">
             <div class="w-full flex gap-10 items-start">

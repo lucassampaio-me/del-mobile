@@ -50,24 +50,35 @@ function initSmoothScroll() {
         console.log('✓ Lenis inicializado (sem GSAP)');
     }
 
-    // Tratamento de links âncora para smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Tratamento de links âncora para smooth scroll (suporta links absolutos e relativos)
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
+            // Usa a propriedade .href para obter a URL absoluta completa
+            const anchorUrl = new URL(this.href);
+            const currentUrl = new URL(window.location.href);
 
-            // Ignora links vazios (#) ou # sozinho
-            if (!targetId || targetId === '#') {
-                return;
-            }
+            // Verifica se o link aponta para a mesma página (hostname e pathname iguais)
+            // Remove barras finais para evitar descasamentos (ex: /home vs /home/)
+            const anchorPath = anchorUrl.pathname.replace(/\/$/, '');
+            const currentPath = currentUrl.pathname.replace(/\/$/, '');
 
-            const targetElement = document.querySelector(targetId);
+            if (anchorUrl.hostname === currentUrl.hostname && anchorPath === currentPath) {
+                const targetId = anchorUrl.hash;
 
-            if (targetElement) {
-                e.preventDefault();
-                lenis.scrollTo(targetElement, {
-                    offset: 0,
-                    duration: 1.2,
-                });
+                // Ignora links vazios (#) ou # sozinho
+                if (!targetId || targetId === '#') {
+                    return;
+                }
+
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    lenis.scrollTo(targetElement, {
+                        offset: 0,
+                        duration: 1.2,
+                    });
+                }
             }
         });
     });

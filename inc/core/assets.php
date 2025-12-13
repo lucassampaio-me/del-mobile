@@ -41,6 +41,13 @@
 	wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-dicas-section', get_template_directory_uri() . '/src/js/modules/dicasSection.js', array('delmobile-cursor-follow'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-global', get_template_directory_uri() . '/src/js/modules/global.js', array(), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-contact-form', get_template_directory_uri() . '/src/js/modules/contactForm.js', array(), DELMOBILE_VERSION, true );
+
+	// Localizar script do formulário de contato com variáveis AJAX
+	wp_localize_script( 'delmobile-contact-form', 'contact_form_ajax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'contact_form_nonce' )
+	));
 
 	// Theme principal (depende dos módulos)
 	wp_enqueue_script( 'delmobile-theme', get_template_directory_uri() . '/src/js/theme.js', array('delmobile-smooth-scroll', 'delmobile-hero-carousel'), DELMOBILE_VERSION, true );

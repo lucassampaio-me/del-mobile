@@ -1,0 +1,208 @@
+@layer components {
+
+    /* ========================================
+       Form Container
+       ======================================== */
+
+    .content-form {
+        @apply
+        w-full
+    }
+
+    .contact-form {
+        @apply
+        flex flex-col gap-8
+    }
+
+    .form-fields {
+        @apply
+        flex flex-col gap-8
+    }
+
+    /* ========================================
+       Form Inputs
+       ======================================== */
+
+    .form-input,
+    .form-textarea {
+        @apply
+        w-full
+        bg-transparent
+        border-0 border-b border-marrom-claro-300
+        pb-3 px-0
+        text-3xl text-marrom-claro-700
+        outline-none
+        transition-all duration-300
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+        @apply
+        border-b-vermelho-grena
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+        @apply
+        text-marrom-claro font-bold
+    }
+
+    /* Textarea Specific */
+    .form-textarea {
+        @apply
+        min-h-[120px]
+        resize-none
+    }
+
+    /* ========================================
+       Form States
+       ======================================== */
+
+    /* Loading State */
+    .contact-form.is-loading .form-submit {
+        @apply
+        opacity-70
+        pointer-events-none
+    }
+
+    .contact-form.is-loading .form-submit::after {
+        content: '';
+        @apply
+        w-5 h-5 ml-2
+        border-2 border-bege-claro-50 border-t-transparent
+        rounded-full
+        animate-spin
+    }
+
+    /* ========================================
+       Form Modal
+       ======================================== */
+
+    .form-modal {
+        @apply
+        fixed inset-0 z-50
+        flex items-center justify-center
+        opacity-0 invisible
+        transition-all duration-300
+    }
+
+    .form-modal.is-open {
+        @apply
+        opacity-100 visible
+    }
+
+    .form-modal-backdrop {
+        @apply
+        absolute inset-0
+        bg-azul-petroleo/60
+    }
+
+    .form-modal-content {
+        @apply
+        relative
+        w-full max-w-md
+        bg-bege-claro-50
+        rounded-tl-4xl
+        p-8
+        text-center
+        transform scale-95
+        transition-transform duration-300
+    }
+
+    .form-modal.is-open .form-modal-content {
+        @apply
+        scale-100
+    }
+
+    .form-modal-close {
+        @apply
+        absolute top-4 right-4
+        w-10 h-10
+        flex items-center justify-center
+        text-marrom-claro-500
+        hover:text-vermelho-grena
+        transition-colors duration-300
+        cursor-pointer
+    }
+
+    .form-modal-close .ph-icon {
+        @apply
+        text-2xl
+    }
+
+    .form-modal-state {
+        @apply
+        hidden
+        flex-col items-center
+    }
+
+    .form-modal-state.is-active {
+        @apply
+        flex
+    }
+
+    .form-modal-icon {
+        @apply
+        w-20 h-20 mb-6
+        flex items-center justify-center
+        rounded-full
+    }
+
+    .form-modal-icon .ph-icon {
+        @apply
+        text-5xl
+    }
+
+    .form-modal-icon--success {
+        @apply
+        bg-verde-escuro-100
+        text-verde-escuro-700
+    }
+
+    .form-modal-icon--error {
+        @apply
+        bg-vermelho-grena-100
+        text-vermelho-grena-700
+    }
+
+    .form-modal-title {
+        @apply
+        text-2xl font-bold mb-2
+    }
+
+    .form-modal-state[data-state="success"] .form-modal-title {
+        @apply
+        text-verde-escuro-700
+    }
+
+    .form-modal-state[data-state="error"] .form-modal-title {
+        @apply
+        text-vermelho-grena-700
+    }
+
+    .form-modal-message {
+        @apply
+        text-marrom-claro-600
+    }
+
+    /* ========================================
+       Form Validation
+       ======================================== */
+
+    .form-field.has-error .form-input,
+    .form-field.has-error .form-textarea {
+        @apply
+        border-b-vermelho-grena
+    }
+
+    .form-field.has-error .form-label {
+        @apply
+        text-vermelho-grena
+    }
+
+    .form-error {
+        @apply
+        text-sm text-vermelho-grena
+        mt-1
+    }
+}

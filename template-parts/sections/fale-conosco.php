@@ -21,13 +21,73 @@ $contato_endereco = get_field('contato_endereco');
 
             <div class="col-span-1 fale-conosco__form">
                 <div class="content-form">
-                    <?php
-                    if ($contato_form) {
-                        // Campo Post Object retorna o objeto do post ou ID
-                        $form_id = is_object($contato_form) ? $contato_form->ID : $contato_form;
-                        echo do_shortcode('[contact-form-7 id="' . $form_id . '"]');
-                    }
-                    ?>
+                    <form class="contact-form" id="contact-form" data-form-id="<?php echo $contato_form ? (is_object($contato_form) ? $contato_form->ID : $contato_form) : ''; ?>">
+                        
+                        <!-- Form Fields -->
+                        <div class="form-fields">
+                            <div class="form-field" data-field="nome">
+                                <input type="text" id="nome" name="nome" class="form-input" autocomplete="name" placeholder="Nome:" required>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-field" data-field="email">
+                                <input type="email" id="email" name="email" class="form-input" autocomplete="email" placeholder="E-mail:" required>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-field" data-field="telefone">
+                                <input type="tel" id="telefone" name="telefone" class="form-input" autocomplete="tel" placeholder="Telefone:">
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-field" data-field="mensagem">
+                                <textarea id="mensagem" name="mensagem" class="form-textarea" rows="4" placeholder="Mensagem:" required></textarea>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="submit" class="form-submit btn btn-primary">
+                                <span class="form-submit-text">Enviar</span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <!-- Feedback Modal -->
+                    <div class="form-modal" id="form-modal">
+                        <div class="form-modal-backdrop" data-action="close-modal"></div>
+                        <div class="form-modal-content">
+                            <button type="button" class="form-modal-close" data-action="close-modal">
+                                <?php echo icon('x', 'light'); ?>
+                            </button>
+
+                            <!-- Success State -->
+                            <div class="form-modal-state" data-state="success">
+                                <div class="form-modal-icon form-modal-icon--success">
+                                    <?php echo icon('check-circle', 'thin'); ?>
+                                </div>
+                                <h3 class="form-modal-title">Mensagem enviada!</h3>
+                                <p class="form-modal-message">Em breve entraremos em contato.</p>
+                                <button type="button" class="btn btn-primary mt-6" data-action="close-modal">
+                                    <span>Fechar</span>
+                                </button>
+                            </div>
+
+                            <!-- Error State -->
+                            <div class="form-modal-state" data-state="error">
+                                <div class="form-modal-icon form-modal-icon--error">
+                                    <?php echo icon('x-circle', 'thin'); ?>
+                                </div>
+                                <h3 class="form-modal-title">Erro no envio</h3>
+                                <p class="form-modal-message">Não foi possível enviar sua mensagem. Tente novamente.</p>
+                                <button type="button" class="btn btn-primary mt-6" data-action="retry">
+                                    <span>Tentar novamente</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

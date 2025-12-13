@@ -39,6 +39,11 @@
         if (typeof window.initGlobal === 'function') {
         window.initGlobal();
         }
+
+        // Inicializar Contact Form
+        if (typeof window.initContactForm === 'function') {
+        window.initContactForm();
+        }
     }
 
     // Executar quando o DOM estiver pronto

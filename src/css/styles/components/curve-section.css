@@ -17,6 +17,13 @@
     .curve-section.curve-section--azul-petroleo {
         @apply
         *:*:fill-azul-petroleo
+        *:*:transition-all
+        *:*:duration-500
+    }
+
+    .curve-section.curve-section--azul-petroleo.is-hovered {
+        @apply
+        *:*:fill-azul-petroleo-900
     }
 
     /* Posições */

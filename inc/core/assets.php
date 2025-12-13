@@ -75,6 +75,11 @@
 		wp_enqueue_script( 'delmobile-dicas-extras-animation', get_template_directory_uri() . '/src/js/animations/home/dicas-extras.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 	}
 
+	// Carregar script de portfolio apenas na página de portfolio
+	if ( is_page_template( 'page-portfolio.php' ) ) {
+		wp_enqueue_script( 'delmobile-portfolio-hero-animation', get_template_directory_uri() . '/src/js/animations/portfolio.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
+	}
+
 	// Portfolio Grid (carregado globalmente, tem validação interna)
 	wp_enqueue_script( 'delmobile-portfolio-grid', get_template_directory_uri() . '/src/js/modules/portfolioGrid.js', array('gsap', 'gsap-flip'), DELMOBILE_VERSION, true );
 

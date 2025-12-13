@@ -23,25 +23,38 @@ function footerAnimation() {
     });
 
     if (footerLogoSVGDel) {
-        fadeIn(footerLogoSVGDel, {
-            timeline: tlFooter,
+        gsap.set(footerLogoSVGDel, {
+            opacity: 0,
+            y: 300,
+        }); 
+        tlFooter.to(footerLogoSVGDel, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
             stagger: STAGGER.tight,
+            ease: 'power3.out'
         });
     }
 
     if (footerLogoSVGMobile) {
-        fadeIn(footerLogoSVGMobile, {
-            timeline: tlFooter,
-            stagger: STAGGER.tight,
-            offset: OFFSET.with
-        });
+        gsap.set(footerLogoSVGMobile, {
+            opacity: 0,
+            y: 300,
+        }); 
+        tlFooter.to(footerLogoSVGMobile, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: STAGGER.normal,
+            ease: 'power3.out'
+        }, OFFSET.with);
     }
 
     if (footerCopyright) {
         fadeIn(footerCopyright, {
             timeline: tlFooter,
             offset: OFFSET.with
-        });
+        }, OFFSET.with);
     }
 
 }

@@ -30,6 +30,11 @@
         window.initProjetosSection();
         }
 
+        // Inicializar Dicas Section
+        if (typeof window.initDicasSection === 'function') {
+        window.initDicasSection();
+        }
+
         // Inicializar Global
         if (typeof window.initGlobal === 'function') {
         window.initGlobal();

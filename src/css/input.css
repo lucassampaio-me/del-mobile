@@ -25,6 +25,7 @@
 @import "./styles/sections/home/fale-conosco.css";
 
 @import "./styles/sections/portfolio/hero.css";
+@import "./styles/sections/portfolio/portfolio-grid.css";
 
 /* Componentetes reutilizáveis - Layouts */
 @import "./styles/global/header.css";

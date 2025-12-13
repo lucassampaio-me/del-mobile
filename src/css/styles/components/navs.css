@@ -2,14 +2,14 @@
     .portfolio__nav {
         @apply
         inline-flex items-center gap-2 p-2 rounded-full
-        bg-bege-claro/5 backdrop-blur-sm
+        bg-bege-claro/10 backdrop-blur-sm
         relative;
         
         &::before {
             content: '';
             @apply
             absolute inset-0 rounded-full
-            bg-bege-claro/20
+            bg-bege-claro-50/30
             -z-10;
             padding: 1px;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

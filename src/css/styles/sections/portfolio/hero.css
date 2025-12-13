@@ -1,6 +1,7 @@
 @layer components {
-    .hero-portfolio .portfolio__nav {
+    .hero-portfolio {
         @apply
-        -bottom-8
+        relative
+        pb-[72px]
     }
 }

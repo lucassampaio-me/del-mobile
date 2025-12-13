@@ -15,7 +15,7 @@
     .hero__header h1 {
         @apply
         text-7xl font-bold
-        max-w-[914px]
+        max-w-[954px]
     }
 
     .hero__content {

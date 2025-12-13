@@ -3,7 +3,7 @@
  */
 
 function footerAnimation() {
-    const footer = document.querySelector('footer');
+    const footer = document.querySelector('.footer');
     if (!footer) return;
 
     const footerLogo = footer.querySelector('.footer__logo');

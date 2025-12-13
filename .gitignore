@@ -38,3 +38,6 @@ wp-config.php
 # Temporary files
 *.tmp
 *.temp
+
+# AI
+/ai-context/

@@ -19,6 +19,7 @@
 @import "./styles/sections/nosso-processo.css";
 @import "./styles/sections/projetos.css";
 @import "./styles/sections/dicas.css";
+@import "./styles/sections/fale-conosco.css";
 
 /* Componentetes reutilizáveis - Layouts */
 @import "./styles/global/header.css";

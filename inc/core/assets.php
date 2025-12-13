@@ -13,7 +13,7 @@
  function del_mobile_scripts() {
     // CSS
 	wp_enqueue_style( 'del-mobile-style', get_stylesheet_uri(), array(), DEL_MOBILE_VERSION );
-    wp_enqueue_style( 'del-mobile-theme', get_template_directory_uri() . '/src/css/theme.css', array(), DEL_MOBILE_VERSION );
+    wp_enqueue_style( 'del-mobile-theme', get_template_directory_uri() . '/src/css/output.css', array(), DEL_MOBILE_VERSION );
 
 	// Scripts globais
 	wp_enqueue_script( 'del-mobile-theme', get_template_directory_uri() . '/src/js/theme.js', array(), DEL_MOBILE_VERSION, true );

@@ -6,6 +6,21 @@
         border-t border-bege-claro
     }
 
+    /* Suporte para animações 3D no logo */
+    .footer__logo .content-image {
+        perspective: 1000px;
+        perspective-origin: center center;
+    }
+
+    .footer__logo svg {
+        transform-style: preserve-3d;
+    }
+
+    .footer__logo svg path {
+        transform-origin: center center;
+        will-change: transform;
+    }
+
     .footer__copyright {
         @apply
         py-6

@@ -53,7 +53,6 @@ function nossosServicosAnimation() {
             trigger: nossosServicosItens,
             start: 'top 80%',
             end: '100px 50%',
-            markers: true,
             scrub: 0.8,
             once: true,
         },

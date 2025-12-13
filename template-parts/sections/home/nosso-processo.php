@@ -19,7 +19,7 @@ $nosso_processo_itens = get_field('nosso_processo_itens');
                 </div>
             </div>
 
-            <div class="w-auto">
+            <div class="w-auto nosso-processo__carousel-nav-wrapper">
                 <div class="nosso-processo__carousel-nav navigation-slides navigation-slides-primary">
                     <button class="nosso-processo__carousel-nav-button nosso-processo__carousel-nav-button--prev navigation-slides__button navigation-slides__button--prev">
                         <?php echo icon('arrow-left'); ?>

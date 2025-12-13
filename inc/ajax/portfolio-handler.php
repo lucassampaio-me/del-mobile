@@ -91,6 +91,40 @@ function delmobile_load_more_portfolio() {
     ]);
 }
 
+/**
+ * Carrega o conteúdo do modal de um projeto
+ */
+function delmobile_get_portfolio_modal() {
+    // Verificar nonce
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'portfolio_modal_nonce')) {
+        wp_send_json_error([
+            'message' => 'Erro de segurança',
+            'details' => 'Token de segurança inválido'
+        ]);
+    }
+
+    $project_id = isset($_POST['project_id']) ? absint($_POST['project_id']) : 0;
+
+    if (!$project_id) {
+        wp_send_json_error(['message' => 'ID do projeto não fornecido']);
+    }
+
+    $post = get_post($project_id);
+
+    if (!$post || $post->post_type !== 'projeto') {
+        wp_send_json_error(['message' => 'Projeto não encontrado']);
+    }
+
+    $html = delmobile_render_portfolio_modal_content($post);
+
+    wp_send_json_success([
+        'html' => $html
+    ]);
+}
+
 // Registrar actions AJAX
 add_action('wp_ajax_delmobile_load_more_portfolio', 'delmobile_load_more_portfolio');
 add_action('wp_ajax_nopriv_delmobile_load_more_portfolio', 'delmobile_load_more_portfolio');
+
+add_action('wp_ajax_delmobile_get_portfolio_modal', 'delmobile_get_portfolio_modal');
+add_action('wp_ajax_nopriv_delmobile_get_portfolio_modal', 'delmobile_get_portfolio_modal');

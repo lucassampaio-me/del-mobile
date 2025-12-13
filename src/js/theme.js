@@ -54,6 +54,11 @@
         if (typeof window.initPortfolioGrid === 'function') {
             window.initPortfolioGrid();
         }
+
+        // Inicializar Portfolio Modal
+        if (typeof window.initPortfolioModal === 'function') {
+            window.initPortfolioModal();
+        }
     }
 
     // Executar quando o DOM estiver pronto

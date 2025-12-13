@@ -61,7 +61,8 @@
 	), DELMOBILE_VERSION, true );
 
 	// Animações customizadas
-	wp_enqueue_script( 'delmobile-cursor-follow', get_template_directory_uri() . '/src/js/animations/cursorFollow.js', array(), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-animation-cursor-follow', get_template_directory_uri() . '/src/js/animations/global/cursorFollow.js', array(), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-animation-footer', get_template_directory_uri() . '/src/js/animations/global/footer.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 
 	// Carregar script de projetos apenas na home
 	if ( is_front_page() || is_home() ) {
@@ -70,6 +71,8 @@
 		wp_enqueue_script( 'delmobile-hero-animation', get_template_directory_uri() . '/src/js/animations/home/hero.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 		wp_enqueue_script( 'delmobile-nossa-historia-animation', get_template_directory_uri() . '/src/js/animations/home/nossa-historia.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 		wp_enqueue_script( 'delmobile-nossos-servicos-animation', get_template_directory_uri() . '/src/js/animations/home/nossos-servicos.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
+		wp_enqueue_script( 'delmobile-nosso-processo-animation', get_template_directory_uri() . '/src/js/animations/home/nosso-processo.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
+		wp_enqueue_script( 'delmobile-dicas-extras-animation', get_template_directory_uri() . '/src/js/animations/home/dicas-extras.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 	}
 
 	// Portfolio Grid (carregado globalmente, tem validação interna)
@@ -91,7 +94,7 @@
 	wp_enqueue_script( 'delmobile-processo-carousel', get_template_directory_uri() . '/src/js/modules/processoCarousel.js', array('embla-carousel'), DELMOBILE_VERSION, true );
 
 	wp_enqueue_script( 'delmobile-nossos-servicos-section', get_template_directory_uri() . '/src/js/modules/nossosServicosSection.js', array('gsap', 'gsap-scrolltrigger'), DELMOBILE_VERSION, true );
-	wp_enqueue_script( 'delmobile-dicas-section', get_template_directory_uri() . '/src/js/modules/dicasSection.js', array('delmobile-cursor-follow'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-dicas-section', get_template_directory_uri() . '/src/js/modules/dicasSection.js', array('delmobile-animation-cursor-follow'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-global', get_template_directory_uri() . '/src/js/modules/global.js', array(), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-contact-form', get_template_directory_uri() . '/src/js/modules/contactForm.js', array(), DELMOBILE_VERSION, true );
 

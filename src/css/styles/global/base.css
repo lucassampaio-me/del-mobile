@@ -16,7 +16,8 @@
     body {
         @apply 
         bg-bege-claro-50
-        font-variable leading-snug;
+        font-variable leading-snug
+        overflow-x-hidden;
         color: var(--text-color);
     }
 

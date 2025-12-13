@@ -22,6 +22,26 @@ function initHeroCarousel() {
         EmblaCarouselAutoplay(AUTOPLAY_OPTIONS)
     ])
 
+    // Função para atualizar a classe 'active' nos slides
+    const updateActiveSlide = () => {
+        const slides = emblaNode.querySelectorAll('.embla__slide')
+        const selectedIndex = emblaApi.selectedScrollSnap()
+
+        slides.forEach((slide, index) => {
+            if (index === selectedIndex) {
+                slide.classList.add('active')
+            } else {
+                slide.classList.remove('active')
+            }
+        })
+    }
+
+    // Atualizar o slide ativo inicialmente
+    updateActiveSlide()
+
+    // Atualizar quando o slide mudar
+    emblaApi.on('select', updateActiveSlide)
+
     return emblaApi;
 }
 

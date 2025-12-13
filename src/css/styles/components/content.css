@@ -51,4 +51,9 @@
         @apply
         w-full h-auto
     }
+
+    .content-image svg {
+        @apply
+        w-full h-auto
+    }
 }

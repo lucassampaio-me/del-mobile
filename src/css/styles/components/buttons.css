@@ -34,6 +34,12 @@
         bg-azul-petroleo-900
     }
 
+    .btn-small {
+        @apply
+        text-sm
+        px-5 py-2.5
+    }
+
     /* Navegação slides */
 
     /* Carousel Navigation */

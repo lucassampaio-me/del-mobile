@@ -1,0 +1,32 @@
+@layer components {
+    /* Cards */
+    .card-contact {
+        @apply
+        flex flex-col items-start gap-2
+    }
+
+    .card-contact-header {
+        @apply
+        flex flex-col items-start gap-6
+    }
+
+    .card-contact-header-icon .ph-icon {
+        @apply
+        text-5xl text-marrom-claro
+    }
+
+    .card-contact-header-title h3 {
+        @apply
+        text-2xl
+    }
+
+    .card-contact-content {
+        @apply
+        flex flex-col items-start gap-2
+    }
+
+    .card-contact-content p {
+        @apply
+        text-xl
+    }
+}

@@ -69,4 +69,11 @@
         @apply
         font-bold
     }
+
+    a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more) {
+        @apply
+        underline
+        transition-all duration-500
+        hover:text-vermelho-grena
+    }
 }

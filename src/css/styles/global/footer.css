@@ -1,0 +1,24 @@
+@layer components {
+    /* Footer */
+    .footer__logo {
+        @apply
+        py-10
+        border-t border-bege-claro
+    }
+
+    .footer__copyright {
+        @apply
+        py-6
+        border-t border-bege-claro
+    }
+
+    .footer__copyright .content-text {
+        @apply
+        flex items-center justify-between gap-10
+    }
+
+    .footer__copyright .content-text p {
+        @apply
+        mb-0
+    }
+}

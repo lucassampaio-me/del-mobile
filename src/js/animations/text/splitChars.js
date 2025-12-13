@@ -41,8 +41,10 @@ function splitChars(target, options = {}) {
 
     // Criar split
     const split = createSplit(element, {
-        type: 'chars',
-        charsClass: 'split-char'
+        type: 'chars, words, lines',
+        charsClass: 'split-char',
+        wordsClass: 'split-word',
+        linesClass: 'split-line'
     });
 
     // Configurar estado inicial e final baseado no tipo de animação

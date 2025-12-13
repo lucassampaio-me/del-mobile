@@ -30,9 +30,11 @@ $nossa_historia_btn_anchor = '#fale-conosco';
                 <div class="content-text content-text-medium">
                     <?php echo $nossa_historia_texto; ?>
                 </div>
-                <a href="<?php echo $nossa_historia_btn_anchor; ?>" class="btn btn-primary">
-                    <span><?php echo $nossa_historia_btn_txt; ?></span>
-                </a>
+                <div class="btn-wrapper">
+                    <a href="<?php echo $nossa_historia_btn_anchor; ?>" class="btn btn-primary">
+                        <span><?php echo $nossa_historia_btn_txt; ?></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

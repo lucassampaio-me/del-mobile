@@ -68,6 +68,8 @@
 		wp_enqueue_script( 'delmobile-projetos-section', get_template_directory_uri() . '/src/js/modules/projetosSection.js', array('embla-carousel'), DELMOBILE_VERSION, true );
 		wp_enqueue_script( 'delmobile-hero-carousel', get_template_directory_uri() . '/src/js/modules/heroCarousel.js', array('embla-carousel', 'embla-carousel-autoplay'), DELMOBILE_VERSION, true );
 		wp_enqueue_script( 'delmobile-hero-animation', get_template_directory_uri() . '/src/js/animations/home/hero.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
+		wp_enqueue_script( 'delmobile-nossa-historia-animation', get_template_directory_uri() . '/src/js/animations/home/nossa-historia.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
+		wp_enqueue_script( 'delmobile-nossos-servicos-animation', get_template_directory_uri() . '/src/js/animations/home/nossos-servicos.js', array('delmobile-anim-system'), DELMOBILE_VERSION, true );
 	}
 
 	// Portfolio Grid (carregado globalmente, tem validação interna)

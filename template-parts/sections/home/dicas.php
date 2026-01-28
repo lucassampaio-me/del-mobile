@@ -20,7 +20,7 @@ $dicas_itens = get_field('dicas_itens');
 
     <div class="dicas__itens">
         <?php foreach ($dicas_itens as $item) : ?>
-            <div class="dicas__item" arial-expanded="false">
+            <div class="dicas__item" aria-expanded="false" role="button" tabindex="0">
                 <div class="dicas__item-content">
                     <div class="dicas__item-content-text">
                         <div class="dicas__item-icon">

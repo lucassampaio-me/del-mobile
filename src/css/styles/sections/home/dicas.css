@@ -22,6 +22,7 @@
         border-b border-bege-claro/25
         hover:bg-bege-claro hover:border-bege-claro
         transition-all duration-500
+        cursor-pointer
     }
 
     .dicas__item-content {
@@ -43,6 +44,14 @@
         text-2xl text-verde-escuro-800
         bg-verde-escuro
         transition-all duration-500
+    }
+
+    .dicas__item-content-btn .ph-icon {
+        @apply transition-transform duration-500
+    }
+
+    .dicas__item[aria-expanded="true"] .dicas__item-content-btn .ph-icon {
+        transform: rotate(45deg);
     }
 
     .dicas__item:hover .dicas__item-content-btn {
@@ -71,15 +80,33 @@
         text-verde-escuro
     }
 
+    /* Estado expandido (mesmo visual do hover) */
+    .dicas__item[aria-expanded="true"] {
+        @apply bg-bege-claro border-bege-claro
+    }
+
+    .dicas__item[aria-expanded="true"] .dicas__item-icon .ph-icon {
+        @apply text-verde-escuro
+    }
+
+    .dicas__item[aria-expanded="true"] .dicas__item-content h3 {
+        @apply text-verde-escuro
+    }
+
+    .dicas__item[aria-expanded="true"] .dicas__item-content-btn {
+        @apply text-bege-claro
+    }
+
     .dicas__item-card-wrapper {
         @apply
-        w-full max-w-[1024px] pt-10
+        w-full max-w-[1024px]
+        overflow-hidden
     }
 
     .dicas__itens .dicas__item-card {
         @apply
         flex items-stretch
-        w-full
+        w-full mt-10
         bg-verde-escuro-900
         overflow-hidden;
     }
@@ -98,7 +125,7 @@
     .dicas__itens .dicas__item-card-content {
         @apply
         w-full p-8
-        flex flex-col items-start gap-6
+        flex flex-col items-start justify-center gap-6
     }
 
     .dicas__itens .dicas__item-card-extra {
@@ -111,6 +138,13 @@
     .dicas__itens .dicas__item-card-extra span {
         @apply
         text-sm font-medium
+    }
+
+    /* Comportamento mobile: botão sempre visível */
+    @media (hover: none) and (pointer: coarse) {
+        .dicas__item-content-btn {
+            @apply text-bege-claro
+        }
     }
 
 }

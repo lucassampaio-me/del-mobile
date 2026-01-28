@@ -10,9 +10,14 @@
         pb-10 mb-10 border-b border-bege-claro
     }
 
-    .nossa-historia__header .content-text {
+    .nossa-historia__header .content-text h2 {
         @apply
-        max-w-[662px]
+        max-w-[942px]
+    }
+
+    .nossa-historia__header .content-text p {
+        @apply
+        max-w-[642px]
     }
 
     .nossa-historia__content-left {

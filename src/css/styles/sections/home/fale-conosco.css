@@ -7,11 +7,17 @@
 
     .fale-conosco__content {
         @apply
-        flex flex-col justify-between gap-10
+        w-full
+        flex flex-row justify-between gap-10
+    }
+
+    .fale-conosco__content .content-image {
+        @apply
+        flex justify-end
     }
 
     .fale-conosco__content svg {
         @apply
-        max-w-[264px]
+        max-w-[164px]
     }
 }

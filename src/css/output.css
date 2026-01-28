@@ -2186,7 +2186,10 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .dicas__item {
   position: relative;
+  display: flex;
   width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
   border-bottom-width: 1px;
   border-color: rgb(207 207 188 / 0.25);
   padding: 2.5rem;
@@ -2204,8 +2207,39 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .dicas__item-content {
   display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.dicas__item-content-text {
+  display: flex;
   align-items: center;
   gap: 5rem;
+}
+
+.dicas__item-content-btn {
+  display: flex;
+  height: 5rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 52 21 / var(--tw-bg-opacity, 1));
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(46 82 41 / var(--tw-text-opacity, 1));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.dicas__item:hover .dicas__item-content-btn {
+  --tw-text-opacity: 1;
+  color: rgb(207 207 188 / var(--tw-text-opacity, 1));
 }
 
 .dicas__item-icon .ph-icon {
@@ -2233,36 +2267,23 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   color: rgb(23 52 21 / var(--tw-text-opacity, 1));
 }
 
-.dicas__itens .dicas__item-card {
-  position: fixed;
-  display: flex;
+.dicas__item-card-wrapper {
   width: 100%;
-  max-width: 380px;
-  flex-direction: column;
-  align-items: flex-start;
-  --tw-bg-opacity: 1;
-  background-color: rgb(38 68 35 / var(--tw-bg-opacity, 1));
-  /* Estado inicial: invisível */
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1000;
-  /* Transições suaves */
-  transition: opacity 400ms ease, transform 400ms ease;
-  /* Esconde em mobile/tablet (efeito apenas desktop) */
-  @media (max-width: 1024px) {
-    display: none;
-  }
+  max-width: 1024px;
+  padding-top: 2.5rem;
 }
 
-/* Estado visível do card */
-
-.dicas__itens .dicas__item-card.is-visible {
-  opacity: 1;
+.dicas__itens .dicas__item-card {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 68 35 / var(--tw-bg-opacity, 1));
 }
 
 .dicas__itens .dicas__item-card-image {
-  max-height: 160px;
-  min-height: 160px;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }

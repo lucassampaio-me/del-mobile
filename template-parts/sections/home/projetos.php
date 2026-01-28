@@ -67,17 +67,7 @@ if ($projetos) {
                         $last_image = $image_index + $num_imagens - 1;
                         $image_index += $num_imagens;
                     ?>
-                        <div class="projetos__content-infos-item embla__slide" data-first-image="<?php echo $first_image; ?>" data-last-image="<?php echo $last_image; ?>">
-                            <div class="projetos__content-infos-item-text content-text">
-                                <h3><?php echo $projeto->post_title; ?></h3>
-                                <?php
-                                $sobre = get_field('sobre', $projeto->ID);
-                                if ($sobre) {
-                                    echo $sobre;
-                                }
-                                ?>
-                            </div>
-                        </div>
+                        <div class="projetos__content-infos-item embla__slide" data-first-image="<?php echo $first_image; ?>" data-last-image="<?php echo $last_image; ?>"></div>
                     <?php endforeach; ?>
                     </div>
                 </div>

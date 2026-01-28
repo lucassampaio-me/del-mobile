@@ -36,9 +36,9 @@
         }
 
         // Inicializar Dicas Section
-        if (typeof window.initDicasSection === 'function') {
-        window.initDicasSection();
-        }
+        // if (typeof window.initDicasSection === 'function') {
+        // window.initDicasSection();
+        // }
 
         // Inicializar Global
         if (typeof window.initGlobal === 'function') {

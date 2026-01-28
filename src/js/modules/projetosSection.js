@@ -14,12 +14,6 @@ function initProjetosSection() {
 
         const emblaApi = EmblaCarousel(viewportNode, OPTIONS)
 
-        // Inicializa o carrossel de infos
-        const emblaInfoNode = document.querySelector('.projetos__content-infos.embla')
-        const viewportInfoNode = emblaInfoNode.querySelector('.projetos__content-infos .embla__viewport')
-        const OPTIONS_INFO = { ...OPTIONS, watchDrag: false }
-        const emblaInfoApi = EmblaCarousel(viewportInfoNode, OPTIONS_INFO)
-
         /**
          * Atualiza o estado dos botões de navegação
          */
@@ -93,27 +87,6 @@ function initProjetosSection() {
         }
 
         /**
-         * Atualiza o slide de informações ativo baseado na imagem atual
-         */
-        function updateInfoSlide() {
-            const currentImageIndex = emblaApi.selectedScrollSnap()
-            const infoSlides = emblaInfoNode.querySelectorAll('.embla__slide')
-
-            infoSlides.forEach((infoSlide, index) => {
-                const firstImage = parseInt(infoSlide.getAttribute('data-first-image'))
-                const lastImage = parseInt(infoSlide.getAttribute('data-last-image'))
-
-                // Verifica se o índice da imagem atual está dentro do intervalo deste projeto
-                if (currentImageIndex >= firstImage && currentImageIndex <= lastImage) {
-                    infoSlide.classList.add('embla__slide--active')
-                    emblaInfoApi.scrollTo(index)
-                } else {
-                    infoSlide.classList.remove('embla__slide--active')
-                }
-            })
-        }
-
-        /**
          * Configura a navegação pelos botões do header
          */
         function setupHeaderNavigation() {
@@ -145,7 +118,6 @@ function initProjetosSection() {
             updateActiveSlide()
             updateSlideCounter()
             updateHeaderNavButtons()
-            updateInfoSlide()
         }
 
         // Event listeners para os botões de navegação

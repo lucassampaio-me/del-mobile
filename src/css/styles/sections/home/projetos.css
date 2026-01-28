@@ -108,11 +108,6 @@
         text-nowrap
     }
 
-    .projetos__content-infos h3 {
-        @apply
-        text-2xl font-bold
-    }
-
     .projetos__content-footer {
         @apply
         w-full p-10
@@ -134,40 +129,5 @@
     .projetos__content-footer-count-current {
         @apply
         font-normal
-    }
-
-    /* Carousel Infos */
-
-    .projetos__content-infos.embla {
-        @apply
-        w-full;
-        margin: auto;
-        --slide-spacing: 0px;
-        --slide-size: calc(100% / 1);
-    }
-
-    .projetos__content-infos .embla__viewport {
-        /* overflow: hidden; */
-    }
-
-    .projetos__content-infos .embla__container {
-        display: flex;
-        touch-action: pan-y pinch-zoom;
-        margin-left: calc(var(--slide-spacing) * -1);
-        padding-right: var(--slide-spacing);
-    }
-
-    .projetos__content-infos .embla__slide {
-        flex: 0 0 var(--slide-size);
-        min-width: 0;
-        padding-left: var(--slide-spacing);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-    }
-
-    .projetos__content-infos .embla__slide--active {
-        opacity: 1;
-        pointer-events: auto;
     }
 }

@@ -17,6 +17,7 @@
     .dicas__item {
         @apply
         relative
+        flex flex-col items-start
         w-full p-10
         border-b border-bege-claro/25
         hover:bg-bege-claro hover:border-bege-claro
@@ -26,6 +27,27 @@
     .dicas__item-content {
         @apply
         flex items-center gap-20
+        w-full justify-between
+    }
+
+    .dicas__item-content-text {
+        @apply
+        flex items-center gap-20
+    }
+
+    .dicas__item-content-btn {
+        @apply
+        w-20 h-20
+        flex items-center justify-center
+        rounded-full
+        text-2xl text-verde-escuro-800
+        bg-verde-escuro
+        transition-all duration-500
+    }
+
+    .dicas__item:hover .dicas__item-content-btn {
+        @apply
+        text-bege-claro
     }
 
     .dicas__item-icon .ph-icon {
@@ -49,35 +71,22 @@
         text-verde-escuro
     }
 
-    .dicas__itens .dicas__item-card {
+    .dicas__item-card-wrapper {
         @apply
-        fixed
-        flex flex-col items-start
-        w-full max-w-[380px]
-        bg-verde-escuro-900;
-
-        /* Estado inicial: invisível */
-        opacity: 0;
-        pointer-events: none;
-        z-index: 1000;
-
-        /* Transições suaves */
-        transition: opacity 400ms ease, transform 400ms ease;
-
-        /* Esconde em mobile/tablet (efeito apenas desktop) */
-        @media (max-width: 1024px) {
-            display: none;
-        }
+        w-full max-w-[1024px] pt-10
     }
 
-    /* Estado visível do card */
-    .dicas__itens .dicas__item-card.is-visible {
-        opacity: 1;
+    .dicas__itens .dicas__item-card {
+        @apply
+        flex items-stretch
+        w-full
+        bg-verde-escuro-900
+        overflow-hidden;
     }
 
     .dicas__itens .dicas__item-card-image {
         @apply
-        w-full min-h-[160px] max-h-[160px]
+        w-full h-full
         overflow-hidden
     }
 

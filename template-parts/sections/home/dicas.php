@@ -20,25 +20,33 @@ $dicas_itens = get_field('dicas_itens');
 
     <div class="dicas__itens">
         <?php foreach ($dicas_itens as $item) : ?>
-            <div class="dicas__item">
+            <div class="dicas__item" arial-expanded="false">
                 <div class="dicas__item-content">
-                    <div class="dicas__item-icon">
-                        <?php echo icon($item['icone'], 'thin'); ?>
+                    <div class="dicas__item-content-text">
+                        <div class="dicas__item-icon">
+                            <?php echo icon($item['icone'], 'thin'); ?>
+                        </div>
+                        <h3><?php echo $item['titulo']; ?></h3>
                     </div>
-                    <h3><?php echo $item['titulo']; ?></h3>
+
+                    <div class="dicas__item-content-btn">
+                        <?php echo icon('plus');?>
+                    </div>
                 </div>
 
-                <div class="dicas__item-card">
-                    <div class="dicas__item-card-image">
-                        <img src="<?php echo $item['dica']['imagem']['url']; ?>" alt="<?php echo $item['dica']['imagem']['alt']; ?>">
-                    </div>
-                    <div class="dicas__item-card-content">
-                        <div class="content-text content-text-base">
-                            <?php echo $item['dica']['texto']; ?>
+                <div class="dicas__item-card-wrapper">
+                    <div class="dicas__item-card">
+                        <div class="dicas__item-card-image">
+                            <img src="<?php echo $item['dica']['imagem']['url']; ?>" alt="<?php echo $item['dica']['imagem']['alt']; ?>">
                         </div>
-                        <div class="dicas__item-card-extra">
-                            <?php echo icon('asterisk-simple');?>
-                            <span><?php echo $item['dica']['extra']; ?></span>
+                        <div class="dicas__item-card-content">
+                            <div class="content-text content-text-base">
+                                <?php echo $item['dica']['texto']; ?>
+                            </div>
+                            <div class="dicas__item-card-extra">
+                                <?php echo icon('asterisk-simple');?>
+                                <span><?php echo $item['dica']['extra']; ?></span>
+                            </div>
                         </div>
                     </div>
                 </div>

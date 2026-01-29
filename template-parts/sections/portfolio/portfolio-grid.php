@@ -38,12 +38,16 @@ $total_posts = $total_query->found_posts;
 
 // Verificar se há mais projetos para carregar
 $has_more = $projetos_query->post_count < $total_posts;
+
+// Ativar/desativar filtros de navegação
+$mostrar_filtros = false;
 ?>
 
 <section id="portfolio-grid" class="portfolio-grid">
     <div class="container">
+        <?php if ($mostrar_filtros) : ?>
         <!-- Filtros de Navegação -->
-        <div class="portfolio-grid__nav-wrapper">
+        <div class="portfolio-grid__nav-wrapper hidden">
             <nav class="portfolio__nav">
                 <button
                     class="portfolio__nav-button active"
@@ -65,6 +69,7 @@ $has_more = $projetos_query->post_count < $total_posts;
                 <?php endif; ?>
             </nav>
         </div>
+        <?php endif; ?>
 
         <!-- Grid de Projetos -->
         <div

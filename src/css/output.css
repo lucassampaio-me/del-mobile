@@ -2196,7 +2196,7 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   font-size: 1.5rem;
   line-height: 2rem;
   --tw-text-opacity: 1;
-  color: rgb(46 82 41 / var(--tw-text-opacity, 1));
+  color: rgb(52 103 46 / var(--tw-text-opacity, 1));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
@@ -2366,7 +2366,7 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .portfolio-grid {
   position: relative;
-  padding-bottom: 6rem;
+  padding-bottom: 2.5rem;
 }
 
 .portfolio-grid__nav-wrapper {
@@ -2401,6 +2401,7 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
        ============================ */
 
 .portfolio-grid__container {
+  margin-top: 2.5rem;
   display: grid;
   gap: 1.5rem;
   transition-property: all;
@@ -2885,17 +2886,7 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 /* Suporte para animações 3D no logo */
 
 .footer__logo .content-image {
-  perspective: 1000px;
-  perspective-origin: center center;
-}
-
-.footer__logo svg {
-  transform-style: preserve-3d;
-}
-
-.footer__logo svg path {
-  transform-origin: center center;
-  will-change: transform;
+  max-width: 206px;
 }
 
 .footer__copyright {
@@ -2943,6 +2934,10 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .w-1\/4 {

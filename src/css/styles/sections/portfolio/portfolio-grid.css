@@ -5,7 +5,7 @@
     .portfolio-grid {
         @apply
         relative
-        pb-24
+        pb-10
     }
 
     .portfolio-grid__nav-wrapper {
@@ -37,7 +37,7 @@
        ============================ */
     .portfolio-grid__container {
         @apply
-        grid gap-6
+        grid gap-6 mt-10
         transition-all duration-500 ease-out;
 
         /* Preencher espaços vazios automaticamente */

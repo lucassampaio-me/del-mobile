@@ -17,7 +17,7 @@ function footerAnimation() {
     const tlFooter = gsap.timeline({
         scrollTrigger: {
             trigger: footer,
-            start: 'top 76%',
+            start: 'top bottom',
             end: 'bottom top',
         }
     });

@@ -41,7 +41,7 @@
         w-20 h-20
         flex items-center justify-center
         rounded-full
-        text-2xl text-verde-escuro-800
+        text-2xl text-verde-escuro-700
         bg-verde-escuro
         transition-all duration-500
     }

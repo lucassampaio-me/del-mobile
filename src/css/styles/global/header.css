@@ -63,4 +63,205 @@
         @apply
         text-2xl
     }
+
+    /* Menu Toggle */
+    .header__menu-toggle {
+        @apply
+        hidden xl:hidden
+        items-center justify-center
+        w-auto h-auto
+        cursor-pointer
+        transition-all duration-300
+        py-6 px-8
+        border-l border-vermelho-grena
+    }
+
+    @media (max-width: 1279px) {
+        .header__menu-toggle {
+            @apply flex
+        }
+
+        .header__menu-container {
+            @apply hidden
+        }
+    }
+
+    .header__menu-toggle i {
+        @apply
+        text-3xl
+        text-vermelho-grena
+        transition-all duration-300
+    }
+
+    .header__menu-toggle:hover i {
+        @apply text-vermelho-grena/80
+    }
+
+    /* Menu Mobile */
+    .header__menu-mobile {
+        @apply
+        fixed inset-0 z-50
+        transform translate-x-full;
+
+        /* Permitir que GSAP controle completamente transform e opacity */
+        transition: none;
+        will-change: transform;
+    }
+
+    /* Container de duas colunas */
+    .header__menu-mobile-content {
+        @apply
+        h-full w-full
+        grid grid-cols-2
+        items-center;
+    }
+
+    /* Navegação (coluna esquerda) */
+    .header__menu-mobile-navigation {
+        @apply
+        h-full w-full
+        flex items-center justify-center;
+    }
+
+    .header__menu-container-mobile {
+        @apply
+        h-full w-full;
+    }
+
+    /* Container de Imagens (coluna direita) */
+    .header__menu-mobile-images {
+        @apply
+        h-full w-full
+        relative overflow-hidden;
+    }
+
+    /* Imagens individuais */
+    .header__menu-image {
+        @apply
+        absolute inset-0
+        h-full w-full
+        object-cover
+        opacity-0
+        pointer-events-none;
+
+        transition: none;
+        will-change: opacity;
+    }
+
+    /* Imagem ativa */
+    .header__menu-image.active {
+        @apply opacity-100;
+    }
+
+    /* Mobile: apenas menu, sem imagem */
+    @media (max-width: 767px) {
+        .header__menu-mobile-content {
+            @apply grid-cols-1;
+        }
+
+        .header__menu-mobile-images {
+            @apply hidden;
+        }
+    }
+
+    /* Fallback para navegadores sem suporte a backdrop-filter */
+    .header__menu-mobile {
+        background-color: rgb(6 39 51 / 0.98);
+    }
+
+    /* Efeito blur para navegadores compatíveis */
+    @supports (backdrop-filter: blur(20px)) {
+        .header__menu-mobile {
+            background-color: rgb(6 39 51 / 0.95);
+            backdrop-filter: blur(20px);
+        }
+    }
+
+    /* Estado aberto - classe aplicada via JS */
+    .header__menu-mobile.is-open {
+        /* Transform será controlado pelo GSAP */
+    }
+
+    /* Esconder menu mobile em telas grandes */
+    @media (min-width: 1280px) {
+        .header__menu-mobile {
+            @apply hidden !important
+        }
+
+        .header__menu-toggle {
+            @apply hidden !important
+        }
+    }
+
+    /* Botão Close */
+    .header__menu-close {
+        @apply
+        absolute top-8 right-8 z-10
+        text-2xl
+        w-12 h-12 flex items-center justify-center rounded-full bg-azul-petroleo
+        text-bege-claro-50
+        cursor-pointer;
+
+        /* Remover transição de transform e opacity para GSAP */
+        transition: color 300ms;
+        will-change: transform, opacity;
+    }
+
+    .header__menu-close:hover {
+        @apply bg-azul-petroleo-950;
+    }
+
+    /* Lista do Menu Mobile */
+    .header__menu-list-mobile {
+        @apply
+        grid grid-rows-5
+        items-start
+        w-full h-full
+    }
+
+    .header__menu-list-mobile > li {
+        /* Permitir que GSAP controle opacity e transform */
+        transition: none;
+        will-change: transform, opacity;
+        @apply w-full h-full;
+    }
+
+    .header__menu-list-mobile .menu-item a {
+        @apply
+        inline-flex w-full h-full items-center justify-start
+        px-8 border-b border-azul-petroleo-900
+        text-4xl lg:text-5xl font-medium
+        text-bege-claro-50;
+
+        transition: color 300ms;
+    }
+
+    @media (max-height: 480px) {
+        .header__menu-list-mobile .menu-item a {
+            @apply text-3xl;
+        }
+    }
+
+    .header__menu-list-mobile .menu-item:last-child a {
+        @apply border-b-0;
+    }
+
+    .header__menu-list-mobile .menu-item a:hover, {
+        @apply text-azul-petroleo-50 bg-azul-petroleo-900 blur-none;
+    }
+
+    .header__menu-list-mobile:hover .menu-item a {
+        @apply text-opacity-40 blur-[2px];
+    }
+
+    .header__menu-list-mobile:hover .menu-item a:hover {
+        @apply text-azul-petroleo-50 bg-azul-petroleo-900 blur-none;
+    }
+
+    /* Mobile: centralizar itens */
+    @media (max-width: 767px) {
+        .header__menu-list-mobile {
+            @apply items-center text-center;
+        }
+    }
 }

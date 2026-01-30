@@ -15,6 +15,11 @@
             window.initSmoothScroll();
         }
 
+        // Inicializar Menu
+        if (typeof window.initMenu === 'function') {
+            window.initMenu();
+        }
+
         // Inicializar Hero Carousel
         if (typeof window.initHeroCarousel === 'function') {
         window.initHeroCarousel();

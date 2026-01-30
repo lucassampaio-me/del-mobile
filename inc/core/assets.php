@@ -104,6 +104,7 @@
 
 	wp_enqueue_script( 'delmobile-nossos-servicos-section', get_template_directory_uri() . '/src/js/modules/nossosServicosSection.js', array('gsap', 'gsap-scrolltrigger'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-dicas-section', get_template_directory_uri() . '/src/js/modules/dicasSection.js', array('gsap'), DELMOBILE_VERSION, true );
+	wp_enqueue_script( 'delmobile-menu', get_template_directory_uri() . '/src/js/modules/menu.js', array('gsap'), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-global', get_template_directory_uri() . '/src/js/modules/global.js', array(), DELMOBILE_VERSION, true );
 	wp_enqueue_script( 'delmobile-contact-form', get_template_directory_uri() . '/src/js/modules/contactForm.js', array(), DELMOBILE_VERSION, true );
 

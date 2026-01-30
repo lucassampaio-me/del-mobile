@@ -2873,6 +2873,292 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   line-height: 2rem;
 }
 
+/* Menu Toggle */
+
+.header__menu-toggle {
+  display: none;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-left-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(128 0 32 / var(--tw-border-opacity, 1));
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+@media (min-width: 1280px) {
+  .header__menu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1279px) {
+  .header__menu-toggle {
+    display: flex;
+  }
+
+  .header__menu-container {
+    display: none;
+  }
+}
+
+.header__menu-toggle i {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(128 0 32 / var(--tw-text-opacity, 1));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.header__menu-toggle:hover i {
+  color: rgb(128 0 32 / 0.8);
+}
+
+/* Menu Mobile */
+
+.header__menu-mobile {
+  position: fixed;
+  inset: 0px;
+  z-index: 50;
+  --tw-translate-x: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  /* Permitir que GSAP controle completamente transform e opacity */
+  transition: none;
+  will-change: transform;
+}
+
+/* Container de duas colunas */
+
+.header__menu-mobile-content {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+}
+
+/* Navegação (coluna esquerda) */
+
+.header__menu-mobile-navigation {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__menu-container-mobile {
+  height: 100%;
+  width: 100%;
+}
+
+/* Container de Imagens (coluna direita) */
+
+.header__menu-mobile-images {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Imagens individuais */
+
+.header__menu-image {
+  pointer-events: none;
+  position: absolute;
+  inset: 0px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0;
+  transition: none;
+  will-change: opacity;
+}
+
+/* Imagem ativa */
+
+.header__menu-image.active {
+  opacity: 1;
+}
+
+/* Mobile: apenas menu, sem imagem */
+
+@media (max-width: 767px) {
+  .header__menu-mobile-content {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .header__menu-mobile-images {
+    display: none;
+  }
+}
+
+/* Fallback para navegadores sem suporte a backdrop-filter */
+
+.header__menu-mobile {
+  background-color: rgb(6 39 51 / 0.98);
+}
+
+/* Efeito blur para navegadores compatíveis */
+
+@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+  .header__menu-mobile {
+    background-color: rgb(6 39 51 / 0.95);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+}
+
+/* Estado aberto - classe aplicada via JS */
+
+.header__menu-mobile.is-open {
+  /* Transform será controlado pelo GSAP */
+}
+
+/* Esconder menu mobile em telas grandes */
+
+@media (min-width: 1280px) {
+  .header__menu-mobile {
+    display: none !important;
+  }
+
+  .header__menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Botão Close */
+
+.header__menu-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+  display: flex;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 39 51 / var(--tw-bg-opacity, 1));
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(245 245 241 / var(--tw-text-opacity, 1));
+  /* Remover transição de transform e opacity para GSAP */
+  transition: color 300ms;
+  will-change: transform, opacity;
+}
+
+.header__menu-close:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 39 51 / var(--tw-bg-opacity, 1));
+}
+
+/* Lista do Menu Mobile */
+
+.header__menu-list-mobile {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  align-items: flex-start;
+}
+
+.header__menu-list-mobile > li {
+  /* Permitir que GSAP controle opacity e transform */
+  transition: none;
+  will-change: transform, opacity;
+  height: 100%;
+  width: 100%;
+}
+
+.header__menu-list-mobile .menu-item a {
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(22 79 99 / var(--tw-border-opacity, 1));
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(245 245 241 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 1024px) {
+  .header__menu-list-mobile .menu-item a {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.header__menu-list-mobile .menu-item a {
+  transition: color 300ms;
+}
+
+@media (max-height: 480px) {
+  .header__menu-list-mobile .menu-item a {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.header__menu-list-mobile .menu-item:last-child a {
+  border-bottom-width: 0px;
+}
+
+.header__menu-list-mobile .menu-item a:hover, {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 79 99 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(236 254 255 / var(--tw-text-opacity, 1));
+  --tw-blur:  ;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.header__menu-list-mobile:hover .menu-item a {
+  --tw-text-opacity: 0.4;
+  --tw-blur: blur(2px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.header__menu-list-mobile:hover .menu-item a:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 79 99 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(236 254 255 / var(--tw-text-opacity, 1));
+  --tw-blur:  ;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+/* Mobile: centralizar itens */
+
+@media (max-width: 767px) {
+  .header__menu-list-mobile {
+    align-items: center;
+    text-align: center;
+  }
+}
+
 /* Footer */
 
 .footer__logo {

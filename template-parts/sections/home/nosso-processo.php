@@ -7,8 +7,8 @@ $nosso_processo_itens = get_field('nosso_processo_itens');
 
 <section id="nosso-processo" class="nosso-processo">
     <div class="container">
-        <div class="flex gap-10 items-end nosso-processo__header">
-            <div class="w-full flex gap-10 items-start">
+        <div class="flex gap-10 items-end lg:justify-start justify-between nosso-processo__header">
+            <div class="w-full lg:max-w-full max-w-[524px] flex lg:flex-row flex-col lg:gap-10 gap-6 items-start">
                 <div class="tag">
                     <div class="tag-item">
                         <span><?php echo $nossa_processo_tag; ?></span>
@@ -31,34 +31,34 @@ $nosso_processo_itens = get_field('nosso_processo_itens');
             </div>
         </div>
 
-        <div class="flex">
-            <div class="nosso-processo__carousel embla">
-                <div class="embla__viewport">
-                    <div class="embla__container">
-                        <?php foreach ($nosso_processo_itens as $item) : ?>
-                            <div class="embla__slide">
-                                <div class="nosso-processo__item theme-dark">
-                                    <div class="nosso-processo__item-header">
-                                        <div class="content-text">
-                                            <h3><?php echo $item['titulo']; ?></h3>
-                                        </div>
-                                        <div class="nosso-processo__item-header-suporte">
-                                            <?php echo icon($item['suporte']['icone'], 'thin'); ?>
-                                            <?php echo $item['suporte']['texto']; ?>
-                                        </div>
+    </div>
+
+    <div class="nosso-processo__carousel-wrapper">
+        <div class="nosso-processo__carousel embla">
+            <div class="embla__viewport">
+                <div class="embla__container">
+                    <?php foreach ($nosso_processo_itens as $item) : ?>
+                        <div class="embla__slide">
+                            <div class="nosso-processo__item theme-dark">
+                                <div class="nosso-processo__item-header">
+                                    <div class="content-text">
+                                        <h3><?php echo $item['titulo']; ?></h3>
                                     </div>
-                                    <div class="nosso-processo__item-content">
-                                        <div class="content-text">
-                                            <?php echo $item['texto']; ?>
-                                        </div>
+                                    <div class="nosso-processo__item-header-suporte">
+                                        <?php echo icon($item['suporte']['icone'], 'thin'); ?>
+                                        <?php echo $item['suporte']['texto']; ?>
+                                    </div>
+                                </div>
+                                <div class="nosso-processo__item-content">
+                                    <div class="content-text">
+                                        <?php echo $item['texto']; ?>
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
-                    </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-            
         </div>
     </div>
 

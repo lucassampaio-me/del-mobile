@@ -12,7 +12,7 @@
         bg-bege-claro-50
         flex items-center justify-between
         rounded-br-4xl overflow-hidden
-        pl-8
+        pl-10
     }
 
     .header__logo {

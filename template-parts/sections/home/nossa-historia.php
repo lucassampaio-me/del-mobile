@@ -20,7 +20,7 @@ $nossa_historia_btn_anchor = '#fale-conosco';
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-10 nossa-historia__content">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 nossa-historia__content">
             <div class="col-span-1 nossa-historia__content-left">
                 <div class="content-image">
                     <img src="<?php echo esc_url($nossa_historia_imagem['url']); ?>" alt="<?php echo esc_attr($nossa_historia_imagem['alt']); ?>">

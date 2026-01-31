@@ -40,7 +40,7 @@ if ($projetos) {
                     <div class="content-text">
                         <h2>Projetos</h2>
                     </div>
-                    <a href="/portfolio" class="btn">
+                    <a href="/portfolio" class="btn lg:inline-flex hidden">
                         <span>Ver portfólio completo</span>
                         <?php echo icon('arrow-up-right'); ?>
                     </a>
@@ -85,6 +85,10 @@ if ($projetos) {
             </div>
 
             <div class="projetos__content-footer-count">
+                <a href="/portfolio" class="btn lg:hidden inline-flex mr-4">
+                    <span>Ver portfólio completo</span>
+                    <?php echo icon('arrow-up-right'); ?>
+                </a>
                 <?php 
                     $total_imagens = 0;
                     foreach ($projetos as $projeto) {

@@ -13,7 +13,7 @@
 
     .nosso-processo__header .content-text h2 {
         @apply
-        max-w-[704px]
+        lg:max-w-[704px] max-w-full
     }
 
     .nosso-processo__item {
@@ -48,29 +48,62 @@
         text-bege-claro-50
     }
 
+    /* Carousel Wrapper - ocupa largura total da viewport */
+    .nosso-processo__carousel-wrapper {
+        @apply w-full overflow-hidden;
+    }
+
     /* Carousel */
 
+    /* Mobile: 1 slide + peek */
     .nosso-processo__carousel.embla {
-        margin: auto;
-        --slide-spacing: 40px;
-        --slide-size: calc(100% / 3);
+        --slide-gap: 24px;
+        --container-padding: 24px;
+        /* Tamanho do slide: deve caber 1 slide + peek visível */
+        /* slide = 100% - padding - peek (aproximadamente) */
+        --slide-size: calc(100% - var(--container-padding) - -24px);
+    }
+
+    /* Tablet: 2 slides + peek */
+    @media (min-width: 768px) {
+        .nosso-processo__carousel.embla {
+            --slide-gap: 40px;
+            --container-padding: 40px;
+            /* Para 2 slides + peek: cada slide ≈ (100% - padding - peek) / 2 */
+            --slide-size: calc((100% - var(--container-padding) - -40px) / 2);
+        }
+    }
+
+    /* Desktop: 3 slides + peek */
+    @media (min-width: 1280px) {
+        .nosso-processo__carousel.embla {
+            --slide-gap: 40px;
+            --container-padding: 40px;
+            /* Para 3 slides + peek: cada slide ≈ (100% - padding - peek) / 3 */
+            --slide-size: calc((100% - var(--container-padding) - -40px) / 3);
+        }
     }
 
     .nosso-processo__carousel .embla__viewport {
-        /* overflow: hidden; */
+        overflow: visible;
+        /* Padding para criar margem no início e fim */
+        padding-left: var(--container-padding);
+        padding-right: var(--container-padding);
     }
 
     .nosso-processo__carousel .embla__container {
         display: flex;
         touch-action: pan-y pinch-zoom;
-        margin-left: calc(var(--slide-spacing) * -1);
-        padding-right: var(--slide-spacing);
     }
-    
+
     .nosso-processo__carousel .embla__slide {
         flex: 0 0 var(--slide-size);
         min-width: 0;
-        padding-left: var(--slide-spacing);
+        padding-right: var(--slide-gap);
+    }
+
+    .nosso-processo__carousel .embla__slide:last-child {
+        padding-right: 0;
     }
 
     .nosso-processo__carousel .embla__slide.embla__slide--active .nosso-processo__item {

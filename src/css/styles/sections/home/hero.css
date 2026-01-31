@@ -9,12 +9,12 @@
 
     .hero__header {
         @apply
-        pt-10 px-8
+        pt-10 px-10
     }
 
     .hero__header h1 {
         @apply
-        text-7xl font-bold
+        xl:text-7xl text-6xl font-bold
         max-w-[954px]
     }
 
@@ -26,8 +26,8 @@
 
     .hero__content-left {
         @apply
-        w-auto pb-10 pl-8
-        flex flex-col justify-between items-start
+        w-auto pb-10 pl-10
+        flex flex-col justify-between items-start gap-10
     }
 
     .hero__content-right {
@@ -37,7 +37,7 @@
 
     .hero__content-left-text {
         @apply
-        w-auto max-w-[434px] min-w-[434px]
+        w-auto xl:max-w-[434px] xl:min-w-[434px] max-w-[300px] min-w-[300px]
         flex flex-col items-start gap-4
     }
 
@@ -66,14 +66,14 @@
         margin-left: calc(var(--slide-spacing) * -1);
     }
     .hero__carousel .embla__slide {
-        flex: 0 0 calc(var(--slide-size) - (var(--slide-spacing) * 2 - 8px));
+        flex: 0 0 calc(var(--slide-size) - (var(--slide-spacing) * 2));
         min-width: 0;
         padding-left: var(--slide-spacing);
     }
 
     .hero__carousel .embla__slide img {
         @apply
-        block w-full h-auto object-cover
+        block w-full h-full object-cover
         transition-all duration-500
     }
 
@@ -82,9 +82,9 @@
         rounded-tl-4xl
     }
 
-    .hero__carousel {
+    .hero__carousel .embla__slide {
         @apply
-        max-h-[520px]
+        xl:max-h-[520px] xl:min-h-[520px] max-h-[420px] min-h-[420px]
     }
 
     /* SplitText Animation */

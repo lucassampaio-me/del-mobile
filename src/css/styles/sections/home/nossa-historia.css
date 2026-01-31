@@ -28,7 +28,7 @@
 
     .nossa-historia__content-left .content-image {
         @apply
-        h-full
+        lg:h-full h-40
     }
 
     .nossa-historia__content-left img {
@@ -39,6 +39,6 @@
 
     .nossa-historia__content-right {
         @apply
-        flex flex-col items-start gap-20
+        flex flex-col items-start lg:gap-20 gap-6
     }
 }

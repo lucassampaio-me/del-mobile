@@ -14,7 +14,8 @@ function initProcessoCarousel() {
     const OPTIONS = {
         align: 'start',
         slidesToScroll: 1,
-        loop: false
+        loop: false,
+        containScroll: 'trimSnaps'
     }
 
     const viewportNode = emblaNode.querySelector('.nosso-processo__carousel .embla__viewport')

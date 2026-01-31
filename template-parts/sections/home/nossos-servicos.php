@@ -9,8 +9,8 @@ $nossos_servicos_itens = get_field('nossos_servicos_itens');
 <section id="nossos-servicos" class="nossos-servicos theme-dark">
     <div class="nossos-servicos__header">
         <div class="container">
-            <div class="flex gap-10 items-end justify-between">
-                <div class="w-full max-w-[704px]">
+            <div class="flex lg:flex-row flex-col lg:gap-10 gap-6 lg:items-end items-start lg:justify-between justify-start">
+                <div class="w-full lg:max-w-[704px] max-w-[604px]">
                     <div class="tag mb-6">
                         <div class="tag-item">
                             <span><?php echo $header_tag; ?></span>
@@ -21,7 +21,7 @@ $nossos_servicos_itens = get_field('nossos_servicos_itens');
                     </div>
                 </div>
 
-                <div class="w-full max-w-[428px]">
+                <div class="w-full lg:max-w-[428px] max-w-full">
                     <div class="content-text content-text-large">
                         <p><?php echo $header_subtitulo; ?></p>
                     </div>

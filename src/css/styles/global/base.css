@@ -43,12 +43,12 @@
 
     h2 {
         @apply
-        text-6xl/none
+        lg:text-6xl/none text-5xl
     }
 
     h3 {
         @apply
-        text-5xl
+        lg:text-5xl text-4xl
     }
 
     h4 {

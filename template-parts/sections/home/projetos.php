@@ -40,13 +40,13 @@ if ($projetos) {
                     <div class="content-text">
                         <h2>Projetos</h2>
                     </div>
-                    <a href="/portfolio" class="btn lg:inline-flex hidden">
+                    <a href="/portfolio" class="btn lg:inline-flex xs:hidden inline-flex">
                         <span>Ver portfólio completo</span>
                         <?php echo icon('arrow-up-right'); ?>
                     </a>
                 </div>
 
-                <div class="portfolio__nav">
+                <div class="portfolio__nav xs:inline-flex hidden">
                     <?php foreach ($tipos as $tipo) : ?>
                         <button class="portfolio__nav-button" data-first-image="<?php echo $tipo_first_image[$tipo->term_id]; ?>" data-project-type="<?php echo esc_attr($tipo->slug); ?>">
                             <span><?php echo $tipo->name; ?></span>
@@ -85,7 +85,7 @@ if ($projetos) {
             </div>
 
             <div class="projetos__content-footer-count">
-                <a href="/portfolio" class="btn lg:hidden inline-flex mr-4">
+                <a href="/portfolio" class="btn lg:hidden xs:inline-flex hidden mr-4">
                     <span>Ver portfólio completo</span>
                     <?php echo icon('arrow-up-right'); ?>
                 </a>

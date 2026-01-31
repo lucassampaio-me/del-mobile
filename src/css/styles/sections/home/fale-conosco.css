@@ -2,18 +2,19 @@
     /* Fale conosco */
     .fale-conosco {
         @apply
-        py-24
+        xs:py-24 py-20
     }
 
     .fale-conosco__content {
         @apply
         w-full
-        flex flex-row justify-between gap-10
+        flex flex-row justify-between xxs:gap-10 gap-6
     }
 
     .fale-conosco__content .content-image {
         @apply
-        flex justify-end
+        2xs:flex hidden justify-end xs:items-center items-start
+        xs:max-w-full max-w-[100px]
     }
 
     .fale-conosco__content svg {

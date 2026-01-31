@@ -9,37 +9,38 @@
 
     .hero__header {
         @apply
-        pt-10 md:px-10 px-6
+        pt-10 md:px-10 2xs:px-6 px-4
     }
 
     .hero__header h1 {
         @apply
-        xl:text-7xl text-6xl font-bold
+        xl:text-7xl sm:text-6xl 2xs:text-5xl text-4xl font-bold
         max-w-[954px]
     }
 
     .hero__content {
         @apply
-        flex items-stretch gap-10
-        pt-8
+        flex sm:flex-row flex-col items-stretch sm:gap-10 gap-6
+        sm:pt-8 pt-6
     }
 
     .hero__content-left {
         @apply
-        w-auto pb-10 md:pl-10 pl-6
-        flex flex-col justify-between items-start gap-10
+        w-auto sm:pb-10 pb-0 md:pl-10 2xs:pl-6 px-4 sm:pr-0 pr-6
+        flex flex-col justify-between items-start sm:gap-10 gap-6
     }
 
     .hero__content-right {
         @apply
-        w-full -mb-12 overflow-hidden
+        w-full -mb-12 2xs:ml-6 ml-4 sm:overflow-hidden overflow-visible
     }
 
     .hero__content-left-text {
         @apply
         w-auto xl:max-w-[434px] xl:min-w-[434px] 
         md:max-w-[300px] md:min-w-[300px]
-        max-w-[340px] min-w-[340px]
+        sm:max-w-[340px] sm:min-w-[340px]
+        max-w-full min-w-full
         flex flex-col items-start gap-4
     }
 
@@ -56,8 +57,13 @@
 
     .hero__carousel.embla {
         margin: auto;
-        --slide-spacing: 24px;
+        --slide-spacing: 16px;
         --slide-size: 100%;
+    }
+    @media (min-width: 374px) {
+        .hero__carousel.embla {
+            --slide-spacing: 24px;
+        }
     }
     @media (min-width: 768px) {
         .hero__carousel.embla {
@@ -65,7 +71,8 @@
         }
     }
     .hero__carousel .embla__viewport {
-        overflow: hidden;
+        @apply
+        sm:overflow-hidden overflow-visible
     }
     .hero__carousel .embla__container {
         display: flex;
@@ -91,7 +98,9 @@
 
     .hero__carousel .embla__slide {
         @apply
-        xl:max-h-[520px] xl:min-h-[520px] max-h-[420px] min-h-[420px]
+        xl:max-h-[520px] xl:min-h-[520px] 
+        sm:max-h-[420px] sm:min-h-[420px]
+        max-h-[280px] min-h-[280px]
     }
 
     /* SplitText Animation */

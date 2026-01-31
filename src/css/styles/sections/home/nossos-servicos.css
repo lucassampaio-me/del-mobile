@@ -2,7 +2,7 @@
     /* Nossos Serviços */
     .nossos-servicos {
         @apply
-        relative pt-24 rounded-tl-4xl
+        relative xs:pt-24 pt-20 rounded-tl-4xl
         bg-azul-petroleo
     }
 
@@ -41,17 +41,17 @@
 
     .nossos-servicos__item-content-text {
         @apply
-        py-10 md:px-10 px-6
+        py-10 md:px-10 2xs:px-6 px-4
     }
 
     .nossos-servicos__item-content-text.content-text h3 {
         @apply
-        xl:text-7xl text-5xl
+        xl:text-7xl xxs:text-5xl text-4xl
     }
 
     .nossos-servicos__item-content-text.content-text p {
         @apply
-        text-xl
+        2xs:text-xl text-lg
     }
 
     .nossos-servicos__item-images {
@@ -73,7 +73,7 @@
     .nossos-servicos__item-images-btn {
         @apply
         absolute z-10
-        w-full p-10 bottom-0 left-0
+        w-full pb-10 md:pr-10 2xs:pr-6 pr-4 bottom-0 left-0
         flex items-center justify-end
         bg-gradient-to-t from-azul-petroleo-900/90 to-transparent
     }
@@ -94,7 +94,7 @@
 
     .nossos-servicos__item-content-destaques-item span {
         @apply
-        lg:text-xl text-lg;
+        lg:text-xl 2xs:text-lg text-base;
         color: var(--text-color);
     }
 

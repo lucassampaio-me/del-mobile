@@ -2,6 +2,6 @@
     .hero-portfolio {
         @apply
         relative
-        pb-[72px]
+        xs:pb-[72px] pb-16
     }
 }

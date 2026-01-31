@@ -2,7 +2,7 @@
     /* Nossa História */
     .nossa-historia {
         @apply
-        relative md:pt-36 pt-28 pb-24
+        relative md:pt-36 pt-28 xs:pb-24 pb-20
     }
 
     .nossa-historia__header {

@@ -2,7 +2,7 @@
     /* Dicas */
     .dicas {
         @apply
-        relative pt-24
+        relative xs:pt-24 pt-20
         bg-verde-escuro
     }
 
@@ -18,7 +18,7 @@
         @apply
         relative
         flex flex-col items-start
-        w-full py-10 md:px-10 px-6
+        w-full xxs:py-10 py-8 md:px-10 2xs:px-6 px-4
         border-b border-bege-claro/25
         hover:bg-bege-claro hover:border-bege-claro
         transition-all duration-500
@@ -27,21 +27,23 @@
 
     .dicas__item-content {
         @apply
-        flex items-center gap-20
+        flex items-center xs:gap-20 2xs:gap-10 gap-6
         w-full justify-between
     }
 
     .dicas__item-content-text {
         @apply
-        flex items-center md:gap-20 gap-10
+        flex items-center md:gap-20 xs:gap-10 gap-6
     }
 
     .dicas__item-content-btn {
         @apply
-        w-20 h-20 min-w-20 min-h-20
+        xs:w-20 xs:h-20 xs:min-w-20 xs:min-h-20
+        2xs:w-16 2xs:h-16 2xs:min-w-16 2xs:min-h-16
+        w-14 h-14 min-w-14 min-h-14
         flex items-center justify-center
         rounded-full
-        text-2xl text-verde-escuro-700
+        2xs:text-2xl text-xl text-verde-escuro-700
         bg-verde-escuro
         transition-all duration-500
     }
@@ -61,7 +63,7 @@
 
     .dicas__item-icon .ph-icon {
         @apply
-        text-6xl text-bege-claro
+        xs:text-6xl xxs:text-5xl 2xs:text-4xl text-3xl text-bege-claro
         transition-all duration-500
     }
 
@@ -105,7 +107,7 @@
 
     .dicas__itens .dicas__item-card {
         @apply
-        flex items-stretch
+        flex xs:flex-row flex-col items-stretch
         w-full mt-10
         bg-verde-escuro-900
         overflow-hidden;
@@ -113,7 +115,7 @@
 
     .dicas__itens .dicas__item-card-image {
         @apply
-        w-full h-auto
+        w-full xs:h-auto h-40
         overflow-hidden
     }
 
@@ -124,7 +126,7 @@
 
     .dicas__itens .dicas__item-card-content {
         @apply
-        w-full p-8
+        w-full py-8 md:px-8 2xs:px-6 px-4
         flex flex-col items-start justify-center gap-6
     }
 

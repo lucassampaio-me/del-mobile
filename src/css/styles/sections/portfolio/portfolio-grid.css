@@ -119,27 +119,43 @@
         absolute inset-0
         flex items-end justify-start
         p-6
-        opacity-0
         transition-opacity duration-300 ease-out;
         background: linear-gradient(to top, rgba(6, 39, 51, 0.9) 0%, rgba(6, 39, 51, 0.4) 50%, transparent 100%);
+
+        /* Mobile e tablet: overlay sempre visível */
+        opacity: 1;
     }
 
-    .portfolio-grid__item:hover .portfolio-grid__item-overlay {
-        @apply
-        opacity-100;
+    /* Desktop: overlay só visível no hover */
+    @screen lg {
+        .portfolio-grid__item-overlay {
+            opacity: 0;
+        }
+
+        .portfolio-grid__item:hover .portfolio-grid__item-overlay {
+            @apply opacity-100;
+        }
     }
 
     .portfolio-grid__item-overlay-content {
         @apply
         flex items-end justify-between
         w-full
-        transform translate-y-4
         transition-transform duration-300 ease-out;
+
+        /* Mobile e tablet: conteúdo sempre na posição normal */
+        transform: translateY(0);
     }
 
-    .portfolio-grid__item:hover .portfolio-grid__item-overlay-content {
-        @apply
-        translate-y-0;
+    /* Desktop: animação de translate no hover */
+    @screen lg {
+        .portfolio-grid__item-overlay-content {
+            @apply translate-y-4;
+        }
+
+        .portfolio-grid__item:hover .portfolio-grid__item-overlay-content {
+            @apply translate-y-0;
+        }
     }
 
     /* ============================

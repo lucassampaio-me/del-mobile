@@ -2,10 +2,10 @@
     .btn {
         @apply
         inline-flex items-center justify-center gap-3
-        text-lg font-bold
+        xxs:text-lg text-base font-bold
         bg-bege-claro-100
         text-azul-petroleo
-        py-4 px-6 rounded-full
+        xxs:py-4 py-3.5 xxs:px-6 px-5 rounded-full
         transition-all duration-300
     }
 
@@ -48,20 +48,20 @@
         @apply
         relative
         flex items-center gap-3
-        w-[calc(80px+48px+12px)] h-20
+        xxs:w-[calc(80px+48px+12px)] w-[calc(64px+40px+8px)] h-20
         transition-all duration-500
     }
 
     .navigation-slides.navigation-resize {
         @apply
-        w-[calc(80px+80px+12px)]
+        xxs:w-[calc(80px+80px+12px)] w-[calc(64px+64px+8px)]
     }
 
     .navigation-slides__button {
         @apply
         absolute top-0
         top-1/2 -translate-y-1/2
-        w-20 h-20 rounded-full
+        xxs:w-20 xxs:h-20 w-16 h-16 rounded-full
         flex items-center justify-center
         bg-bege-claro-100
         transition-all duration-500
@@ -91,7 +91,7 @@
 
     .navigation-slides__button:disabled {
         @apply
-        w-12 h-12
+        xxs:w-12 xxs:h-12 w-10 h-10
         opacity-30
         cursor-not-allowed
         pointer-events-none
@@ -99,7 +99,7 @@
 
     .navigation-slides__button:disabled .ph-icon {
         @apply
-        text-2xl
+        xxs:text-2xl text-xl
     }
 
     .navigation-slides-primary .navigation-slides__button {

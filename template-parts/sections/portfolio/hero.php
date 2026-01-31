@@ -7,7 +7,7 @@ $tipos = get_terms([
 ?>
 
 <section id="hero" class="hero-portfolio hero_internal">
-    <div class="hero_internal__container">
+    <div class="container flex items-center justify-center">
         <div class="hero_internal__header">
             <div class="content-text content-text-large text-center">
                 <h1>Portfólio</h1>

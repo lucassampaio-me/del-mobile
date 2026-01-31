@@ -12,7 +12,7 @@
         bg-bege-claro-50
         flex items-center justify-between
         rounded-br-4xl overflow-hidden
-        md:pl-10 pl-6
+        md:pl-10 2xs:pl-6 pl-4
     }
 
     .header__logo {
@@ -22,8 +22,8 @@
 
     .header__logo-link {
         @apply
-        block py-3 pr-4
-        border-r border-bege-claro
+        block py-3 xxs:pr-4 pr-0
+        xxs:border-r border-r-0 border-bege-claro
     }
 
     .header__logo-image {
@@ -34,6 +34,7 @@
     .header__logo-text {
         @apply
         text-lg font-medium
+        xxs:inline-flex hidden
     }
 
     .header__menu-list {

@@ -2,13 +2,13 @@
     /* Nosso Processo */
     .nosso-processo {
         @apply
-        relative py-24
+        relative xs:py-24 py-20
         overflow-hidden
     }
 
     .nosso-processo__header {
         @apply
-        mb-10
+        xxs:mb-10 mb-6
     }
 
     .nosso-processo__header .content-text h2 {
@@ -20,7 +20,7 @@
         @apply
         w-full h-full
         flex flex-col items-start justify-between
-        p-10 bg-vermelho-grena
+        py-10 xs:px-10 px-6 bg-vermelho-grena
         transition-all duration-500
     }
 
@@ -32,7 +32,7 @@
 
     .nosso-processo__item-header h3 {
         @apply
-        text-3xl/tight
+        xs:text-3xl/tight text-2xl/tight
     }
     
     .nosso-processo__item-header-suporte {
@@ -57,11 +57,21 @@
 
     /* Mobile: 1 slide + peek */
     .nosso-processo__carousel.embla {
-        --slide-gap: 24px;
-        --container-padding: 24px;
+        --slide-gap: 16px;
+        --container-padding: 16px;
         /* Tamanho do slide: deve caber 1 slide + peek visível */
         /* slide = 100% - padding - peek (aproximadamente) */
-        --slide-size: calc(100% - var(--container-padding) - -24px);
+        --slide-size: calc(100% - var(--container-padding) - -16px);
+    }
+
+    @media (min-width: 374px) {
+        .nosso-processo__carousel.embla {
+            --slide-gap: 24px;
+            --container-padding: 24px;
+            /* Tamanho do slide: deve caber 1 slide + peek visível */
+            /* slide = 100% - padding - peek (aproximadamente) */
+            --slide-size: calc(100% - var(--container-padding) - -24px);
+        }
     }
 
     /* Tablet: 2 slides + peek */
@@ -113,7 +123,7 @@
 
     .nosso-processo__carousel-nav-wrapper {
         @apply
-        min-w-[172px]
-        inline-flex justify-end
+        xxs:min-w-[172px] min-w-[112px]
+        inline-flex xs:justify-end justify-start
     }
 }

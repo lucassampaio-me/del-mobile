@@ -6,7 +6,7 @@ $dicas_itens = get_field('dicas_itens');
 
 <section id="dicas" class="dicas theme-dark">
     <div class="container">
-        <div class="flex items-center gap-10 mb-10">
+        <div class="flex xs:flex-row flex-col xs:items-center items-start xs:gap-10 gap-6 mb-10">
             <div class="tag">
                 <div class="tag-item">
                     <span><?php echo $dicas_tag; ?></span>

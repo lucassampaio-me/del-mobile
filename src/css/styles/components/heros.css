@@ -2,7 +2,7 @@
     .hero_internal {
         @apply
         relative
-        bg-bege-claro pt-24
+        bg-bege-claro xs:pt-24 pt-16
     }
 
     .hero_internal__container {

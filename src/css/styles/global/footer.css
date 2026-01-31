@@ -2,14 +2,14 @@
     /* Footer */
     .footer__logo {
         @apply
-        py-10
+        xs:py-10 py-6
         border-t border-bege-claro
     }
 
     /* Suporte para animações 3D no logo */
     .footer__logo .content-image {
         @apply
-        max-w-[206px];
+        xs:max-w-[206px] max-w-[154px];
     }
 
     .footer__copyright {
@@ -20,7 +20,7 @@
 
     .footer__copyright .content-text {
         @apply
-        flex items-center justify-between gap-10
+        flex xs:flex-row flex-col xs:items-center items-start justify-between xs:gap-10 gap-2
     }
 
     .footer__copyright .content-text p {

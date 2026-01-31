@@ -173,19 +173,21 @@ function delmobile_render_portfolio_modal_content($post) {
         <!-- Conteúdo -->
         <div class="portfolio-modal__content">
             <header class="portfolio-modal__header">
-                <div class="content-text">
-                    <h2><?php echo esc_html($post->post_title); ?></h2>
-                    <p><?php echo $descricao; ?></p>
-                    <button class="portfolio-modal__close btn" type="button" aria-label="Voltar">
+                <h2><?php echo esc_html($post->post_title); ?></h2>
+                <button class="portfolio-modal__close btn" type="button" aria-label="Voltar">
+                    <div class="xs:inline-flex hidden">
                         <?php echo icon('arrow-left'); ?>
-                        <span>Voltar</span>
-                    </button>
-                </div>
+                    </div>
+                    <div class="xs:hidden inline-flex">
+                        <?php echo icon('x'); ?>
+                    </div>
+                    <span class="xs:inline-block hidden">Voltar</span>
+                </button>
             </header>
 
+            <?php if (count($imagens) > 1) : ?>
             <footer class="portfolio-modal__footer">
                 
-                <?php if (count($imagens) > 1) : ?>
                     <div class="portfolio-modal__gallery-nav navigation-slides navigation-resize">
                         <button class="navigation-slides__button navigation-slides__button--prev" type="button" aria-label="Anterior">
                             <?php echo icon('caret-left'); ?>
@@ -194,8 +196,8 @@ function delmobile_render_portfolio_modal_content($post) {
                             <?php echo icon('caret-right'); ?>
                         </button>
                     </div>
-                <?php endif; ?>
-            </footer>
+                </footer>
+            <?php endif; ?>
         </div>
 
         <!-- Galeria / Imagem -->

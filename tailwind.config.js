@@ -36,6 +36,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        '2xs': '374px',
+        'xxs': '476px',
+        'xs': '580px',
+      },
       colors: {
         'vermelho-grena': {
             DEFAULT: '#800020',

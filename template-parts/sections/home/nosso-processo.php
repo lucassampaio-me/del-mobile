@@ -7,7 +7,7 @@ $nosso_processo_itens = get_field('nosso_processo_itens');
 
 <section id="nosso-processo" class="nosso-processo">
     <div class="container">
-        <div class="flex gap-10 items-end lg:justify-start justify-between nosso-processo__header">
+        <div class="flex xs:flex-row flex-col gap-10 xs:items-end items-start lg:justify-start justify-between nosso-processo__header">
             <div class="w-full lg:max-w-full max-w-[524px] flex lg:flex-row flex-col lg:gap-10 gap-6 items-start">
                 <div class="tag">
                     <div class="tag-item">

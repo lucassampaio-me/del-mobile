@@ -2,7 +2,7 @@
     /* Nossa História */
     .nossa-historia {
         @apply
-        relative pt-36 pb-24
+        relative md:pt-36 pt-28 pb-24
     }
 
     .nossa-historia__header {
@@ -12,12 +12,12 @@
 
     .nossa-historia__header .content-text h2 {
         @apply
-        max-w-[942px]
+        md:max-w-[942px] max-w-full
     }
 
     .nossa-historia__header .content-text p {
         @apply
-        max-w-[642px]
+        md:max-w-[642px] max-w-full
     }
 
     .nossa-historia__content-left {

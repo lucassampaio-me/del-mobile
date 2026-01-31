@@ -18,7 +18,7 @@
         @apply
         relative
         flex flex-col items-start
-        w-full p-10
+        w-full py-10 md:px-10 px-6
         border-b border-bege-claro/25
         hover:bg-bege-claro hover:border-bege-claro
         transition-all duration-500
@@ -33,12 +33,12 @@
 
     .dicas__item-content-text {
         @apply
-        flex items-center gap-20
+        flex items-center md:gap-20 gap-10
     }
 
     .dicas__item-content-btn {
         @apply
-        w-20 h-20
+        w-20 h-20 min-w-20 min-h-20
         flex items-center justify-center
         rounded-full
         text-2xl text-verde-escuro-700
@@ -113,7 +113,7 @@
 
     .dicas__itens .dicas__item-card-image {
         @apply
-        w-full h-full
+        w-full h-auto
         overflow-hidden
     }
 

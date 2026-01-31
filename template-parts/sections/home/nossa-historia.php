@@ -9,7 +9,7 @@ $nossa_historia_btn_anchor = '#fale-conosco';
 
 <section id="nossa-historia" class="nossa-historia">
     <div class="container">
-        <div class="flex gap-10 items-start nossa-historia__header">
+        <div class="flex md:flex-row flex-col md:gap-10 gap-6 items-start nossa-historia__header">
             <div class="tag">
                 <div class="tag-item">
                     <span><?php echo $nossa_historia_tag; ?></span>

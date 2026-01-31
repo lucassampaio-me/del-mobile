@@ -9,7 +9,7 @@
 
     .hero__header {
         @apply
-        pt-10 px-10
+        pt-10 md:px-10 px-6
     }
 
     .hero__header h1 {
@@ -26,7 +26,7 @@
 
     .hero__content-left {
         @apply
-        w-auto pb-10 pl-10
+        w-auto pb-10 md:pl-10 pl-6
         flex flex-col justify-between items-start gap-10
     }
 
@@ -37,7 +37,9 @@
 
     .hero__content-left-text {
         @apply
-        w-auto xl:max-w-[434px] xl:min-w-[434px] max-w-[300px] min-w-[300px]
+        w-auto xl:max-w-[434px] xl:min-w-[434px] 
+        md:max-w-[300px] md:min-w-[300px]
+        max-w-[340px] min-w-[340px]
         flex flex-col items-start gap-4
     }
 
@@ -54,8 +56,13 @@
 
     .hero__carousel.embla {
         margin: auto;
-        --slide-spacing: 40px;
+        --slide-spacing: 24px;
         --slide-size: 100%;
+    }
+    @media (min-width: 768px) {
+        .hero__carousel.embla {
+            --slide-spacing: 40px;
+        }
     }
     .hero__carousel .embla__viewport {
         overflow: hidden;

@@ -110,4 +110,10 @@
         @apply
         rounded-tl-4xl
     }
+
+    .nosso-processo__carousel-nav-wrapper {
+        @apply
+        min-w-[172px]
+        inline-flex justify-end
+    }
 }

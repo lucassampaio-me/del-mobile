@@ -1544,9 +1544,16 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 }
 
 .hero__header {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   padding-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero__header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .hero__header h1 {
@@ -1577,7 +1584,13 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   justify-content: space-between;
   gap: 2.5rem;
   padding-bottom: 2.5rem;
-  padding-left: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero__content-left {
+    padding-left: 2.5rem;
+  }
 }
 
 .hero__content-right {
@@ -1589,11 +1602,18 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 .hero__content-left-text {
   display: flex;
   width: auto;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 340px;
+  max-width: 340px;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero__content-left-text {
+    min-width: 300px;
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1629,8 +1649,14 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .hero__carousel.embla {
   margin: auto;
-  --slide-spacing: 40px;
+  --slide-spacing: 24px;
   --slide-size: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero__carousel.embla {
+    --slide-spacing: 40px;
+  }
 }
 
 .hero__carousel .embla__viewport {
@@ -1687,8 +1713,14 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .nossa-historia {
   position: relative;
-  padding-top: 9rem;
+  padding-top: 7rem;
   padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .nossa-historia {
+    padding-top: 9rem;
+  }
 }
 
 .nossa-historia__header {
@@ -1700,11 +1732,23 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 }
 
 .nossa-historia__header .content-text h2 {
-  max-width: 942px;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nossa-historia__header .content-text h2 {
+    max-width: 942px;
+  }
 }
 
 .nossa-historia__header .content-text p {
-  max-width: 642px;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nossa-historia__header .content-text p {
+    max-width: 642px;
+  }
 }
 
 .nossa-historia__content-left {
@@ -1772,6 +1816,7 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   position: relative;
   display: flex;
   min-height: 100dvh;
+  flex-direction: column;
   align-items: stretch;
   overflow: hidden;
   border-top-width: 1px;
@@ -1779,6 +1824,15 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   border-color: rgb(22 79 99 / var(--tw-border-opacity, 1));
   --tw-bg-opacity: 1;
   background-color: rgb(6 39 51 / var(--tw-bg-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .nossos-servicos__item {
+    flex-direction: row;
+  }
+}
+
+.nossos-servicos__item {
   transform-origin: center top;
   will-change: transform, opacity, filter, border-radius, box-shadow;
 }
@@ -1797,7 +1851,17 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 }
 
 .nossos-servicos__item-content-text {
-  padding: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .nossos-servicos__item-content-text {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .nossos-servicos__item-content-text.content-text h3 {
@@ -1818,7 +1882,15 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 }
 
 .nossos-servicos__item-images {
-  max-width: 44%;
+  min-height: 20rem;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .nossos-servicos__item-images {
+    min-height: 100%;
+    max-width: 44%;
+  }
 }
 
 .nossos-servicos__item-images-item {
@@ -1872,8 +1944,8 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   border-color: rgb(22 79 99 / var(--tw-border-opacity, 1));
   padding-top: 2rem;
   padding-bottom: 2rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
@@ -1882,6 +1954,13 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 .nossos-servicos__item-content-destaques-item:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(22 79 99 / var(--tw-bg-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .nossos-servicos__item-content-destaques-item {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -2100,6 +2179,12 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   border-top-left-radius: 2.5rem;
 }
 
+.nosso-processo__carousel-nav-wrapper {
+  display: inline-flex;
+  min-width: 172px;
+  justify-content: flex-end;
+}
+
 /* Projetos */
 
 .projetos {
@@ -2221,7 +2306,17 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  padding: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .projetos__content-main {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .projetos__content-header {
@@ -2250,7 +2345,17 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   align-items: flex-end;
   justify-content: space-between;
   gap: 2.5rem;
-  padding: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .projetos__content-footer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .projetos__content-footer-nav {
@@ -2299,7 +2404,10 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   align-items: flex-start;
   border-bottom-width: 1px;
   border-color: rgb(207 207 188 / 0.25);
-  padding: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
@@ -2310,6 +2418,13 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   border-color: rgb(207 207 188 / var(--tw-border-opacity, 1));
   --tw-bg-opacity: 1;
   background-color: rgb(207 207 188 / var(--tw-bg-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .dicas__item {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .dicas__item-content {
@@ -2323,13 +2438,21 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 .dicas__item-content-text {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .dicas__item-content-text {
+    gap: 5rem;
+  }
 }
 
 .dicas__item-content-btn {
   display: flex;
   height: 5rem;
+  min-height: 5rem;
   width: 5rem;
+  min-width: 5rem;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -2425,7 +2548,7 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 }
 
 .dicas__itens .dicas__item-card-image {
-  height: 100%;
+  height: auto;
   width: 100%;
   overflow: hidden;
 }
@@ -2936,7 +3059,13 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   border-bottom-right-radius: 2.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 241 / var(--tw-bg-opacity, 1));
-  padding-left: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .header__content {
+    padding-left: 2.5rem;
+  }
 }
 
 .header__logo {
@@ -3029,11 +3158,18 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   border-color: rgb(128 0 32 / var(--tw-border-opacity, 1));
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+}
+
+@media (min-width: 768px) {
+  .header__menu-toggle {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -3340,6 +3476,14 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   grid-column: span 1 / span 1;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -3376,10 +3520,6 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   display: none;
 }
 
-.w-1\/4 {
-  width: 25%;
-}
-
 .w-auto {
   width: auto;
 }
@@ -3390,10 +3530,6 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .max-w-\[524px\] {
   max-width: 524px;
-}
-
-.max-w-\[604px\] {
-  max-width: 604px;
 }
 
 .max-w-full {
@@ -3412,16 +3548,8 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .flex-col {
   flex-direction: column;
-}
-
-.flex-nowrap {
-  flex-wrap: nowrap;
 }
 
 .items-start {
@@ -3458,8 +3586,15 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
 .container {
   max-width: 100%;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 /* Componentetes reutilizáveis - Base */
@@ -3487,6 +3622,22 @@ a:not(button):not(.btn):not(.no-style-link):not(.menu-item a):not(.link-more):ho
 
   .md\:row-span-2 {
     grid-row: span 2 / span 2;
+  }
+
+  .md\:inline-flex {
+    display: inline-flex;
+  }
+
+  .md\:max-w-\[604px\] {
+    max-width: 604px;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:gap-10 {
+    gap: 2.5rem;
   }
 }
 

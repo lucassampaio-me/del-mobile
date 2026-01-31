@@ -21,8 +21,8 @@ $contato_endereco = get_field('contato_endereco');
             </div>
         </div>
 
-        <div class="flex flex-row justify-start flex-nowrap gap-10 w-full">
-            <div class="w-1/4">
+        <div class="grid grid-cols-4 md:gap-10 gap-6 w-full">
+            <div class="md:col-span-1 col-span-2">
                 <div class="card-contact card-contact-large">
                     <div class="card-contact-header">
                         <div class="card-contact-header-icon">
@@ -38,7 +38,7 @@ $contato_endereco = get_field('contato_endereco');
                 </div>
             </div>
 
-            <div class="w-1/4">
+            <div class="md:col-span-1 col-span-2">
                 <div class="card-contact">
                     <div class="card-contact-header">
                         <div class="card-contact-header-icon">
@@ -65,7 +65,7 @@ $contato_endereco = get_field('contato_endereco');
                 </div>
             </div>
 
-            <div class="w-1/4">
+            <div class="md:col-span-1 col-span-4">
                 <div class="card-contact">
                     <div class="card-contact-header">
                         <div class="card-contact-header-icon">

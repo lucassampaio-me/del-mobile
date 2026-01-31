@@ -1,7 +1,7 @@
 @layer utilities {
     .container {
         @apply
-        px-10
+        md:px-10 px-6
         max-w-full
     }
 }

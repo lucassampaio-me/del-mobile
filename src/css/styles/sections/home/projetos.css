@@ -88,7 +88,7 @@
 
     .projetos__content-main {
         @apply
-        w-full p-10
+        w-full py-10 md:px-10 px-6
         flex flex-col gap-4 items-start
     }
 
@@ -110,7 +110,7 @@
 
     .projetos__content-footer {
         @apply
-        w-full p-10
+        w-full py-10 md:px-10 px-6
         flex items-end justify-between gap-10
     }
 

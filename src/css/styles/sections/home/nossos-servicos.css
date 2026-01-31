@@ -19,7 +19,7 @@
     .nossos-servicos__item {
         @apply
         relative
-        flex items-stretch
+        flex items-stretch md:flex-row flex-col
         min-h-dvh
         border-t border-azul-petroleo-900
         bg-azul-petroleo overflow-hidden;
@@ -41,7 +41,7 @@
 
     .nossos-servicos__item-content-text {
         @apply
-        p-10
+        py-10 md:px-10 px-6
     }
 
     .nossos-servicos__item-content-text.content-text h3 {
@@ -56,7 +56,7 @@
 
     .nossos-servicos__item-images {
         @apply
-        max-w-[44%]
+        md:max-w-[44%] max-w-full md:min-h-full min-h-80
     }
 
     .nossos-servicos__item-images-item {
@@ -85,7 +85,7 @@
 
     .nossos-servicos__item-content-destaques-item {
         @apply
-        w-full xl:py-10 py-8 px-10
+        w-full xl:py-10 py-8 md:px-10 px-6
         flex items-center justify-start gap-6
         border-t border-azul-petroleo-900
         hover:bg-azul-petroleo-900

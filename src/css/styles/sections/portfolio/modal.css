@@ -54,7 +54,7 @@
     .portfolio-modal__gallery {
         @apply
         w-full sm:h-full h-auto
-        bg-bege-claro-200
+        bg-azul-petroleo-950 border-l border-azul-petroleo-900
         relative overflow-hidden
     }
     
@@ -71,10 +71,16 @@
         flex-[0_0_100%] min-w-0
         relative w-full h-full
     }
+
+    .portfolio-modal__gallery-slide-content {
+        @apply
+        flex items-center justify-center
+        p-10 w-full h-full
+    }
     
     .portfolio-modal__gallery-image {
         @apply
-        w-full h-full object-cover sm:min-h-full min-h-[240px]
+        w-auto max-w-full max-h-full
     }
     
     /* Gallery Navigation */

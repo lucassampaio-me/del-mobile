@@ -206,11 +206,13 @@ function delmobile_render_portfolio_modal_content($post) {
                 <div class="embla__container portfolio-modal__gallery-container">
                     <?php foreach ($imagens as $imagem) : ?>
                         <div class="embla__slide portfolio-modal__gallery-slide">
-                            <img 
-                                src="<?php echo esc_url($imagem['url']); ?>" 
-                                alt="<?php echo esc_attr($imagem['alt']); ?>" 
-                                class="portfolio-modal__gallery-image"
-                            >
+                            <div class="portfolio-modal__gallery-slide-content">
+                                <img 
+                                    src="<?php echo esc_url($imagem['url']); ?>" 
+                                    alt="<?php echo esc_attr($imagem['alt']); ?>" 
+                                    class="portfolio-modal__gallery-image"
+                                >
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>

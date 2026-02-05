@@ -1,33 +1,18 @@
 <?php
 // Buscar os posts selecionados no campo ACF 'projetos'
-$projetos = get_field('projetos');
-$tipos = [];
-$tipo_first_image = []; // Mapeia term_id para índice da primeira imagem
+$projetos = get_field('projetos') ?: [];
 
+// Quantidade de imagens por projeto (configurável)
+$imagens_por_projeto = 2;
+
+// Contar total de imagens exibidas (limitadas por $imagens_por_projeto)
+$total_imagens = 0;
 if ($projetos) {
-    // Array para armazenar IDs únicos dos termos
-    $term_ids = [];
-    $current_image_index = 0;
-
-    // Para cada post selecionado, buscar suas taxonomias 'tipo'
     foreach ($projetos as $projeto) {
-        $post_tipos = get_the_terms($projeto->ID, 'tipo');
-        $projeto_imagens = get_field('imagens', $projeto->ID);
-        $num_imagens = $projeto_imagens ? count($projeto_imagens) : 0;
-
-        if ($post_tipos && !is_wp_error($post_tipos)) {
-            foreach ($post_tipos as $tipo) {
-                // Adicionar apenas se ainda não estiver no array
-                if (!isset($term_ids[$tipo->term_id])) {
-                    $term_ids[$tipo->term_id] = true;
-                    $tipos[] = $tipo;
-                    // Armazenar o índice da primeira imagem deste tipo
-                    $tipo_first_image[$tipo->term_id] = $current_image_index;
-                }
-            }
+        $imagens = get_field('imagens', $projeto->ID);
+        if ($imagens && !empty($imagens[0])) {
+            $total_imagens += min($imagens_por_projeto, count($imagens));
         }
-
-        $current_image_index += $num_imagens;
     }
 }
 ?>
@@ -46,29 +31,29 @@ if ($projetos) {
                     </a>
                 </div>
 
-                <div class="portfolio__nav xs:inline-flex hidden">
-                    <?php foreach ($tipos as $tipo) : ?>
-                        <button class="portfolio__nav-button" data-first-image="<?php echo $tipo_first_image[$tipo->term_id]; ?>" data-project-type="<?php echo esc_attr($tipo->slug); ?>">
-                            <span><?php echo $tipo->name; ?></span>
-                        </button>
-                    <?php endforeach; ?>
-                </div>
             </div>
 
             <div class="projetos__content-infos embla">
                 <div class="embla__viewport">
                     <div class="embla__container">
                     <?php
-                    $image_index = 0;
+                    $slide_index = 0;
                     foreach ($projetos as $projeto) :
                         $imagens = get_field('imagens', $projeto->ID);
-                        $num_imagens = $imagens ? count($imagens) : 0;
-                        $first_image = $image_index;
-                        $last_image = $image_index + $num_imagens - 1;
-                        $image_index += $num_imagens;
+                        if (!$imagens || empty($imagens[0])) {
+                            continue;
+                        }
+
+                        // Limita a quantidade de imagens por projeto
+                        $imagens_visiveis = array_slice($imagens, 0, $imagens_por_projeto);
+                        $first_image = $slide_index;
+                        $last_image  = $slide_index + count($imagens_visiveis) - 1;
                     ?>
-                        <div class="projetos__content-infos-item embla__slide" data-first-image="<?php echo $first_image; ?>" data-last-image="<?php echo $last_image; ?>"></div>
-                    <?php endforeach; ?>
+                        <div class="projetos__content-infos-item embla__slide" data-first-image="<?php echo esc_attr($first_image); ?>" data-last-image="<?php echo esc_attr($last_image); ?>"></div>
+                    <?php
+                        $slide_index += count($imagens_visiveis);
+                    endforeach;
+                    ?>
                     </div>
                 </div>
             </div>
@@ -89,18 +74,9 @@ if ($projetos) {
                     <span>Ver portfólio completo</span>
                     <?php echo icon('arrow-up-right'); ?>
                 </a>
-                <?php 
-                    $total_imagens = 0;
-                    foreach ($projetos as $projeto) {
-                        $imagens = get_field('imagens', $projeto->ID);
-                        if ($imagens) {
-                            $total_imagens += count($imagens);
-                        }
-                    }
-                ?>
                 <span class="projetos__content-footer-count-current"></span>
                 <span class="projetos__content-footer-count-separator">/</span>
-                <span class="projetos__content-footer-count-total"><?php echo $total_imagens; ?></span>
+                <span class="projetos__content-footer-count-total"><?php echo esc_html($total_imagens); ?></span>
             </div>
         </div>
     </div>
@@ -110,21 +86,31 @@ if ($projetos) {
             <div class="embla__container">
             <?php
             $image_index = 0;
-            foreach ($projetos as $projeto) : ?>
-                <?php
+            foreach ($projetos as $projeto) :
                 $imagens = get_field('imagens', $projeto->ID);
+
+                if (!$imagens || empty($imagens[0])) {
+                    continue;
+                }
+
+                // Limita a quantidade de imagens por projeto
+                $imagens_visiveis = array_slice($imagens, 0, $imagens_por_projeto);
+
                 $post_tipos = get_the_terms($projeto->ID, 'tipo');
                 $tipo_slug = ($post_tipos && !is_wp_error($post_tipos)) ? $post_tipos[0]->slug : '';
-                ?>
-                <?php foreach ($imagens as $imagem) : ?>
-                    <div class="projetos__images-item embla__slide" data-index-image="<?php echo $image_index; ?>" data-project-type="<?php echo esc_attr($tipo_slug); ?>">
-                        <div class="projetos__images-item-image">
-                            <img src="<?php echo $imagem['url']; ?>" alt="<?php echo $imagem['alt']; ?>">
-                        </div>
+
+                foreach ($imagens_visiveis as $imagem) :
+            ?>
+                <div class="projetos__images-item embla__slide" data-index-image="<?php echo esc_attr($image_index); ?>" data-project-type="<?php echo esc_attr($tipo_slug); ?>">
+                    <div class="projetos__images-item-image">
+                        <img src="<?php echo esc_url($imagem['url']); ?>" alt="<?php echo esc_attr($imagem['alt']); ?>">
                     </div>
-                    <?php $image_index++; ?>
-                <?php endforeach; ?>
-            <?php endforeach; ?>
+                </div>
+                <?php
+                    $image_index++;
+                endforeach;
+            endforeach;
+            ?>
             </div>
         </div>
     </div>

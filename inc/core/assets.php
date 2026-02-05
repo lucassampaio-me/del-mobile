@@ -83,8 +83,11 @@
 	// Portfolio Grid (carregado globalmente, tem validação interna)
 	wp_enqueue_script( 'delmobile-portfolio-grid', get_template_directory_uri() . '/src/js/modules/portfolioGrid.js', array('gsap', 'gsap-flip'), DELMOBILE_VERSION, true );
     
+    // Image Zoom (usado pelo modal do portfólio)
+    wp_enqueue_script( 'delmobile-image-zoom', get_template_directory_uri() . '/src/js/modules/imageZoom.js', array(), DELMOBILE_VERSION, true );
+
     // Portfolio Modal
-    wp_enqueue_script( 'delmobile-portfolio-modal', get_template_directory_uri() . '/src/js/modules/portfolioModal.js', array('gsap', 'embla-carousel'), DELMOBILE_VERSION, true );
+    wp_enqueue_script( 'delmobile-portfolio-modal', get_template_directory_uri() . '/src/js/modules/portfolioModal.js', array('gsap', 'embla-carousel', 'delmobile-image-zoom'), DELMOBILE_VERSION, true );
 
 	// Construir dados de filtros para o portfolio
 	$filter_data = delmobile_get_portfolio_filter_data();

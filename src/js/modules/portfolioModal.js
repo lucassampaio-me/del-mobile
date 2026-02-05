@@ -15,6 +15,7 @@
         let currentModal = null;
         let carousel = null;
         let isLoading = false;
+        let zoomInstances = [];
 
         /**
          * Abre o modal carregando os dados do projeto
@@ -119,6 +120,9 @@
             // Inicializar Carousel
             initModalCarousel();
 
+            // Inicializar Zoom nas imagens
+            zoomInstances = typeof window.initImageZoom === 'function' ? window.initImageZoom() : [];
+
             // Event Listeners
             const closeBtn = currentModal.querySelector('.portfolio-modal__close');
             const overlay = currentModal.querySelector('.portfolio-modal__overlay');
@@ -139,7 +143,12 @@
             const viewport = emblaNode; // A estrutura HTML define o viewport diretamente no .embla se configurado assim, ou filho.
             // Verificando helper: div.embla > div.embla__container. Embla espera que o nó raiz seja o viewport ou tenha overflow hidden.
             
-            const options = { loop: true, align: 'start' };
+            const options = {
+                loop: true,
+                align: 'start',
+                // Desabilita drag do carousel quando qualquer imagem está com zoom
+                watchDrag: () => !zoomInstances.some(i => i.isZoomed && i.isZoomed())
+            };
             carousel = EmblaCarousel(emblaNode, options);
 
             // Navegação
@@ -158,6 +167,11 @@
                 carousel.on('select', updateButtons);
                 carousel.on('init', updateButtons);
             }
+
+            // Reseta zoom ao trocar de slide
+            carousel.on('select', () => {
+                zoomInstances.forEach(instance => instance.reset());
+            });
         }
 
         /**
@@ -190,6 +204,7 @@
                 ease: 'power2.in',
                 onComplete: () => {
                     if (carousel) carousel.destroy();
+                    zoomInstances = [];
                     modalContainer.innerHTML = '';
                     currentModal = null;
                     

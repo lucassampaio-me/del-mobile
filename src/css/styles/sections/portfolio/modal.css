@@ -43,7 +43,7 @@
     .portfolio-modal__wrapper {
         @apply
         relative z-10
-        w-full sm:h-full h-auto
+        w-full h-full
         bg-azul-petroleo
         overflow-hidden
         shadow-2xl
@@ -54,7 +54,7 @@
     .portfolio-modal__gallery {
         @apply
         w-full sm:h-full h-auto
-        bg-azul-petroleo-950 border-l border-azul-petroleo-900
+        bg-azul-petroleo-950 md:border-l border-l-0 md:border-t-0 border-t border-azul-petroleo-900
         relative overflow-hidden
     }
     
@@ -75,12 +75,36 @@
     .portfolio-modal__gallery-slide-content {
         @apply
         flex items-center justify-center
-        p-10 w-full h-full
+        md:py-10 py-8 md:px-10 2xs:px-6 px-4 w-full h-full
+        relative overflow-hidden touch-none
     }
-    
+
     .portfolio-modal__gallery-image {
         @apply
         w-auto max-w-full max-h-full
+        select-none origin-center;
+        -webkit-user-drag: none;
+    }
+
+    /* Controles de zoom da imagem */
+    .image-zoom__controls {
+        @apply
+        absolute bottom-3 right-3 z-20
+        flex gap-1.5
+    }
+
+    .image-zoom__btn {
+        @apply
+        w-9 h-9 text-lg
+        flex items-center justify-center
+        rounded-full
+        bg-azul-petroleo-950/70 text-bege-claro
+        backdrop-blur-sm
+        border border-azul-petroleo-900/50
+        transition-opacity duration-200
+        cursor-pointer
+        hover:opacity-80
+        disabled:opacity-40 disabled:cursor-not-allowed
     }
     
     /* Gallery Navigation */

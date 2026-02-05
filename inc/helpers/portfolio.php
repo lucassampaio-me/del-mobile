@@ -207,11 +207,23 @@ function delmobile_render_portfolio_modal_content($post) {
                     <?php foreach ($imagens as $imagem) : ?>
                         <div class="embla__slide portfolio-modal__gallery-slide">
                             <div class="portfolio-modal__gallery-slide-content">
-                                <img 
-                                    src="<?php echo esc_url($imagem['url']); ?>" 
-                                    alt="<?php echo esc_attr($imagem['alt']); ?>" 
+                                <img
+                                    src="<?php echo esc_url($imagem['url']); ?>"
+                                    alt="<?php echo esc_attr($imagem['alt']); ?>"
                                     class="portfolio-modal__gallery-image"
                                 >
+                                <!-- Controles de zoom -->
+                                <div class="image-zoom__controls" aria-label="Controles de zoom">
+                                    <button class="image-zoom__btn image-zoom__btn--out" type="button" aria-label="Reduzir zoom">
+                                        <?php echo icon('magnifying-glass-minus'); ?>
+                                    </button>
+                                    <button class="image-zoom__btn image-zoom__btn--in" type="button" aria-label="Aumentar zoom">
+                                        <?php echo icon('magnifying-glass-plus'); ?>
+                                    </button>
+                                    <button class="image-zoom__btn image-zoom__btn--reset" type="button" aria-label="Resetar zoom" style="display: none;">
+                                        <?php echo icon('magnifying-glass'); ?>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>

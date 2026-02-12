@@ -1,5 +1,9 @@
 @import "../fonts/cabinet-grotesk/css/cabinet-grotesk.css";
 
+/* Phosphor Icons */
+@import "../fonts/phosphor/thin/style.css";
+@import "../fonts/phosphor/light/style.css";
+
 /* Base */
 @import "./styles/global/base.css";
 

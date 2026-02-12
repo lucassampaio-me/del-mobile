@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "Tema WordPress para o site DelMobile",
   "scripts": {
-    "build:css-watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
+    "build:css-watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",
+    "build:css": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css",
+    "build:css-minify": "tailwindcss -i ./src/css/input.css -o ./src/css/output.min.css --minify",
+    "build:js-animations": "terser src/js/animations/core/config.js src/js/animations/core/utils.js src/js/animations/core/splitManager.js src/js/animations/primitives/fade.js src/js/animations/primitives/slide.js src/js/animations/primitives/scale.js src/js/animations/primitives/blur.js src/js/animations/text/splitChars.js src/js/animations/text/splitLines.js src/js/animations/text/splitWords.js src/js/animations/index.js src/js/animations/global/cursorFollow.js src/js/animations/global/footer.js -o src/js/dist/animations.min.js -c -m",
+    "build:js-modules": "terser src/js/modules/smoothScroll.js src/js/modules/menu.js src/js/modules/processoCarousel.js src/js/modules/nossosServicosSection.js src/js/modules/dicasSection.js src/js/modules/portfolioGrid.js src/js/modules/imageZoom.js src/js/modules/portfolioModal.js src/js/modules/global.js src/js/modules/contactForm.js src/js/theme.js -o src/js/dist/modules.min.js -c -m",
+    "build:js-home": "terser src/js/modules/heroCarousel.js src/js/modules/projetosSection.js src/js/animations/home/hero.js src/js/animations/home/nossa-historia.js src/js/animations/home/nossos-servicos.js src/js/animations/home/nosso-processo.js src/js/animations/home/dicas-extras.js -o src/js/dist/home.min.js -c -m",
+    "build:js-portfolio": "terser src/js/animations/portfolio.js -o src/js/dist/portfolio.min.js -c -m",
+    "build:js": "npm run build:js-animations && npm run build:js-modules && npm run build:js-home && npm run build:js-portfolio",
+    "build": "npm run build:css-minify && npm run build:js"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.18"
+    "tailwindcss": "^3.4.18",
+    "terser": "^5.46.0"
   },
   "dependencies": {
     "@phosphor-icons/web": "^2.1.2",

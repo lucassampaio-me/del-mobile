@@ -60,22 +60,6 @@
         }
 
         /**
-         * Atualiza a altura do container baseado nos itens visíveis
-         */
-        function updateContainerHeight() {
-            const currentHeight = gridContainer.style.height;
-            gridContainer.style.height = '';
-            const naturalHeight = gridContainer.offsetHeight;
-            gridContainer.style.height = currentHeight || naturalHeight + 'px';
-
-            gsap.to(gridContainer, {
-                height: naturalHeight,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-        }
-
-        /**
          * Conta quantos itens de um filtro específico existem no DOM
          * @param {string} filterValue - Valor do filtro ('all' ou slug da taxonomia)
          * @returns {number} Quantidade de itens no DOM para este filtro
@@ -112,8 +96,6 @@
 
             // SEMPRE atualizar a contagem do filtro baseado nos itens reais no DOM
             loadedByFilter[filterValue] = countItemsInDomForFilter(filterValue);
-
-            updateContainerHeight();
 
             Flip.from(state, {
                 duration: 0.6,
@@ -182,7 +164,6 @@
                     },
                     body: new URLSearchParams({
                         action: 'delmobile_load_more_portfolio',
-                        nonce: window.portfolio_ajax.nonce,
                         offset: filterOffset,
                         posts_per_page: postsPerPage,
                         filter: currentFilter,
@@ -219,9 +200,6 @@
                     // Preparar novos itens visíveis para animação
                     gsap.set(visibleNewItems, { opacity: 0, scale: 0.6 });
 
-                    // Atualizar altura do container
-                    updateContainerHeight();
-
                     // Animar novos itens visíveis
                     gsap.to(visibleNewItems, {
                         opacity: 1,
@@ -249,9 +227,6 @@
                 loadMoreBtn.dataset.loading = 'false';
             }
         }
-
-        // Inicializar altura do container
-        gridContainer.style.height = gridContainer.offsetHeight + 'px';
 
         /**
          * Atualiza o estado visual dos botões de filtro

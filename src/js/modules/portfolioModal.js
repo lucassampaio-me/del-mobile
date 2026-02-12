@@ -54,7 +54,6 @@
                     },
                     body: new URLSearchParams({
                         action: 'delmobile_get_portfolio_modal',
-                        nonce: window.portfolio_ajax.modal_nonce,
                         project_id: projectId
                     })
                 });

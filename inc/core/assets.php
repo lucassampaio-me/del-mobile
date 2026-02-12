@@ -95,8 +95,6 @@
 	// Localizar script do portfolio com variáveis AJAX
 	wp_localize_script( 'delmobile-portfolio-grid', 'portfolio_ajax', array(
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'nonce' => wp_create_nonce( 'portfolio_load_more_nonce' ),
-        'modal_nonce' => wp_create_nonce( 'portfolio_modal_nonce' ),
 		'posts_per_page' => 8,
 		'filter_data' => $filter_data
 	));

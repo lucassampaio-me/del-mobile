@@ -24,6 +24,7 @@ function delmobile_render_portfolio_item($post, $index) {
 
     $projeto_id = $post->ID;
     $imagens = get_field('imagens', $projeto_id);
+    $ocultar_titulo = get_field('ocultar_titulo', $projeto_id);
     $post_tipos = get_the_terms($projeto_id, 'tipo');
     $tipo_slug = ($post_tipos && !is_wp_error($post_tipos))
         ? $post_tipos[0]->slug
@@ -59,9 +60,11 @@ function delmobile_render_portfolio_item($post, $index) {
             <!-- Overlay Hover -->
             <div class="portfolio-grid__item-overlay">
                 <div class="portfolio-grid__item-overlay-content">
+                    <?php if (!$ocultar_titulo) : ?>
                     <h3 class="portfolio-grid__item-title">
                         <?php echo esc_html($post->post_title); ?>
                     </h3>
+                    <?php endif; ?>
                     <button
                         class="portfolio-grid__item-btn"
                         type="button"
@@ -166,14 +169,17 @@ function delmobile_render_portfolio_modal_content($post) {
     $projeto_id = $post->ID;
     $imagens = get_field('imagens', $projeto_id);
     $descricao = get_field('descricao', $projeto_id);
+    $ocultar_titulo = get_field('ocultar_titulo', $projeto_id);
 
     ob_start();
     ?>
     <div class="portfolio-modal__wrapper theme-dark">
         <!-- Conteúdo -->
-        <div class="portfolio-modal__content">
+        <div class="portfolio-modal__content<?php echo $ocultar_titulo ? ' no-title' : ''; ?>">
             <header class="portfolio-modal__header">
+                <?php if (!$ocultar_titulo) : ?>
                 <h2><?php echo esc_html($post->post_title); ?></h2>
+                <?php endif; ?>
                 <button class="portfolio-modal__close btn" type="button" aria-label="Voltar">
                     <div class="xs:inline-flex hidden">
                         <?php echo icon('arrow-left'); ?>

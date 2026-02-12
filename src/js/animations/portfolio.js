@@ -9,7 +9,7 @@ function portfolioAnimation() {
 
     const heroTitle = hero.querySelector('.hero_internal__header h1');
     const heroText = hero.querySelector('.hero_internal__header p');
-    const portfolioGrid = document.querySelector('.portfolio-grid');
+    const portfolioGridContainer = document.querySelector('.portfolio-grid .container');
 
     // Acessar presets do sistema
     const { OFFSET, STAGGER } = window.GSAP_PRESETS;
@@ -37,8 +37,8 @@ function portfolioAnimation() {
         });
     }
 
-    if (portfolioGrid) {
-        slideY(portfolioGrid, {
+    if (portfolioGridContainer) {
+        slideY(portfolioGridContainer, {
             timeline: tlHero,
             offset: OFFSET.with,
             stagger: STAGGER.tight

@@ -21,8 +21,8 @@ $tipos = get_terms([
 $args = [
     'post_type'      => 'projeto',
     'posts_per_page' => $posts_per_page,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC',
 ];
 
 $projetos_query = new WP_Query($args);

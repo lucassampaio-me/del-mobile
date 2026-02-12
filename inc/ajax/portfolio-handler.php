@@ -9,14 +9,6 @@
  * Processa a requisição AJAX para carregar mais projetos
  */
 function delmobile_load_more_portfolio() {
-    // Verificar nonce
-    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'portfolio_load_more_nonce')) {
-        wp_send_json_error([
-            'message' => 'Erro de segurança',
-            'details' => 'Token de segurança inválido'
-        ]);
-    }
-
     // Sanitizar inputs
     $offset = isset($_POST['offset']) ? absint($_POST['offset']) : 0;
     $posts_per_page = isset($_POST['posts_per_page']) ? absint($_POST['posts_per_page']) : 8;
@@ -28,8 +20,8 @@ function delmobile_load_more_portfolio() {
         'post_type'      => 'projeto',
         'posts_per_page' => $posts_per_page,
         'offset'         => $offset,
-        'orderby'        => 'date',
-        'order'          => 'DESC',
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
     ];
 
     // Se há filtro ativo, adicionar tax_query
@@ -95,14 +87,6 @@ function delmobile_load_more_portfolio() {
  * Carrega o conteúdo do modal de um projeto
  */
 function delmobile_get_portfolio_modal() {
-    // Verificar nonce
-    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'portfolio_modal_nonce')) {
-        wp_send_json_error([
-            'message' => 'Erro de segurança',
-            'details' => 'Token de segurança inválido'
-        ]);
-    }
-
     $project_id = isset($_POST['project_id']) ? absint($_POST['project_id']) : 0;
 
     if (!$project_id) {

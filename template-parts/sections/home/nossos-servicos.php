@@ -45,7 +45,14 @@ $nossos_servicos_itens = get_field('nossos_servicos_itens');
                                 <div class="nossos-servicos__item-content-destaques-item-icon">
                                     <?php echo icon($destaque['icone'], 'thin'); ?>
                                 </div>
-                                <span><?php echo $destaque['texto']; ?></span>
+                                <div class="nossos-servicos__item-content-destaques-item-text">
+                                    <span class="nossos-servicos__item-content-destaques-item-text-main"><?php echo $destaque['texto']; ?></span>
+                                    <?php if (!empty($destaque['outras_informacoes'])) : ?>
+                                        <div class="nossos-servicos__item-content-destaques-item-text-extra">
+                                                <?php echo $destaque['outras_informacoes']; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>

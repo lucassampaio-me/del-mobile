@@ -92,10 +92,32 @@
         transition-all duration-500
     }
 
-    .nossos-servicos__item-content-destaques-item span {
+    .nossos-servicos__item-content-destaques-item-text {
+        @apply
+        flex flex-col items-start justify-center gap-3
+    }
+
+    .nossos-servicos__item-content-destaques-item-text-main {
         @apply
         lg:text-xl 2xs:text-lg text-base;
         color: var(--text-color);
+    }
+
+    .nossos-servicos__item-content-destaques-item-text-extra {
+        @apply
+        lg:text-base;
+        color: var(--text-color);
+    }
+
+    .nossos-servicos__item-content-destaques-item-text-extra ul {
+        @apply
+        flex flex-row flex-wrap items-start justify-start gap-2
+    }
+
+    .nossos-servicos__item-content-destaques-item-text-extra ul li {
+        @apply
+        inline-flex items-center justify-center pb-1 pt-1.5 px-3 bg-white/10 rounded-full
+        text-sm
     }
 
     .nossos-servicos__item-content-destaques-item-icon {

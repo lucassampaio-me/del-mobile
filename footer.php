@@ -9,7 +9,7 @@
             <div class="flex footer__copyright">
                 <div class="content-text">
                     <p><strong>© <?php echo date('Y'); ?> DelMobile.</strong> Todos os direitos reservados.</p>
-                    <p>Website by <a href="mailto:lucassampaio.me@gmail.com" target="_blank"><strong>Lucas Sampaio</strong></a></p>
+                    <p>Website by <a href="https://wa.me/5511960201948?text=Olá!%20Gostaria%20de%20falar%20com%20o%20Lucas" target="_blank"><strong>Lucas Sampaio</strong></a></p>
                 </div>
             </div>
         </div>

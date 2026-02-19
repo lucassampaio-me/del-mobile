@@ -43,10 +43,12 @@ $dicas_itens = get_field('dicas_itens');
                             <div class="content-text content-text-base">
                                 <?php echo $item['dica']['texto']; ?>
                             </div>
+                            <?php if (!empty($item['dica']['extra'])) : ?>
                             <div class="dicas__item-card-extra">
                                 <?php echo icon('asterisk-simple');?>
-                                <span><?php echo $item['dica']['extra']; ?></span>
-                            </div>
+                                    <span><?php echo $item['dica']['extra']; ?></span>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

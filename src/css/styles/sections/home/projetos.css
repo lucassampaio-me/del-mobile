@@ -103,7 +103,7 @@
 
     .projetos__content-header-content {
         @apply
-        flex xxs:flex-row flex-col items-center justify-between xxs:gap-8 gap-6
+        flex xxs:flex-row flex-col xs:items-center items-start justify-between xxs:gap-8 gap-6
     }
 
     .projetos__content-header-content .btn {

@@ -15010,7 +15010,7 @@ main {
 .projetos__content-header-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
 }
@@ -15019,6 +15019,12 @@ main {
   .projetos__content-header-content {
     flex-direction: row;
     gap: 2rem;
+  }
+}
+
+@media (min-width: 580px) {
+  .projetos__content-header-content {
+    align-items: center;
   }
 }
 

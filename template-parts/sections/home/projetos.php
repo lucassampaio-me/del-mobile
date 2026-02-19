@@ -23,7 +23,7 @@ if ($projetos) {
             <div class="projetos__content-header">
                 <div class="projetos__content-header-content">
                     <div class="content-text">
-                        <h2>Projetos</h2>
+                        <h2>Projetos da marcenaria</h2>
                     </div>
                     <a href="/portfolio" class="btn lg:inline-flex xs:hidden inline-flex">
                         <span>Ver portfólio completo</span>

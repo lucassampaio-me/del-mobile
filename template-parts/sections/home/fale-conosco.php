@@ -5,6 +5,7 @@ $contato_tels = get_field('contato_tels');
 $contato_whatsapp = get_field('contato_whatsapp');
 $contato_email = get_field('contato_email');
 $contato_endereco = get_field('contato_endereco');
+$contato_instagram = get_field('contato_instagram');
 ?>
 
 <section id="fale-conosco" class="fale-conosco">
@@ -79,6 +80,26 @@ $contato_endereco = get_field('contato_endereco');
                         <p>
                             <a href="mailto:<?php echo $contato_email; ?>">
                                 <?php echo $contato_email; ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 2xs:col-span-4 col-span-1">
+                <div class="card-contact">
+                    <div class="card-contact-header">
+                        <div class="card-contact-header-icon">
+                            <?php echo icon('instagram-logo', 'thin'); ?>
+                        </div>
+                        <div class="card-contact-header-title">
+                            <h3>Instagram</h3>
+                        </div>
+                    </div>
+                    <div class="card-contact-content">
+                        <p>
+                            <a href="https://www.instagram.com/<?php echo $contato_instagram; ?>" target="_blank">
+                                @<?php echo $contato_instagram; ?>
                             </a>
                         </p>
                     </div>

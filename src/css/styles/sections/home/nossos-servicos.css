@@ -116,7 +116,7 @@
 
     .nossos-servicos__item-content-destaques-item-text-extra ul li {
         @apply
-        inline-flex items-center justify-center pb-1 pt-1.5 px-3 bg-white/10 rounded-full
+        inline-flex items-center justify-center pb-1 pt-1.5 px-3 bg-white/10 rounded-xl
         text-sm
     }
 

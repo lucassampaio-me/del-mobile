@@ -53,7 +53,7 @@ function delmobile_scripts() {
 	$portfolio_handle = $is_dev ? 'delmobile-portfolio-grid' : 'delmobile-modules';
 	wp_localize_script( $portfolio_handle, 'portfolio_ajax', array(
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'posts_per_page' => 8,
+		'posts_per_page' => 9,
 		'filter_data' => $filter_data
 	));
 

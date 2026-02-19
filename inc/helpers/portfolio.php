@@ -81,23 +81,19 @@ function delmobile_render_portfolio_item($post, $index) {
 }
 
 /**
- * Retorna as classes Tailwind para o grid bento box
+ * Retorna as classes Tailwind para o grid do portfólio
  *
- * Padrão de repetição a cada 8 itens (para grid de 4 colunas):
- * - Item 0: large-tall (2 colunas, 2 linhas)
- * - Item 1: small (1 coluna, 1 linha)
- * - Item 2: medium-tall (1 coluna, 2 linhas)
- * - Item 3: small (1 coluna, 1 linha)
- * - Item 4: small (1 coluna, 1 linha)
- * - Item 5: large (2 colunas, 1 linha)
- * - Item 6: medium-tall (1 coluna, 2 linhas)
- * - Item 7: large (2 colunas, 1 linha)
+ * Tablet (md - 2 colunas): padrão bento com variação de tamanhos
+ * Desktop (lg - 6 colunas):
+ * - Primeiros 6 itens: 3 colunas cada (2 por linha)
+ * - Demais itens: 2 colunas cada (3 por linha)
  *
  * @param int $index Índice do item no loop
  * @return string Classes Tailwind para grid
  */
 function delmobile_get_bento_size_class($index) {
-    $pattern = [
+    // Tablet (md): padrão bento original com 2 colunas
+    $md_pattern = [
         'md:col-span-2 md:row-span-2',  // 0: large-tall (2x2)
         'md:col-span-1 md:row-span-1',  // 1: small (1x1)
         'md:col-span-1 md:row-span-2',  // 2: medium-tall (1x2)
@@ -108,7 +104,14 @@ function delmobile_get_bento_size_class($index) {
         'md:col-span-2 md:row-span-1',  // 7: large (2x1)
     ];
 
-    return $pattern[$index % count($pattern)];
+    $md_class = $md_pattern[$index % count($md_pattern)];
+
+    // Desktop (lg): primeiros 6 = 3 colunas (2/linha), demais = 2 colunas (3/linha)
+    $lg_class = $index < 6
+        ? 'lg:col-span-3 lg:row-span-1 portfolio-grid__item--featured'
+        : 'lg:col-span-2 lg:row-span-1';
+
+    return $md_class . ' ' . $lg_class;
 }
 
 /**
@@ -121,7 +124,7 @@ function delmobile_get_bento_size_class($index) {
  */
 function delmobile_get_portfolio_filter_data() {
     $filter_data = [];
-    $posts_per_page = 8; // Deve corresponder ao valor em portfolio-grid.php
+    $posts_per_page = 9; // Deve corresponder ao valor em portfolio-grid.php
 
     // Buscar todos os termos da taxonomia "tipo"
     $tipos = get_terms([

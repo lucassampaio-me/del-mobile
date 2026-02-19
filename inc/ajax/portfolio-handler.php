@@ -11,7 +11,7 @@
 function delmobile_load_more_portfolio() {
     // Sanitizar inputs
     $offset = isset($_POST['offset']) ? absint($_POST['offset']) : 0;
-    $posts_per_page = isset($_POST['posts_per_page']) ? absint($_POST['posts_per_page']) : 8;
+    $posts_per_page = isset($_POST['posts_per_page']) ? absint($_POST['posts_per_page']) : 9;
     $filter = isset($_POST['filter']) ? sanitize_text_field($_POST['filter']) : 'all';
     $current_index = isset($_POST['current_index']) ? absint($_POST['current_index']) : 0;
 

@@ -14624,7 +14624,7 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: 0.75rem;
   background-color: rgb(255 255 255 / 0.1);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -15574,12 +15574,20 @@ main {
   }
 }
 
-/* Desktop: 4 colunas */
+/* Desktop: 6 colunas */
 
 @media (min-width: 1024px) {
   .portfolio-grid__container {
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 180px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  .portfolio-grid__item--featured {
+    min-height: 380px;
+  }
+
+  .portfolio-grid__item:not(.portfolio-grid__item--featured) {
+    min-height: 280px;
   }
 }
 
@@ -15587,8 +15595,7 @@ main {
 
 @media (min-width: 1280px) {
   .portfolio-grid__container {
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -16784,6 +16791,10 @@ main {
 
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
   }
 
   .lg\:row-span-1 {
